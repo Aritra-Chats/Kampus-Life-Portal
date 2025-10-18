@@ -24,7 +24,6 @@ Table of Contents
 - [License](#license)
 
 Features
-- User authentication (signup, login) — JWT/session based
 - Event creation and management
 - Resource uploads and listings
 - User profiles and role-based access (students, admins)
