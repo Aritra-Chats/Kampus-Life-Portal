@@ -1,0 +1,517 @@
+/* Activities Page Main Container */
+.activity {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1.5fr;
+    grid-template-areas: 
+        "navtab currenttab currentdetails";
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    gap: 0;
+}
+
+/* Hide spin arrow of number field */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide number input arrows (Firefox) */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* NavTab Styling */
+.NavTab {
+    grid-area: navtab;
+    background-color: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid #333;
+}
+
+.NavTab img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.tabOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.tabOptions h6 {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 10px 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tabOptions .option {
+    background: none;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.tabOptions .option::before {
+    content: "•";
+    position: absolute;
+    left: 12px;
+    color: white;
+    font-size: 18px;
+}
+
+/* Default state - no background */
+.tabOptions .option:not(.selected) {
+    background: none;
+}
+
+.tabOptions .option:hover:not(.selected) {
+    background-color: white;
+    color: black;
+    transform: scaleY(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.tabOptions .option:hover:not(.selected)::before {
+    color: black;
+}
+
+/* Selected state */
+.tabOptions .option.selected {
+    background-color: #2a2a2a !important; /* Slightly whiter than navtab background */
+    color: white !important;
+}
+
+.tabOptions .option.selected::before {
+    color: white !important;
+}
+
+/* Ensure selected state doesn't change on hover */
+.tabOptions .option.selected:hover {
+    background-color: #2a2a2a !important;
+    color: white !important;
+    transform: none;
+    box-shadow: none;
+}
+
+.tabOptions .option.selected:hover::before {
+    color: white !important;
+}
+
+/* CurrentTab Styling */
+.CurrentTab {
+    grid-area: currenttab;
+    background-color: #070707; /* Same as home background */
+    padding: 30px;
+    height: 95vh;
+    overflow-y: auto;
+    scrollbar-width: thin;                      /* narrow scrollbar */
+    scrollbar-color: #888888 #0e0e0e;          /* thumb color | track color */
+}
+
+/* 🎨 Custom Scrollbar for CurrentTab */
+.CurrentTab::-webkit-scrollbar {
+    width: 10px;                /* scrollbar thickness */
+}
+
+.CurrentTab::-webkit-scrollbar-track {
+    background: #0e0e0e;        /* track (background) color */
+    border-radius: 10px;
+}
+
+.CurrentTab::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ffffff88, #555555cc);
+    border-radius: 5px;
+    border: 2px solid #0e0e0e; /* creates a spacing effect */
+}
+
+.CurrentTab::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffffcc, #888888);
+}
+
+.CurrentTab h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+}
+
+.CurrentTab h3 {
+    color: #ccc;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+    padding: 10px 0;
+    border-left: 4px solid #666;
+    padding-left: 15px;
+}
+
+/* Form Sections */
+.InitialzeTeacherList,
+.InitialzeStudentList,
+.InitialzeTeacherRoutine,
+.InitialzeStudentRoutine,
+.AddTeacherDetails,
+.AddStudentDetails,
+.AddTeacherRoutine,
+.AddStudentRoutine {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.CurrentTab label {
+    display: block;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.CurrentTab input {
+    width: 95%;
+    padding: 12px 15px;
+    margin-top: 8px;
+    background-color: #2a2a2a;
+    border: 2px solid #444;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.CurrentTab input:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 10px rgba(139, 139, 139, 0.5);
+}
+
+.CurrentTab input.error {
+    border-color: #ff4444;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+}
+
+/* Buttons - Same styling as home page */
+.CurrentTab button {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.CurrentTab button:hover {
+    background-color: white;
+    border: none;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.CurrentTab button:active {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    box-shadow: none;
+    transform: scale(0.95);
+}
+
+/* Error styling */
+.CurrentTab .error {
+    color: #ff4444;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(255, 68, 68, 0.1);
+    border-radius: 4px;
+    border-left: 4px solid #ff4444;
+}
+
+/* CurrentDetails Styling */
+.TeacherList,
+.StudentList,
+.TeacherRoutines,
+.StudentRoutines {
+    grid-area: currentdetails;
+    background-color: #1a1a1a; /* Same as NavTab background */
+    padding: 20px;
+    border-left: 2px solid #333;
+    overflow-y: auto;
+    height: 95vh;
+    scrollbar-width: thin;
+    scrollbar-color: #888888 #0e0e0e;
+}
+
+.TeacherList::-webkit-scrollbar,
+.StudentList::-webkit-scrollbar,
+.TeacherRoutines::-webkit-scrollbar,
+.StudentRoutines::-webkit-scrollbar {
+    width: 10px;
+}
+
+.TeacherList::-webkit-scrollbar-track,
+.StudentList::-webkit-scrollbar-track,
+.TeacherRoutines::-webkit-scrollbar-track,
+.StudentRoutines::-webkit-scrollbar-track {
+    background: #0e0e0e;
+    border-radius: 10px;
+}
+
+.TeacherList::-webkit-scrollbar-thumb,
+.StudentList::-webkit-scrollbar-thumb,
+.TeacherRoutines::-webkit-scrollbar-thumb,
+.StudentRoutines::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ffffff88, #555555cc);
+    border-radius: 5px;
+    border: 2px solid #0e0e0e;
+}
+
+.TeacherList::-webkit-scrollbar-thumb:hover,
+.StudentList::-webkit-scrollbar-thumb:hover,
+.TeacherRoutines::-webkit-scrollbar-thumb:hover,
+.StudentRoutines::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ffffffcc, #888888);
+}
+
+.TeacherDetails,
+.StudentDetails,
+.TeacherRoutine,
+.StudentRoutine {
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.TeacherDetails:hover,
+.StudentDetails:hover,
+.TeacherRoutine:hover,
+.StudentRoutine:hover {
+    transform: scale(1.05);
+    border: 2px solid white;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Header container styling */
+.TeacherDetails .header,
+.StudentDetails .header,
+.TeacherRoutine .header,
+.StudentRoutine .header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.TeacherDetails .header h4,
+.StudentDetails .header h4,
+.TeacherRoutine .header h4,
+.StudentRoutine .header h4 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    flex: 1;
+    white-space: pre-wrap;
+}
+
+/* Delete button styling */
+.TeacherDetails .header .material-symbols-outlined,
+.StudentDetails .header .material-symbols-outlined,
+.TeacherRoutine .header .material-symbols-outlined,
+.StudentRoutine .header .material-symbols-outlined {
+    position: absolute;
+    right: 15px;
+    color: rgba(255, 255, 255, 0.4); /* Semi-transparent greyish color */
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.TeacherDetails .header .material-symbols-outlined:hover,
+.StudentDetails .header .material-symbols-outlined:hover,
+.TeacherRoutine .header .material-symbols-outlined:hover,
+.StudentRoutine .header .material-symbols-outlined:hover {
+    color: #ff4444; /* Red color on card hover */
+    text-shadow: 0 0 20px rgba(255, 68, 68, 0.5); /* Reddish backdrop shadow */
+}
+
+.TeacherDetails p,
+.StudentDetails p,
+.TeacherRoutine p,
+.StudentRoutine p {
+    color: #ccc;
+    font-size: 14px;
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TeacherDetails p strong,
+.StudentDetails p strong,
+.TeacherRoutine p strong,
+.StudentRoutine p strong {
+    color: white;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+/* Search Bar Styling */
+.Search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 20px auto;
+    width: fit-content;
+    position: sticky;
+    top: 10px;
+    z-index: 5;
+}
+
+/* Input: same style as .CurrentTab input */
+.searchInput {
+    width: 225px;
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 2px solid #444;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 10px rgba(139, 139, 139, 0.5);
+    transform: scale(1.05);
+}
+
+/* Button: visually similar to delete icon */
+.searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    transition: all 0.3s ease;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton:hover {
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.searchButton:active {
+    transform: scale(0.95);
+}
+
+/* Invalid Tab Styling */
+.InvalidTab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.InvalidTab h1 {
+    color: #ff4444;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.InvalidTab p {
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .activity {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "navtab currenttab currentdetails";
+    }
+}
+
+@media (max-width: 768px) {
+    .activity {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "navtab"
+            "currenttab"
+            "currentdetails";
+    }
+    
+    .NavTab,
+    .CurrentTab,
+    .TeacherList,
+    .StudentList,
+    .TeacherRoutines,
+    .StudentRoutines {
+        border-right: none;
+        border-left: none;
+        border-bottom: 2px solid #333;
+    }
+    
+    .CurrentTab {
+        padding: 20px;
+    }
+    
+    .CurrentTab h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,64 @@
+/* Home Page Styles */
+body {
+  background-color: #2a2a2a; /* Greyish-black background */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home img {
+  margin-bottom: 40px;
+  max-width: 200px;
+  height: auto;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.options button {
+  /* Default button styles */
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.options button:hover {
+  /* Hover styles */
+  background-color: white;
+  border: none;
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.options button:active {
+  /* Click/Active styles */
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  box-shadow: none;
+  transform: translateY(0);
+}
