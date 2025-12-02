@@ -8,7 +8,7 @@
 
 A full‑stack web application scaffold for managing campus-related features (authentication, events, resources, profiles). This repository contains two main folders:
 
-- frontend/ — the client application (React / Vue / other)
+- frontend/ — the client application (React)
 - backend/ — the server API (Node/Express, etc.)
 
 Table of Contents
