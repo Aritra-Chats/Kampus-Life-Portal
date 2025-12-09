@@ -54,9 +54,14 @@ const Activity = () => {
         }
         if (!response.ok) {
           console.log(tab, ": fetch error");
+          try {
+            const errorJson = await response.json();
+            console.log("Error response:", errorJson);
+          } catch (e) {
+            console.log("Could not parse error response");
+          }
           return;
         }
-        if(response.ok) console.log(response);
         const json = await response.json();
         switch (tab) {
           case "teacherList":
@@ -105,6 +110,7 @@ const Activity = () => {
                 <CurrentDetails
                   key={studentDetails._id}
                   details={studentDetails}
+                  API_URL={API_URL}
                 />
               ))}
           </div>
@@ -117,6 +123,7 @@ const Activity = () => {
                 <CurrentDetails
                   key={routineDetails._id}
                   details={routineDetails}
+                  API_URL={API_URL}
                 />
               ))}
           </div>
@@ -129,6 +136,7 @@ const Activity = () => {
                 <CurrentDetails
                   key={routineDetails._id}
                   details={routineDetails}
+                  API_URL={API_URL}
                 />
               ))}
           </div>

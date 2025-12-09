@@ -34,6 +34,12 @@ const CurrentDetails = ({ details, API_URL }) => {
         }
         if(!response.ok) {
             console.log("Delete Failed");
+            try {
+                const errorJson = await response.json();
+                console.log("Error response:", errorJson);
+            } catch (e) {
+                console.log("Could not parse error response");
+            }
             return;
         }
         const json = await response.json();
