@@ -1,4 +1,5 @@
 import { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { FunctionsContext } from "../context/functionsContext";
 import "../styles/activities.css";
 
