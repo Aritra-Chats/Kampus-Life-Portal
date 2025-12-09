@@ -31,6 +31,10 @@ const Activity = () => {
     dispatch,
   } = useContext(FunctionsContext);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(!tab) navigate('/');
+  }, [tab, navigate]);
 
   useEffect(() => {
     const selectFetch = async () => {
