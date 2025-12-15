@@ -12,7 +12,7 @@ const Login = ({ API_URL }) => {
         e.preventDefault();
         const loginDetails = (SLI === true) ? { userid, password, Age: 7 } : { userid, password };
         try{
-            console.log('API_URL:', API_URL, typeof API_URL);
+            console.log('API_URL:', API_URL, typeof API_URL);   
             const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 credentials: 'include',
