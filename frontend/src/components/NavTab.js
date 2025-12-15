@@ -26,7 +26,7 @@ const NavTab = () => {
 
     return (
         <div className = 'NavTab'>
-            <Link to='/'>
+            <Link to='/Home'>
                 <img src ='/images/logo.png' alt='Kampus Life Home redirect' />
             </Link>
             <div className = 'tabOptions'>

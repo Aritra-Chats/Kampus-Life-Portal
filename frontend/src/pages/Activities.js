@@ -33,7 +33,7 @@ const Activity = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if(!tab) navigate('/');
+    if(!tab) navigate('/Home');
   }, [tab, navigate]);
 
   useEffect(() => {

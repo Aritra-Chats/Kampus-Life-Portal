@@ -3,6 +3,7 @@ import { FunctionsContextProvider } from './context/functionsContext';
 
 import Home from './pages/Home';
 import Activity from './pages/Activities';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <FunctionsContextProvider>
           <div className='pages'>
             <Routes>
-              <Route path='/' element={<Home />} />
+              <Route path='/Login' element={<Login />} />
+              <Route path='/Home' element={<Home />} />
               <Route path='/Activity' element={<Activity />} />
               <Route path='*' element={<Home />} />
             </Routes>
