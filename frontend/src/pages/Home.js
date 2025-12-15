@@ -4,7 +4,9 @@ import { useContext, useEffect } from 'react';
 import { FunctionsContext } from '../context/functionsContext';
 import '../styles/home.css';
 
-const Home = (API_URL) => {
+const API_URL = process.env.REACT_APP_API_URL;
+
+const Home = () => {
     const navigate = useNavigate();
     const { dispatch } = useContext(FunctionsContext);
 

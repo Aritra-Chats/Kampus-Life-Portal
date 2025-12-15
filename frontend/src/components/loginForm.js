@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-const Login = ({ API_URL }) => {
+const Login = () => {
     const [userid, setUserID] = useState('');
     const [password, setPassword] = useState('');
     const [SLI, setSLI] = useState(false);
     const [emptyFields, setEmptyFields] = useState([]);
     const navigate = useNavigate();
+
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const handleLogin = async (e) => {
         e.preventDefault();
