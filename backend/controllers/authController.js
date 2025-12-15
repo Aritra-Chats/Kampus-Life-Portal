@@ -22,6 +22,7 @@ const authenticateUser = async (req, res) => {
             secure: true,
             sameSite: "none",
             path: '/',
+            partitioned: true,  
             maxAge: Age ? Age * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000}); 
         res.status(200).json({ Message: "login Successful", userid: user.userid });
     } catch (err) {
