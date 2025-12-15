@@ -1,33 +1,12 @@
 
 import { useNavigate } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { FunctionsContext } from '../context/functionsContext';
 import '../styles/home.css';
-
-const API_URL = process.env.REACT_APP_API_URL;
 
 const Home = () => {
     const navigate = useNavigate();
     const { dispatch } = useContext(FunctionsContext);
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const response = await fetch(`${API_URL}/auth/check`, {
-                method: 'GET',
-                credentials: 'include'
-                });
-                if (!response.ok)
-                    navigate('/Login');
-                else 
-                    console.log(response.authenticated);
-            } catch (err) {
-                console.log(err.message);
-                navigate('/Login');
-            }
-        };
-        checkAuth();
-    }, [navigate]);
     
     const switchPage = (page, tab) => {
         switch (tab) {
