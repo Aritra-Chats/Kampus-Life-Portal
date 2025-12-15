@@ -18,12 +18,13 @@ const authenticateUser = async (req, res) => {
         const user = await LoginDetail.login(userid.toLowerCase(), password);
         const token = createToken(user.userid, Age || null, user.designation);
         res.cookie('loginToken', token, { 
-            httpsOnly: true,
+            httpOnly: true,
             secure: true,
             sameSite: "none",
-            Age: Age * 1000}); 
+            path: '/',
+            maxAge: Age ? Age * 24 * 60 * 60 * 1000 : 24 * 60 * 60 * 1000}); 
         res.status(200).json({ Message: "login Successful", userid: user.userid });
-    } catch (error) {
+    } catch (err) {
         if (err.message && (err.message.includes('Incorrect') || err.message.includes('No user')))
             return res.status(401).json({ error: 'Invalid credentials' });
         console.error(err);
