@@ -19,6 +19,8 @@ const Home = () => {
                 });
                 if (!response.ok)
                     navigate('/Login');
+                else 
+                    console.log(response.authenticated);
             } catch (err) {
                 console.log(err.message);
                 navigate('/Login');
