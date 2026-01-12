@@ -17,15 +17,10 @@
 .Login .glass-surface.Panel, .Login .glass-surface.panel {
   position: fixed !important;
   left: 60% !important;
-  top: 10% !important;
-  transform: none !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  padding: 40px !important;
   overflow: hidden !important;
 }
 
@@ -35,7 +30,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   padding: 20px !important;
   width: 100% !important;
   height: 100% !important;
