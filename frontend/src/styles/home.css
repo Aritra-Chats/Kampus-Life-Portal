@@ -20,56 +20,65 @@
   left: 50% !important;
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 40px !important;
+  gap: 12px !important;
+}
+
+/* Override the content wrapper inside GlassSurface */
+.glass-surface.Panel .glass-surface__content,
+.glass-surface.panel .glass-surface__content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  gap: 35px !important;
+  width: 100% !important;
 }
 
 .Logo {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  position: relative;
-  max-width: 250px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .Logo img {
-  max-width: 100%;
+  max-width: 300px;
   height: auto;
 }
 
-.Options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-  width: 100%;
-}
-
 .Option {
-  padding: 12px 40px;
+  padding: 14px 24px;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 20px !important;
+  font-weight: 550 !important;
   width: 100%;
+  min-width: 450px;
   transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.5);
-  background-color: transparent;
-  border: none;
+  color: white;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-family: inherit;
 }
 
 .Option:hover {
-  color: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transform: translateY(-2px);
 }
 
 .Option:active {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: white;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: translateY(0);
 }
