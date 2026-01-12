@@ -15,7 +15,7 @@
 }
 
 /* More specific override to beat .glass-surface { position: relative } */
-.glass-surface.Panel, .glass-surface.panel {
+.home .glass-surface.Panel, .home .glass-surface.panel {
   position: fixed !important;
   left: 50% !important;
   top: 50% !important;
@@ -25,14 +25,14 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   padding: 40px !important;
   gap: 12px !important;
 }
 
 /* Override the content wrapper inside GlassSurface */
-.glass-surface.Panel .glass-surface__content,
-.glass-surface.panel .glass-surface__content {
+.home .glass-surface.Panel .glass-surface__content,
+.home .glass-surface.panel .glass-surface__content {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
