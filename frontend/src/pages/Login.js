@@ -32,14 +32,14 @@ const Login = () => {
   if(checking)
     return null;
 
-    return (
-      <div className="Login">
-        <img className="Background" src="/images/bg.gif" alt="Background"/>
-        <GlassSurface className='Panel' width={'500px'} height={'700px'} borderRadius={10} opacity={0.5} blur={5} >
-          <LoginForm />
-        </GlassSurface>
-      </div>
-    )
+  return (
+    <div className="Login">
+      <img className="Background" src="/images/bg.gif" alt="Background"/>
+      <GlassSurface className='Panel' width={'500px'} height={'700px'} borderRadius={10} opacity={0.5} blur={5} >
+        <LoginForm />
+      </GlassSurface>
+    </div>
+  )
 }
 
 export default Login;

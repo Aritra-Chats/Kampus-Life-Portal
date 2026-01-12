@@ -13,8 +13,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const loginDetails = (SLI === true) ? { userid, password, Age: 7 } : { userid, password };
-        try{
-            console.log('API_URL:', API_URL, typeof API_URL);   
+        try{ 
             const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 credentials: 'include',

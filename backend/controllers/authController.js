@@ -60,4 +60,20 @@ const requireAuth = (req, res, next) => {
   }
 };
 
-module.exports = { authenticateUser, addUser, requireAuth };
+const logoutUser = async (req, res) => {
+    try {
+        res.clearCookie('loginToken', { 
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+            path: '/',
+            partitioned: true
+        });
+        res.status(200).json({ Message: "logout Successful" });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Server error' });
+    }
+}
+
+module.exports = { authenticateUser, addUser, requireAuth, logoutUser };
