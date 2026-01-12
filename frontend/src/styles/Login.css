@@ -14,7 +14,7 @@
   width: 125vh;
 }
 /* More specific override to beat .glass-surface { position: relative } */
-.glass-surface.Panel, .glass-surface.panel {
+.Login .glass-surface.Panel, .Login .glass-surface.panel {
   position: fixed !important;
   left: 60% !important;
   top: 10% !important;
@@ -30,8 +30,8 @@
 }
 
 /* Override the content wrapper inside GlassSurface */
-.glass-surface.Panel .glass-surface__content,
-.glass-surface.panel .glass-surface__content {
+.Login .glass-surface.Panel .glass-surface__content,
+.Login .glass-surface.panel .glass-surface__content {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
