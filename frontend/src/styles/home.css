@@ -1,65 +1,75 @@
 .home {
-  background-color: #070707; /* Greyish-black background */
-  margin: 0;
   min-height: 100vh;
+  width: 100vw;
+  background-color: black;
+  text-align: center;
+}
+
+.Background {
+  background-color: black !important;
+  position: fixed;
+  left: 0;
+  top: -10%;
+  height: 120vh;
+  width: 125vh;
+}
+
+/* More specific override to beat .glass-surface { position: relative } */
+.glass-surface.Panel, .glass-surface.panel {
+  position: fixed !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.Logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
+  gap: 40px;
   position: relative;
+  max-width: 250px;
 }
 
-.home img {
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 300px;
+.Logo img {
+  max-width: 100%;
   height: auto;
-  z-index: 10;
 }
 
-.options {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 50px;
-  max-width: 500px;
+.Options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
   width: 100%;
-  margin-top: 200px;
 }
 
-.options button {
-  /* Default button styles */
-  background-color: black;
-  border: 2px solid white;
-  color: white;
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: 500;
+.Option {
+  padding: 12px 40px;
   cursor: pointer;
   border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
   transition: all 0.3s ease;
-  min-height: 60px;
-}
-
-.options button:hover {
-  /* Hover styles */
-  background-color: white;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
   border: none;
-  color: black;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-  transform: scale(1.15);
 }
 
-.options button:active {
-  /* Click/Active styles */
-  background-color: white;
-  border: 2px solid black;
-  color: black;
-  box-shadow: none;
-  transform: scale(0.9);
+.Option:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.Option:active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }

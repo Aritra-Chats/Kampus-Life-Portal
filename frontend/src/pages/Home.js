@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { FunctionsContext } from '../context/functionsContext';
+import GlassSurface from '../components/GlassSurface';
 import '../styles/home.css';
 
 const Home = () => {
@@ -30,13 +31,18 @@ const Home = () => {
 
     return (
         <div className='home'>
-            <img src='/images/logo.png' alt='Kampus Life logo'/>
-            <div className='options'>
-                <button onClick={() => switchPage('/Activity', 'teacherList')}>Teacher List</button>
-                <button onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
-                <button onClick={() => switchPage('/Activity', 'teacherRoutine')}>Teacher Routine</button>
-                <button onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
-            </div>
+            <img className="Background" src='/images/bg.gif' alt="Background"/>
+            <GlassSurface className='Panel' width={'500px'} height={'700px'} borderRadius={10} opacity={0.5} blur={5} >
+                <div className='Logo'>
+                    <img src='/images/logo.png' alt='Kampus Life logo'/>
+                </div>
+                <div className='Options'>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Teacher List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Teacher Routine</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
+                </div>
+            </GlassSurface>
         </div>
     )
 };
