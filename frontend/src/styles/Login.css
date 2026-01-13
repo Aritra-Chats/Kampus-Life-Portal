@@ -146,10 +146,10 @@
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
-  color: white;
+  color: rgba(255, 255, 255, 1);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
