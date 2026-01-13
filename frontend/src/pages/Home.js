@@ -81,8 +81,7 @@ const Home = () => {
                 <GlassSurface className='UserOptions' width={'300px'} height={'250px'} borderRadius={20} opacity={0.5} blur={5}>
                     <div className='UserDetails'>
                         Hello,<br/>
-                        {userid || 'Loading...'}<br/>
-                        {designation && `(${designation})`}
+                        {userid || 'Loading...'} {designation && `(${designation})`}
                     </div>
                     <button className='LogoutButton' onClick={async () => {
                         try {
