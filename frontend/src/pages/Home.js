@@ -74,8 +74,7 @@ const Home = () => {
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>
                     Hello,<br/>
-                    {userid || 'Loading...'}<br/>
-                    {designation || ''}
+                    {userid || 'Loading...'} {designation && `(${designation})`}
                 </div>
             </GlassSurface>
             {optionsOpened && (
@@ -83,7 +82,7 @@ const Home = () => {
                     <div className='UserDetails'>
                         Hello,<br/>
                         {userid || 'Loading...'}<br/>
-                        {designation || ''}
+                        {designation && `(${designation})`}
                     </div>
                     <button className='LogoutButton' onClick={async () => {
                         try {
