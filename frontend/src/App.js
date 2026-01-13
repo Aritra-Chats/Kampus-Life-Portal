@@ -17,6 +17,7 @@ function App() {
               <Route path='/Login' element={<Login />} />
               <Route path='/Home' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
               <Route path='/Activity' element={<ProtectedRoute> <Activity /> </ProtectedRoute>} />
+              <Route path='/Admin' element={<ProtectedRoute> <Admin /> </ProtectedRoute>} />
               <Route path='*' element={<Login />} />
             </Routes>
           </div>

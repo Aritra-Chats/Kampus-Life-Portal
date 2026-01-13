@@ -47,6 +47,9 @@ const Home = () => {
             case 'studentRoutine':
                 dispatch({ type: 'SET_TAB', payload: 'studentRoutine' });
                 break;
+            case 'announcements':
+                dispatch({ type: 'SET_TAB', payload: 'announcements' });
+                break;
             default:
                 console.log('Invalid Selection');
         }
@@ -66,14 +69,21 @@ const Home = () => {
             <img className="Background" src='/images/bg.gif' alt="Background"/>
             <GlassSurface className='Panel' width={'450px'} height={'650px'} borderRadius={20} opacity={0.5} blur={5} >
                 <img className='Logo' src='/images/logo.png' alt='Kampus Life logo'/>
-                <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
-                <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
-                <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
-                <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
+                {designation === 'management' && (
+                    <>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button> 
+                    </> )
+                } 
+                {designation === 'admin' && (
+                    <button className='Option' onClick={() => switchPage('/Admin', 'announcements')}>Announcements</button>)
+                }
             </GlassSurface>
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>
-                    Hello,<br/>
+                    Hello,<br/> c
                     {userid || 'Loading...'} {designation && `(${designation})`}
                 </div>
             </GlassSurface>
