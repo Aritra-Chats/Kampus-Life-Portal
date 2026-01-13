@@ -10,6 +10,7 @@ const Home = () => {
     const { dispatch } = useContext(FunctionsContext);
     const [userid, setUserID] = useState('');
     const [designation, setDesignation] = useState('');
+    const [optionsOpened, setOptionsOpened] = useState(false);
 
     const API_URL = process.env.REACT_APP_API_URL;
 
@@ -52,6 +53,14 @@ const Home = () => {
         navigate(page);
     };
 
+    const userOptions = () => {
+        if(optionsOpened === true) {
+            setOptionsOpened(false);
+        } else {
+            setOptionsOpened(true);
+        }
+    }
+
     return (
         <div className='home'>
             <img className="Background" src='/images/bg.gif' alt="Background"/>
@@ -62,13 +71,37 @@ const Home = () => {
                 <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
                 <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
             </GlassSurface>
-            <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5} >
-                <div className='UserInfo'>
+            <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
+                <div className='UserInfo' onClick={userOptions}>
                     Hello,<br/>
                     {userid || 'Loading...'}<br/>
                     {designation || ''}
                 </div>
             </GlassSurface>
+            {optionsOpened && (
+                <GlassSurface className='UserOptions' width={'300px'} height={'250px'} borderRadius={20} opacity={0.5} blur={5}>
+                    <div className='UserDetails'>
+                        Hello,<br/>
+                        {userid || 'Loading...'}<br/>
+                        {designation || ''}
+                    </div>
+                    <button className='LogoutButton' onClick={async () => {
+                        try {
+                            const response = await fetch(`${API_URL}/auth/logout`, {
+                                method: 'POST',
+                                credentials: 'include'
+                            });
+                            if (response.ok)
+                                navigate('/Login');
+                        } catch (err) {
+                            console.error('Error logging out:', err.message);
+                        }
+                    }}>
+                        <span className="material-symbols-outlined">logout</span>
+                        Logout
+                    </button>
+                </GlassSurface>
+            )}
         </div>
     )
 };
