@@ -63,7 +63,7 @@ const Home = () => {
                 <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
                 <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
             </GlassSurface>
-            <GlassSurface className='UserPanel' width={'250px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5} >
+            <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5} >
                 <div className='UserInfo'>
                     Hello,<br/>
                     {userid || 'Loading...'}<br/>
