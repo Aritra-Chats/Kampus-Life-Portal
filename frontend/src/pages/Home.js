@@ -83,7 +83,7 @@ const Home = () => {
             </GlassSurface>
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>
-                    Hello,<br/> c
+                    Hello,<br/>
                     {userid || 'Loading...'} {designation && `(${designation})`}
                 </div>
             </GlassSurface>
