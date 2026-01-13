@@ -78,7 +78,7 @@ const Home = () => {
                 </div>
             </GlassSurface>
             {optionsOpened && (
-                <GlassSurface className='UserOptions' width={'300px'} height={'250px'} borderRadius={20} opacity={0.5} blur={5}>
+                <GlassSurface className='UserOptions' width={'300px'} height={'275px'} borderRadius={20} opacity={0.5} blur={5}>
                     <div className='UserDetails'>
                         Hello,<br/>
                         {userid || 'Loading...'} {designation && `(${designation})`}
