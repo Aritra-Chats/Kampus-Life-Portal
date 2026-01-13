@@ -117,6 +117,7 @@ const CurrentDetails = ({ details, API_URL }) => {
             )
         default:
             console.log('currentDetails: cardDetails: Invalid option');
+            return null;
     }
 };
 
