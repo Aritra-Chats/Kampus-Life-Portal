@@ -95,9 +95,9 @@
 
 .UserInfo {
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 550;
-  padding-top: 5px;
+  padding-top: 10px;
   text-transform: capitalize;
   text-align: left;
   letter-spacing: 0.5px;
@@ -134,7 +134,7 @@
   letter-spacing: 0.5px;
   font-family: inherit;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .LogoutButton {
