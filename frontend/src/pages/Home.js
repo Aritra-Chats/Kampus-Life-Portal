@@ -23,7 +23,9 @@ const Home = () => {
             if (response.ok) {
                 const userData = await response.json();
                 setUserID(userData.userid);
+                console.log(userData.userid);
                 setDesignation(userData.designation);
+                console.log(userData.designation);
             }
         } catch (err) {
             console.error('Error fetching user info:', err);
