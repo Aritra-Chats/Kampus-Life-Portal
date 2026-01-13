@@ -15,25 +15,22 @@ const Home = () => {
 
     useEffect(() => {
         const fetchUserInfo = async () => {
-        try {
-            const response = await fetch(`${API_URL}/auth/user-info`, {
-            method: 'GET',
-            credentials: 'include'
-            });
-            if (response.ok) {
-                const userData = await response.json();
-                setUserID(userData.userid);
-                console.log(userData.userid);
-                setDesignation(userData.designation);
-                console.log(userData.designation);
+            try {
+                const response = await fetch(`${API_URL}/auth/user-info`, {
+                method: 'GET',
+                credentials: 'include'
+                });
+                if (response.ok) {
+                    const userData = await response.json();
+                    setUserID(userData.userid);
+                    setDesignation(userData.designation);
+                }
+            } catch (err) {
+                console.error('Error fetching user info:', err.message);
             }
-        } catch (err) {
-            console.error('Error fetching user info:', err);
-        }
-  };
-  
-  fetchUserInfo();
-}, []);
+        };
+        fetchUserInfo();
+    }, [API_URL]);
     
     const switchPage = (page, tab) => {
         switch (tab) {
