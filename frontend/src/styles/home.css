@@ -17,15 +17,11 @@
 /* More specific override to beat .glass-surface { position: relative } */
 .home .glass-surface.Panel, .home .glass-surface.panel {
   position: fixed !important;
-  left: 50% !important;
+  left: 60% !important;
   top: 50% !important;
-  transform: translate(-50%, -50%) !important;
+  transform: translate(0, -50%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
   padding: 40px !important;
   gap: 12px !important;
 }
@@ -81,4 +77,31 @@
 
 .Option:active {
   transform: translateY(0);
+}
+
+.home .glass-surface.UserPanel {
+  position: fixed !important;
+  left: 50px !important;
+  bottom: 50px !important;
+  transform: none !important;
+}
+
+.home .glass-surface.UserPanel .glass-surface__content {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding-left: 20px !important;
+}
+
+.UserInfo {
+  color: white;
+  font-size: 16px;
+  font-weight: 550;
+  padding-right: 100px;
+  padding-top: 5px;
+  text-transform: capitalize;
+  text-align: left;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  line-height: 1.4;
 }

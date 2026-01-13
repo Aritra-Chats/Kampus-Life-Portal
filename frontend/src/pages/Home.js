@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FunctionsContext } from '../context/functionsContext';
 import GlassSurface from '../components/GlassSurface';
 import '../styles/home.css';
@@ -8,6 +8,30 @@ import '../styles/home.css';
 const Home = () => {
     const navigate = useNavigate();
     const { dispatch } = useContext(FunctionsContext);
+    const [userid, setUserID] = useState('');
+    const [designation, setDesignation] = useState('');
+
+    const API_URL = process.env.REACT_APP_API_URL;
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+        try {
+            const response = await fetch(`${API_URL}/auth/user-info`, {
+            method: 'GET',
+            credentials: 'include'
+            });
+            if (response.ok) {
+                const userData = await response.json();
+                setUserID(userData.userid);
+                setDesignation(userData.designation);
+            }
+        } catch (err) {
+            console.error('Error fetching user info:', err);
+        }
+  };
+  
+  fetchUserInfo();
+}, []);
     
     const switchPage = (page, tab) => {
         switch (tab) {
@@ -38,6 +62,13 @@ const Home = () => {
                 <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
                 <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
                 <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button>
+            </GlassSurface>
+            <GlassSurface className='UserPanel' width={'250px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5} >
+                <div className='UserInfo'>
+                    Hello,<br/>
+                    {userid || 'Loading...'}<br/>
+                    {designation || ''}
+                </div>
             </GlassSurface>
         </div>
     )

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const createToken = ( userid, Age, designation ) => {
     const SECRET = process.env.SECRET;
-    return (Age != null) ? jwt.sign({ userid, designation }, SECRET, { expiresIn:  (Age * 24 * 60 * 60) }) : jwt.sign({ userid }, SECRET);
+    return (Age != null) ? jwt.sign({ userid, designation }, SECRET, { expiresIn:  (Age * 24 * 60 * 60) }) : jwt.sign({ userid, designation }, SECRET);
 }
 
 const authenticateUser = async (req, res) => {
@@ -32,6 +32,14 @@ const authenticateUser = async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 };
+
+const getUserInfo = (req, res) => {
+    try {
+    res.status(200).json({ userid: req.user.userid, designation: req.user.designation })
+    } catch (error) {
+        res.status(400).json({ error : error.message })
+    }
+}
 
 
 const addUser = async (req, res) => {
@@ -76,4 +84,4 @@ const logoutUser = async (req, res) => {
     }
 }
 
-module.exports = { authenticateUser, addUser, requireAuth, logoutUser };
+module.exports = { authenticateUser, addUser, requireAuth, logoutUser, getUserInfo };
