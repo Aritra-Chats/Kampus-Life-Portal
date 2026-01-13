@@ -77,8 +77,8 @@ const Home = () => {
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button> 
                     </> )
                 } 
-                {designation === 'admin' && (
-                    <button className='Option' onClick={() => switchPage('/Admin', 'announcements')}>Announcements</button>)
+                {designation === 'official' && (
+                    <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>)
                 }
             </GlassSurface>
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
