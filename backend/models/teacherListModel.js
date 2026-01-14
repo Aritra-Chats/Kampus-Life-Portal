@@ -37,6 +37,11 @@ const teacherListSchema = new Schema({
         type: String,
         required: true,
         trim: true
+    },
+    sections: {
+        type: [String],
+        required: true,
+        trim: true
     }
 });
 
