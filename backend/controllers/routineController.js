@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 //get all student routine
 const getRoutine = async (req, res) => {
-    const studentRoutine = await StudentRoutine.find({}).sort({createdAt: 1});
-    res.status(200).json(studentRoutine);
+    const routine = await Routine.find({}).sort({createdAt: 1});
+    res.status(200).json(routine);
 };
 
 //post a new student routine
@@ -35,10 +35,10 @@ const deleteSpecificRoutine = async (req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) 
         return res.status(400).json({error: "Incorrect id"});
-    const studentRoutine = await StudentRoutine.findOneAndDelete({_id: id});
-    if(!studentRoutine)
+    const routine = await Routine.findOneAndDelete({_id: id});
+    if(!routine)
         return res.status(400).json({error: "No such student routine"});
-    res.status(200).json(studentRoutine);
+    res.status(200).json(routine);
 };
 
 module.exports = {getRoutine, postRoutine, deleteSpecificRoutine};
