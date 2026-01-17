@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { FunctionsContext } from '../context/functionsContext'
-import { useState, useEffect } from 'react';
 
 const NavTab = () => {
     const { tab, dispatch } = useContext(FunctionsContext);
