@@ -122,7 +122,7 @@ input[type="number"] {
 .CurrentTab {
   grid-area: currenttab;
   background-color: #070707; /* Same as home background */
-  padding: 15px; /* Reduced further */
+  padding: 10px 20px; /* Reduced top/bottom padding */
   height: 95vh;
   overflow-y: auto;
 }
@@ -155,52 +155,52 @@ input[type="number"] {
   margin: 0 auto;
 }
 
-/* Header Section - COMPACT */
+/* Header Section - MINIMAL SPACING */
 .TeacherListPage .header,
 .StudentListPage .header,
 .RoutinePage .header {
   text-align: center;
-  margin-bottom: 15px; /* Reduced further */
+  margin-bottom: 5px; /* Minimal spacing */
 }
 
 .TeacherListPage .header h1,
 .StudentListPage .header h1,
 .RoutinePage .header h1 {
   color: white;
-  font-size: 1.8rem; /* Smaller */
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 15px; /* Reduced further */
+  margin-bottom: 10px; /* Minimal spacing */
   text-transform: uppercase;
-  letter-spacing: 1px; /* Reduced further */
+  letter-spacing: 1px;
 }
 
-/* Upload Section - EXTREMELY COMPACT */
+/* Upload Section - MINIMAL LIKE IMAGE */
 .TeacherListPage .upload-section,
 .StudentListPage .upload-section,
 .RoutinePage .upload-section {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px; /* Smaller */
-  padding: 12px 15px; /* Reduced further */
-  margin-bottom: 10px; /* Reduced further */
+  border-radius: 4px; /* Very small radius */
+  padding: 8px 12px; /* Minimal padding */
+  margin-bottom: 8px; /* Minimal spacing */
 }
 
 .TeacherListPage .upload-section h3,
 .StudentListPage .upload-section h3,
 .RoutinePage .upload-section h3 {
   color: #ccc;
-  font-size: 1rem; /* Smaller */
+  font-size: 0.9rem; /* Very small */
   font-weight: 600;
-  margin-bottom: 8px; /* Reduced further */
+  margin-bottom: 6px; /* Minimal spacing */
   text-align: center;
 }
 
-/* Upload Box (Drag & Drop Area) - VERY COMPACT */
+/* Upload Box - MINIMAL HEIGHT */
 .TeacherListPage .upload-box,
 .StudentListPage .upload-box,
 .RoutinePage .upload-box {
-  border: 1.5px dashed #666; /* Thinner border */
-  border-radius: 6px; /* Smaller */
-  padding: 15px; /* Reduced further */
+  border: 1px dashed #666; /* Very thin border */
+  border-radius: 4px; /* Very small radius */
+  padding: 10px; /* Minimal padding */
   width: 100%;
   text-align: center;
   cursor: pointer;
@@ -208,9 +208,10 @@ input[type="number"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px; /* Reduced further */
+  gap: 4px; /* Minimal gap */
   background: rgba(0, 0, 0, 0.2);
-  min-height: 60px; /* Fixed smaller height */
+  min-height: 40px; /* Very compact height */
+  justify-content: center;
 }
 
 .TeacherListPage .upload-box:hover,
@@ -218,34 +219,15 @@ input[type="number"] {
 .RoutinePage .upload-box:hover {
   border-color: white;
   background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-1px);
-}
-
-/* Upload Label - COMPACT */
-.TeacherListPage .upload-label,
-.StudentListPage .upload-label,
-.RoutinePage .upload-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px; /* Reduced further */
-  cursor: pointer;
-  width: 100%;
 }
 
 /* Upload Icon - VERY SMALL */
 .TeacherListPage .upload-box .material-symbols-outlined,
 .StudentListPage .upload-box .material-symbols-outlined,
 .RoutinePage .upload-box .material-symbols-outlined {
-  font-size: 24px; /* Much smaller */
+  font-size: 20px; /* Very small */
   color: #888;
   transition: color 0.3s;
-}
-
-.TeacherListPage .upload-box:hover .material-symbols-outlined,
-.StudentListPage .upload-box:hover .material-symbols-outlined,
-.RoutinePage .upload-box:hover .material-symbols-outlined {
-  color: white;
 }
 
 /* Upload Text - VERY SMALL */
@@ -253,9 +235,10 @@ input[type="number"] {
 .StudentListPage .upload-box p,
 .RoutinePage .upload-box p {
   color: white;
-  font-size: 12px; /* Much smaller */
+  font-size: 11px; /* Very small */
   margin: 0;
   font-weight: 500;
+  line-height: 1.2;
 }
 
 /* File Hint - VERY SMALL */
@@ -263,77 +246,72 @@ input[type="number"] {
 .StudentListPage .file-hint,
 .RoutinePage .file-hint {
   color: #888 !important;
-  font-size: 10px !important; /* Much smaller */
+  font-size: 9px !important; /* Very small */
   font-weight: normal !important;
-  margin-top: 2px !important; /* Reduced further */
+  margin-top: 1px !important;
+  line-height: 1;
 }
 
-/* Upload Button - COMPACT */
+/* Upload Button - MINIMAL */
 .TeacherListPage .upload-button,
 .StudentListPage .upload-button,
 .RoutinePage .upload-button {
-  padding: 6px 15px; /* Reduced further */
+  padding: 4px 10px; /* Very compact */
   background: linear-gradient(135deg, #4a6fa5 0%, #3a5a85 100%);
   color: white;
   border: none;
-  border-radius: 4px; /* Smaller */
+  border-radius: 3px; /* Very small radius */
   cursor: pointer;
-  font-size: 12px; /* Smaller */
+  font-size: 10px; /* Very small */
   font-weight: 600;
   transition: all 0.3s;
-  margin-top: 8px; /* Reduced further */
-  min-width: 100px; /* Smaller */
+  margin-top: 6px; /* Minimal spacing */
+  min-width: 80px; /* Very small */
 }
 
-.TeacherListPage .upload-button:hover,
-.StudentListPage .upload-button:hover,
-.RoutinePage .upload-button:hover {
-  background: linear-gradient(135deg, #5a7fb5 0%, #4a6a95 100%);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(74, 111, 165, 0.4);
-}
-
-/* Divider Line - VERY THIN */
+/* Divider Line - VERY THIN AND SHORT */
 .TeacherListPage .divider,
 .StudentListPage .divider,
 .RoutinePage .divider {
-  height: 1px;
+  height: 0.5px; /* Very thin */
   background: linear-gradient(90deg, 
-    transparent 0%, 
-    #666 20%, 
-    #666 80%, 
-    transparent 100%);
-  margin: 15px 0; /* Reduced further */
-  width: 100%;
+    transparent 10%, 
+    #666 30%, 
+    #666 70%, 
+    transparent 90%);
+  margin: 8px 0; /* Minimal spacing */
+  width: 60%; /* Shorter width like image */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Add Section - COMPACT */
+/* Add Section - ELONGATED FORM FIELDS */
 .TeacherListPage .add-section,
 .StudentListPage .add-section,
 .RoutinePage .add-section {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px; /* Smaller */
-  padding: 15px; /* Reduced further */
-  margin-top: 10px; /* Reduced further */
+  border-radius: 4px; /* Very small radius */
+  padding: 12px 15px; /* Minimal padding */
+  margin-top: 8px; /* Minimal spacing */
 }
 
 .TeacherListPage .add-section h3,
 .StudentListPage .add-section h3,
 .RoutinePage .add-section h3 {
   color: #ccc;
-  font-size: 1rem; /* Smaller */
+  font-size: 0.9rem; /* Very small */
   font-weight: 600;
-  margin-bottom: 15px; /* Reduced further */
+  margin-bottom: 15px; /* Spacing for form */
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.5px; /* Reduced further */
+  letter-spacing: 0.5px;
 }
 
-/* Form Group - VERY COMPACT */
+/* Form Group - ELONGATED FIELDS */
 .TeacherListPage .form-group,
 .StudentListPage .form-group,
 .RoutinePage .form-group {
-  margin-bottom: 10px; /* Reduced further */
+  margin-bottom: 15px; /* Good spacing between fields */
 }
 
 .TeacherListPage .form-group label,
@@ -341,25 +319,25 @@ input[type="number"] {
 .RoutinePage .form-group label {
   display: block;
   color: white;
-  margin-bottom: 4px; /* Reduced further */
-  font-size: 13px; /* Smaller */
+  margin-bottom: 5px; /* Minimal spacing */
+  font-size: 12px; /* Small */
   font-weight: 500;
-  letter-spacing: 0.2px; /* Reduced further */
 }
 
-/* Input Fields - VERY COMPACT */
+/* Input Fields - ELONGATED */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
 .RoutinePage .form-group input {
   width: 100%;
-  padding: 8px 12px; /* Reduced further */
+  padding: 10px 12px; /* Good padding for elongation */
   background-color: #2a2a2a;
-  border: 1px solid #444; /* Thinner */
-  border-radius: 4px; /* Smaller */
+  border: 1px solid #444; /* Thin border */
+  border-radius: 4px; /* Small radius */
   color: white;
-  font-size: 13px; /* Smaller */
+  font-size: 13px; /* Good readable size */
   transition: all 0.3s ease;
   box-sizing: border-box;
+  height: 38px; /* Fixed height for consistency */
 }
 
 .TeacherListPage .form-group input:focus,
@@ -367,7 +345,6 @@ input[type="number"] {
 .RoutinePage .form-group input:focus {
   outline: none;
   border-color: white;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Smaller */
   background-color: #333;
 }
 
@@ -378,25 +355,25 @@ input[type="number"] {
   width: 100%;
 }
 
-/* Add Button - COMPACT */
+/* Add Button - POSITIONED AT BOTTOM */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
 .RoutinePage .add-routine-button {
   width: 100%;
-  padding: 12px; /* Reduced further */
+  padding: 12px; /* Good padding */
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.15) 0%, 
     rgba(255, 255, 255, 0.05) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.25); /* Thinner */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: white;
-  font-size: 14px; /* Smaller */
+  font-size: 14px; /* Good readable size */
   font-weight: 700;
   cursor: pointer;
-  border-radius: 6px; /* Smaller */
+  border-radius: 4px; /* Small radius */
   text-transform: uppercase;
-  letter-spacing: 0.5px; /* Reduced further */
+  letter-spacing: 0.5px;
   transition: all 0.3s;
-  margin-top: 15px; /* Reduced further */
+  margin-top: 20px; /* Space above button */
   position: relative;
   overflow: hidden;
 }
@@ -408,14 +385,6 @@ input[type="number"] {
     rgba(255, 255, 255, 0.25) 0%, 
     rgba(255, 255, 255, 0.15) 100%);
   border-color: white;
-  transform: translateY(-1px); /* Smaller */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.TeacherListPage .add-teacher-button:active,
-.StudentListPage .add-student-button:active,
-.RoutinePage .add-routine-button:active {
-  transform: translateY(0);
 }
 
 /* ========== END OF UPDATED CURRENTTAB ========== */
@@ -423,12 +392,12 @@ input[type="number"] {
 /* Error styling */
 .CurrentTab .error {
   color: #ff4444;
-  font-size: 12px; /* Smaller */
-  margin-top: 8px; /* Reduced */
-  padding: 8px; /* Reduced */
+  font-size: 11px; /* Small */
+  margin-top: 6px; /* Minimal spacing */
+  padding: 6px; /* Minimal padding */
   background-color: rgba(255, 68, 68, 0.1);
-  border-radius: 4px;
-  border-left: 3px solid #ff4444;
+  border-radius: 3px; /* Small radius */
+  border-left: 2px solid #ff4444;
 }
 
 /* CurrentDetails Styling - UNCHANGED */
@@ -675,7 +644,7 @@ input[type="number"] {
   }
 
   .CurrentTab {
-    padding: 15px;
+    padding: 10px 15px;
   }
 
   .CurrentTab h1 {
