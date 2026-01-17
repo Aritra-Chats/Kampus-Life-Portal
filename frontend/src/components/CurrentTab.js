@@ -133,16 +133,66 @@ const CurrentTab = ({ API_URL }) => {
                         </div>
                     </div>
                 );
-            case 'studentList':
+           case 'routine':
                 return (
-                    <form onSubmit={handleSubmit}>
-                        <input name="name" placeholder="Name" onChange={handleChange} required />
-                        <input name="roll" placeholder="Roll" onChange={handleChange} required />
-                        <input name="email" placeholder="Email" type="email" onChange={handleChange} required />
-                        <input name="phone" placeholder="Phone" onChange={handleChange} required />
-                        <input name="section" placeholder="Section" onChange={handleChange} required />
-                        <button type="submit">Add Student</button>
-                    </form>
+                    <div className='RoutinePage'>
+                        <div className='header'>
+                            <h1>Routine List</h1>
+                            <div className='upload-section'>
+                                <h3>Initialize Routine Details List:</h3>
+                                <form className='upload-box' onSubmit={handleFileUpload}>
+                                    <label htmlFor="file-upload" className="upload-label">
+                                        <span className="material-symbols-outlined">upload</span>
+                                        <p>{selectedFile ? selectedFile.name : 'Upload routine details sheet:'}</p>
+                                        <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                    </label>
+                                    <input 
+                                        id="file-upload"
+                                        type="file" 
+                                        accept=".csv,.xlsx,.xls"
+                                        onChange={(e) => setSelectedFile(e.target.files[0])}
+                                        style={{ display: 'none' }}
+                                    />
+                                    {selectedFile && (
+                                        <button type="submit" className="upload-button">Upload File</button>
+                                    )}
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div className="divider"></div>
+                        
+                        <div className='add-section'>
+                            <h3>Enter Routine Details:</h3>
+                            <form onSubmit={handleSubmit} className="routine-form">
+                                <div className="form-group">
+                                    <label>Subject:</label>
+                                    <input name="subject" placeholder="subject" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Time:</label>
+                                    <input name="time" placeholder="HH:MM-HH:MM" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Day:</label>
+                                    <input name="day" placeholder="day" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Classroom:</label>
+                                    <input name="classroom" placeholder="classroom" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Section:</label>
+                                    <input name="section" placeholder="section" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Batch:</label>
+                                    <input name="batch" placeholder=" batch" onChange={handleChange} required />
+                                </div>
+                                <button type="submit" className="add-routine-button">ADD ROUTINE DETAILS</button>
+                            </form>
+                        </div>
+                    </div>
                 );
             case 'routine':
                 return (
