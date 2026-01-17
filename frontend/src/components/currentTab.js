@@ -70,15 +70,28 @@ const CurrentTab = ({ API_URL }) => {
                         <button type="submit">Add Student</button>
                     </form>
                 );
-            case 'Routine':
+            case 'teacherRoutine':
                 return (
                     <form onSubmit={handleSubmit}>
-                        <input name="section" placeholder="Section" onChange={handleChange} required />
+                        <input name="roll" placeholder="Roll" onChange={handleChange} required />
                         <input name="time" placeholder="Time" onChange={handleChange} required />
                         <input name="day" placeholder="Day" onChange={handleChange} required />
                         <input name="classroom" placeholder="Classroom" onChange={handleChange} required />
+                        <input name="section" placeholder="Section" onChange={handleChange} required />
                         <input name="batch" placeholder="Batch" onChange={handleChange} required />
                         <button type="submit">Add Teacher Routine</button>
+                    </form>
+                );
+            case 'studentRoutine':
+                return (
+                    <form onSubmit={handleSubmit}>
+                        <input name="roll" placeholder="Roll" onChange={handleChange} required />
+                        <input name="subject" placeholder="Subject" onChange={handleChange} required />
+                        <input name="time" placeholder="Time" onChange={handleChange} required />
+                        <input name="day" placeholder="Day" onChange={handleChange} required />
+                        <input name="teacher" placeholder="Teacher" onChange={handleChange} required />
+                        <input name="classroom" placeholder="Classroom" onChange={handleChange} required />
+                        <button type="submit">Add Student Routine</button>
                     </form>
                 );
             default:
