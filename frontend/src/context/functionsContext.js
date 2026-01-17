@@ -87,6 +87,7 @@ export const functionsReducer = (state, action) => {
    
         default:
             console.log("Invalid case");
+            return state;
     }
 }
 

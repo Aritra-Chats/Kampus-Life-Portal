@@ -12,15 +12,10 @@ const {
     deleteStudentData
 } = require('../controllers/studentListController.js');
 const {
-    getTeacherRoutine,
-    postTeacherRoutine,
-    deleteSpecificTeacherRoutine
-} = require('../controllers/teacherRoutineController.js');
-const {
-    getStudentRoutine,
-    postStudentRoutine,
-    deleteSpecificStudentRoutine
-} = require('../controllers/studentRoutineController.js');
+    getRoutine,
+    postRoutine,
+    deleteSpecificRoutine
+} = require('../controllers/routineController.js');
 
 const { 
     getAnnouncements, 
@@ -31,22 +26,19 @@ const {
 //get requests
 router.get('/TeacherList', getTeacherList);
 router.get('/StudentList', getStudentList);
-router.get('/TeacherRoutine', getTeacherRoutine);
-router.get('/StudentRoutine', getStudentRoutine);
+router.get('/Routine', getRoutine);
 router.get('/Announcement', getAnnouncements)
 
 //post requests
 router.post('/TeacherList', postTeacherData);
 router.post('/StudentList', postStudentData);
-router.post('/TeacherRoutine', postTeacherRoutine);
-router.post('/StudentRoutine', postStudentRoutine);
+router.post('/Routine', postRoutine);
 router.post('/Announcement', postAnnouncement);
 
 //delete requests
 router.delete('/TeacherList/:id', deleteTeacherData);
 router.delete('/StudentList/:id', deleteStudentData);
-router.delete('/TeacherRoutine/:id', deleteSpecificTeacherRoutine);
-router.delete('/StudentRoutine/:id', deleteSpecificStudentRoutine);
+router.delete('/Routine/:id', deleteSpecificRoutine);
 router.delete('/Announcement/:id', deleteAnnouncement);
 
 module.exports = router;

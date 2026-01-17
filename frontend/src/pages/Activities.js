@@ -128,6 +128,7 @@ const Activity = () => {
         );
       default:
         console.log("Invalid Selection");
+        return null;
     }
   };
 
