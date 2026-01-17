@@ -31,8 +31,7 @@ const CurrentTab = ({ API_URL }) => {
             const actionMap = {
                 teacherList: 'ADD_TEACHER_DETAILS',
                 studentList: 'ADD_STUDENT_DETAILS',
-                teacherRoutine: 'ADD_TEACHER_ROUTINE',
-                studentRoutine: 'ADD_STUDENT_ROUTINE'
+                routine: 'ADD_ROUTINE'
             };
 
             dispatch({ type: actionMap[tab], payload: json });
@@ -50,14 +49,28 @@ const CurrentTab = ({ API_URL }) => {
         switch (tab) {
             case 'teacherList':
                 return (
-                    <form onSubmit={handleSubmit}>
-                        <input name="name" placeholder="Name" onChange={handleChange} required />
-                        <input name="roll" placeholder="Roll" onChange={handleChange} required />
-                        <input name="email" placeholder="Email" type="email" onChange={handleChange} required />
-                        <input name="phone" placeholder="Phone" onChange={handleChange} required />
-                        <input name="cabin" placeholder="Cabin" onChange={handleChange} required />
-                        <button type="submit">Add Teacher</button>
-                    </form>
+                    <div className='TeacherListPage'>
+                        <div className='header'>
+                            <h1>Faculty List</h1>
+                            <div className='upload-section'>
+                                <h3>Initialize Teacher Details List:</h3>
+                                <div className='upload-box'>
+                                    <span className="material-symbols-outlined">upload</span>
+                                    <p>Upload teacher details sheet:</p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div className='add'>
+                            <h3>ADD TEACHER DETAILS</h3>
+                            <form onSubmit={handleSubmit}>
+                                <input name="name" placeholder="Name" onChange={handleChange} required />
+                                <input name="email" placeholder="Email" type="email" onChange={handleChange} required />
+                                <input name="phone" placeholder="Phone" onChange={handleChange} required />
+                                <input name="cabin" placeholder="Cabin" onChange={handleChange} required />
+                                <button type="submit">Add Teacher</button>
+                            </form>
+                        </div>
+                    </div>
                 );
             case 'studentList':
                 return (
@@ -70,28 +83,17 @@ const CurrentTab = ({ API_URL }) => {
                         <button type="submit">Add Student</button>
                     </form>
                 );
-            case 'teacherRoutine':
-                return (
-                    <form onSubmit={handleSubmit}>
-                        <input name="roll" placeholder="Roll" onChange={handleChange} required />
-                        <input name="time" placeholder="Time" onChange={handleChange} required />
-                        <input name="day" placeholder="Day" onChange={handleChange} required />
-                        <input name="classroom" placeholder="Classroom" onChange={handleChange} required />
-                        <input name="section" placeholder="Section" onChange={handleChange} required />
-                        <input name="batch" placeholder="Batch" onChange={handleChange} required />
-                        <button type="submit">Add Teacher Routine</button>
-                    </form>
-                );
-            case 'studentRoutine':
+            case 'routine':
                 return (
                     <form onSubmit={handleSubmit}>
                         <input name="roll" placeholder="Roll" onChange={handleChange} required />
                         <input name="subject" placeholder="Subject" onChange={handleChange} required />
                         <input name="time" placeholder="Time" onChange={handleChange} required />
                         <input name="day" placeholder="Day" onChange={handleChange} required />
-                        <input name="teacher" placeholder="Teacher" onChange={handleChange} required />
                         <input name="classroom" placeholder="Classroom" onChange={handleChange} required />
-                        <button type="submit">Add Student Routine</button>
+                        <input name="section" placeholder="Section" onChange={handleChange} required />
+                        <input name="batch" placeholder="Batch" onChange={handleChange} required />
+                        <button type="submit">Add Routine</button>
                     </form>
                 );
             default:
