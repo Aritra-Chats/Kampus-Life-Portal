@@ -19,13 +19,8 @@ const CurrentDetails = ({ details, API_URL }) => {
                     method: 'DELETE'
                 });
                 break;
-            case 'teacherRoutine':
-                response = await fetch(`${API_URL}/api/TeacherRoutine/` + details._id, {
-                    method: 'DELETE'
-                });
-                break;
-            case 'studentRoutine':
-                response = await fetch(`${API_URL}/api/StudentRoutine/` + details._id, {
+            case 'routine':
+                response = await fetch(`${API_URL}/api/Routine/` + details._id, {
                     method: 'DELETE'
                 });
                 break;
@@ -50,11 +45,8 @@ const CurrentDetails = ({ details, API_URL }) => {
             case 'studentList':
                 dispatch({ type: 'DELETE_STUDENT_DETAILS', payload: json});
                 break;
-            case 'teacherRoutine':
-                dispatch({ type: 'DELETE_TEACHER_ROUTINE', payload: json});
-                break;
-            case 'studentRoutine':
-                dispatch({ type: 'DELETE_STUDENT_ROUTINE', payload: json});
+            case 'routine':
+                dispatch({ type: 'DELETE_ROUTINE', payload: json});
                 break;
             default:
                 console.log('currentDetails: jsonError: Invalid option');
@@ -89,29 +81,16 @@ const CurrentDetails = ({ details, API_URL }) => {
                     <p><strong>Section:</strong> {details.section}</p>
                 </div>
             )
-        case 'teacherRoutine':
+        case 'routine':
             return (
-                <div className='TeacherRoutine'>
+                <div className='Routine'>
                     <div className='header'>
-                        <h4>{details.classroom}</h4>
+                        <h4>{details.section}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>Roll:</strong> {details.roll}</p>
-                    <p><strong>Time:</strong> {details.time} {details.day}</p>
-                    <p><strong>Classroom:</strong> {details.classroom}</p>
-                    <p><strong>Section:</strong> {details.section} {details.batch}</p>
-                </div>
-            )
-        case 'studentRoutine':
-            return (
-                <div className ='StudentRoutine'>
-                    <div className="header">
-                        <h4>{details.classroom}</h4>
-                        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-                    </div>
-                    <p><strong>Roll:</strong> {details.roll}</p>
                     <p><strong>Subject:</strong> {details.subject}</p>
-                    <p><strong>Time:</strong> {details.time} {details.day}</p>
+                    <p><strong>Day & Time:</strong> {details.day} at {details.time}</p>
+                    <p><strong>Classroom:</strong> {details.classroom}</p>
                     <p><strong>Teacher:</strong> {details.teacher}</p>
                 </div>
             )

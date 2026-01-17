@@ -34,30 +34,30 @@ export const functionsReducer = (state, action) => {
                 ...state,
                 teacherList: state.teacherList.filter((tl) => tl._id !== action.payload._id)
             };
-        case 'GET_TEACHER_ROUTINE':
+        case 'GET_ROUTINE':  
             return {
                 ...state,
-                teacherRoutine: action.payload
+                routine: action.payload  
             };
-        case 'ADD_TEACHER_ROUTINE':
+        case 'ADD_ROUTINE':  
             return {
                 ...state,
-                teacherRoutine: [action.payload, ...state.teacherRoutine]
+                routine: [action.payload, ...state.routine]  
             };
-        case 'SET_TEACHER_ROUTINE':
+        case 'SET_ROUTINE':  
             return {
                 ...state, 
-                teacherRoutine: action.payload
+                routine: action.payload  
             };
-        case 'SEARCH_TEACHER_ROUTINES':
+        case 'SEARCH_ROUTINES':  
             return {
                 ...state,
-                teacherRoutine: action.payload.json.filter((j) => j.roll.toString().includes(action.payload.roll.toString()))
+                routine: action.payload.json.filter((j) => j.roll.toString().includes(action.payload.roll.toString()))
             };
-        case 'DELETE_TEACHER_ROUTINE':
+        case 'DELETE_ROUTINE':  
             return {
                 ...state,
-                teacherRoutine: state.teacherRoutine.filter((tr) => tr._id !== action.payload._id)
+                routine: state.routine.filter((r) => r._id !== action.payload._id)  
             };
         case 'GET_STUDENT_LIST':
             return {
@@ -84,31 +84,7 @@ export const functionsReducer = (state, action) => {
                 ...state,
                 studentList: state.studentList.filter((sl) => sl._id !== action.payload._id)
             };
-        case 'GET_STUDENT_ROUTINE':
-            return {
-                ...state,
-                studentRoutine: action.payload
-            };
-        case 'ADD_STUDENT_ROUTINE':
-            return {
-                ...state,
-                studentRoutine: [action.payload, ...state.studentRoutine]
-            };
-        case 'SET_STUDENT_ROUTINE':
-            return {
-                ...state, 
-                studentRoutine: action.payload
-            };
-        case 'SEARCH_STUDENT_ROUTINES':
-            return {
-                ...state,
-                studentRoutine: action.payload.json.filter((j) => j.roll.toString().includes(action.payload.roll.toString()))
-            };
-        case 'DELETE_STUDENT_ROUTINE':
-            return {
-                ...state,
-                studentRoutine: state.studentRoutine.filter((sr) => sr._id !== action.payload._id)
-            };
+   
         default:
             console.log("Invalid case");
             return state;
@@ -119,9 +95,9 @@ export const FunctionsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(functionsReducer, {
         tab: 'teacherList',
         teacherList: null,
-        teacherRoutine: null,
+        routine: null,  
         studentList: null,
-        studentRoutine: null
+        
     });
 
     return (
@@ -129,5 +105,4 @@ export const FunctionsContextProvider = ({ children }) => {
             { children }
         </FunctionsContext.Provider>
     )
-
 }
