@@ -41,11 +41,8 @@ const Home = () => {
             case 'studentList':
                 dispatch({ type: 'SET_TAB', payload: 'studentList' });
                 break;
-            case 'teacherRoutine':
-                dispatch({ type: 'SET_TAB', payload: 'teacherRoutine' });
-                break;
-            case 'studentRoutine':
-                dispatch({ type: 'SET_TAB', payload: 'studentRoutine' });
+            case 'routine':
+                dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
             case 'announcements':
                 dispatch({ type: 'SET_TAB', payload: 'announcements' });
@@ -73,13 +70,12 @@ const Home = () => {
                     <>
                     <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherRoutine')}>Faculty Routine</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'studentRoutine')}>Student Routine</button> 
-                    </> )
-                } 
-                {designation === 'official' && (
-                    <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>)
-                }
+                    <button onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                    {designation === 'official' && (
+                        <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
+                    )}
+                    </>
+                )}
             </GlassSurface>
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>

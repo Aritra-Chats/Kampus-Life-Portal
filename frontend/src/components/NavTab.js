@@ -12,11 +12,8 @@ const NavTab = () => {
             case 'StudentList':
                 dispatch({ type: 'SET_TAB', payload: 'studentList' });
                 break;
-            case 'TeacherRoutine':
-                dispatch({ type: 'SET_TAB', payload: 'teacherRoutine' });
-                break;
-            case 'StudentRoutine':
-                dispatch({ type: 'SET_TAB', payload: 'studentRoutine' });
+            case 'Routine':
+                dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
             default:
                 console.log({error: "Invalid option"});
@@ -34,8 +31,7 @@ const NavTab = () => {
                 <div className={`option ${tab === 'teacherList' ? 'selected' : ''}`} onClick={() => switchTab('TeacherList')}>Teacher List</div>
                 <div className={`option ${tab === 'studentList' ? 'selected' : ''}`} onClick={() => switchTab('StudentList')}>Student List</div>
                 <h6>Routine List</h6>
-                <div className={`option ${tab === 'teacherRoutine' ? 'selected' : ''}`} onClick={() => switchTab('TeacherRoutine')}>Teacher Routine</div>
-                <div className={`option ${tab === 'studentRoutine' ? 'selected' : ''}`} onClick={() => switchTab('StudentRoutine')}>Student Routine</div>
+                <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
             </div>
         </div>
     )
