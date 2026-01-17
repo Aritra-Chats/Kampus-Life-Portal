@@ -7,11 +7,6 @@ const teacherListSchema = new Schema({
         required: true,
         trim: true
     },
-    roll: {
-        type: Number,
-        required: true,
-        unique: true
-    },
     email: {
         type: String,
         required: true,
