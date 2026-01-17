@@ -58,11 +58,16 @@ const CurrentDetails = ({ details, API_URL }) => {
         case 'teacherList':
             return (
                 <div className='TeacherDetails'>
-                    
-                    <div className='header'>
-                        <h4>{details.name.replace(/ /g, '\n')}</h4>
-                        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+                <div className='header'>
+                    <h1>Faculty List</h1>
+                    <div className='upload-section'>
+                        <h3>Initialize Teacher Details List:</h3>
+                        <div className='upload-box'>
+                            <h4>{details.name.replace(/ /g, '\n')}</h4>
+                            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+                        </div>
                     </div>
+                </div>
                     <p><strong>Roll:</strong> {details.roll}</p>
                     <p><strong>Email:</strong> {details.email}</p>
                     <p><strong>Phone:</strong> {details.phone}</p>
