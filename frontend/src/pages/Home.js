@@ -70,7 +70,7 @@ const Home = () => {
                     <>
                     <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
-                    <button onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
                     {designation === 'official' && (
                         <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
                     )}
