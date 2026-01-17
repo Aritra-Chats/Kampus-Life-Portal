@@ -66,6 +66,8 @@ const NavTab = () => {
                 <h6>Routine List</h6>
                 <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
             </div>
+            
+            {/* ========== ADDED USER PANEL HERE (OUTSIDE tabOptions) ========== */}
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>
                     Hello,<br/>

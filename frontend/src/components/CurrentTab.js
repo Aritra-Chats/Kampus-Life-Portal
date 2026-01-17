@@ -5,6 +5,7 @@ import { FunctionsContext } from '../context/functionsContext';
 const CurrentTab = ({ API_URL }) => {
     const { tab, dispatch } = useContext(FunctionsContext);
     const [formData, setFormData] = useState({});
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -12,8 +13,7 @@ const CurrentTab = ({ API_URL }) => {
         const apiMap = {
             teacherList: `${API_URL}/api/TeacherList`,
             studentList: `${API_URL}/api/StudentList`,
-            teacherRoutine: `${API_URL}/api/TeacherRoutine`,
-            studentRoutine: `${API_URL}/api/StudentRoutine`
+            routine: `${API_URL}/api/Routine`
         };
 
         try {
@@ -46,6 +46,36 @@ const CurrentTab = ({ API_URL }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const handleFileUpload = async (e) => {
+        e.preventDefault();
+        if (!selectedFile) {
+             alert('Please select a file to upload');
+             return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        try {
+            const response = await fetch(`${API_URL}/api/upload/teachers`, {
+                method: 'POST',
+                body: formData,
+                credentials: 'include'
+            });
+
+            if (response.ok) {
+                alert('File uploaded successfully!');
+                setSelectedFile(null);
+            } else {
+                alert('Upload failed. Please check file format.');
+            }
+
+        } catch (err) {
+            console.error('Upload error:', err.message);
+            alert('Upload error. Please try again.');
+        }
+    };
+
     const renderForm = () => {
         switch (tab) {
             case 'teacherList':
@@ -55,20 +85,50 @@ const CurrentTab = ({ API_URL }) => {
                             <h1>Faculty List</h1>
                             <div className='upload-section'>
                                 <h3>Initialize Teacher Details List:</h3>
-                                <div className='upload-box'>
-                                    <span className="material-symbols-outlined">upload</span>
-                                    <p>Upload teacher details sheet:</p>
-                                </div>
+                                <form className='upload-section' onSubmit={handleFileUpload}>
+                                    <label htmlFor="file-upload" className="upload-label">
+                                        <span className="material-symbols-outlined">upload</span>
+                                        <p>Upload teacher details sheet:</p>
+                                        <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                    </label>
+                                    <input 
+                                        id="file-upload"
+                                        type="file" 
+                                        accept=".csv,.xlsx,.xls"
+                                        onChange={(e) => setSelectedFile(e.target.files[0])}
+                                        style={{ display: 'none' }}
+                                    />
+                                    {selectedFile && (
+                                        <button type="submit" className="upload-button">
+                                            Upload File
+                                        </button>
+                                    )}
+                                </form>
                             </div>
-                        </div> 
+                        </div>
+
+                        <div className="divider"></div>
+
                         <div className='add'>
                             <h3>ADD TEACHER DETAILS</h3>
-                            <form onSubmit={handleSubmit}>
-                                <input name="name" placeholder="Name" onChange={handleChange} required />
-                                <input name="email" placeholder="Email" type="email" onChange={handleChange} required />
-                                <input name="phone" placeholder="Phone" onChange={handleChange} required />
-                                <input name="cabin" placeholder="Cabin" onChange={handleChange} required />
-                                <button type="submit">Add Teacher</button>
+                            <form onSubmit={handleSubmit} className="teacher-form">
+                                <div className="form-group">
+                                    <label>Name:</label>
+                                    <input name="name" placeholder="name" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email:</label>
+                                    <input name="email" placeholder="email" type="email" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Phone No:</label>
+                                    <input name="phone" placeholder="phone" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Cabin:</label>
+                                    <input name="cabin" placeholder="cabin" onChange={handleChange} required />
+                                </div>
+                                <button type="submit" className="add-teacher-button">ADD TEACHER DETAILS</button>
                             </form>
                         </div>
                     </div>
