@@ -26,8 +26,7 @@ const Activity = () => {
     tab,
     teacherList,
     studentList,
-    teacherRoutine,
-    studentRoutine,
+    routine,
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -48,11 +47,8 @@ const Activity = () => {
           case "studentList":
             response = await fetch(`${API_URL}/api/StudentList`);
             break;
-          case "teacherRoutine":
-            response = await fetch(`${API_URL}/api/TeacherRoutine`);
-            break;
-          case "studentRoutine":
-            response = await fetch(`${API_URL}/api/StudentRoutine`);
+          case "routine":
+            response = await fetch(`${API_URL}/api/Routine`);
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -75,11 +71,8 @@ const Activity = () => {
           case "studentList":
             dispatch({ type: "GET_STUDENT_LIST", payload: json });
             break;
-          case "teacherRoutine":
-            dispatch({ type: "GET_TEACHER_ROUTINE", payload: json });
-            break;
-          case "studentRoutine":
-            dispatch({ type: "GET_STUDENT_ROUTINE", payload: json });
+          case "routine":
+            dispatch({ type: "GET_ROUTINE", payload: json });
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -120,24 +113,11 @@ const Activity = () => {
               ))}
           </div>
         );
-      case "teacherRoutine":
+      case "routine":
         return (
-          <div className="TeacherRoutines">
-            {teacherRoutine &&
-              teacherRoutine.map((routineDetails) => (
-                <CurrentDetails
-                  key={routineDetails._id}
-                  details={routineDetails}
-                  API_URL={API_URL}
-                />
-              ))}
-          </div>
-        );
-      case "studentRoutine":
-        return (
-          <div className="StudentRoutines">
-            {studentRoutine &&
-              studentRoutine.map((routineDetails) => (
+          <div className="Routines">
+            {routine &&
+              routine.map((routineDetails) => (
                 <CurrentDetails
                   key={routineDetails._id}
                   details={routineDetails}
