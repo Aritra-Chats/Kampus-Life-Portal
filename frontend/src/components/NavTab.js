@@ -61,40 +61,38 @@ const NavTab = () => {
                 <div className={`option ${tab === 'studentList' ? 'selected' : ''}`} onClick={() => switchTab('StudentList')}>Student List</div>
                 <h6>Routine List</h6>
                 <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
-                
-                <div className='UserPanel' onClick={userOptions}>
-                    <div className='UserInfo'>
+            </div>
+            <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
+                <div className='UserInfo' onClick={userOptions}>
+                    Hello,<br/>
+                    {userid || 'Loading...'} {designation && `(${designation})`}
+                </div>
+            </GlassSurface>
+            {optionsOpened && (
+                <GlassSurface className='UserOptions' width={'300px'} height={'275px'} borderRadius={20} opacity={0.5} blur={5}>
+                    <div className='UserDetails'>
                         Hello,<br/>
                         {userid || 'Loading...'} {designation && `(${designation})`}
                     </div>
-                </div>
-                
-                {optionsOpened && (
-                    <div className='UserOptions'>
-                        <div className='UserDetails'>
-                            Hello,<br/>
-                            {userid || 'Loading...'} {designation && `(${designation})`}
-                        </div>
-                        <button className='LogoutButton' onClick={async () => {
-                            try {
-                                const response = await fetch(`${API_URL}/auth/logout`, {
-                                    method: 'POST',
-                                    credentials: 'include'
-                                });
-                                if (response.ok)
-                                    window.location.href = '/Login';
-                            } catch (err) {
-                                console.error('Error logging out:', err.message);
-                            }
-                        }}>
-                            <span className="material-symbols-outlined">logout</span>
-                            Logout
-                        </button>
-                    </div>
-                )}
-            </div>
+                    <button className='LogoutButton' onClick={async () => {
+                        try {
+                            const response = await fetch(`${API_URL}/auth/logout`, {
+                                method: 'POST',
+                                credentials: 'include'
+                            });
+                            if (response.ok)
+                                navigate('/Login');
+                        } catch (err) {
+                            console.error('Error logging out:', err.message);
+                        }
+                    }}>
+                        <span className="material-symbols-outlined">logout</span>
+                        Logout
+                    </button>
+                </GlassSurface>
+            )}
         </div>
     )
-}
+};
 
-export default NavTab
+export default NavTab;

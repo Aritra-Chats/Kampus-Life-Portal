@@ -58,6 +58,7 @@ const CurrentDetails = ({ details, API_URL }) => {
         case 'teacherList':
             return (
                 <div className='TeacherDetails'>
+                    
                     <div className='header'>
                         <h4>{details.name.replace(/ /g, '\n')}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>

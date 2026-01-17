@@ -5,7 +5,7 @@ import "../styles/activities.css";
 
 // components
 import NavTab from "../components/NavTab";
-import CurrentTab from "../components/currentTab";
+import CurrentTab from "../components/CurrentTab";
 import CurrentDetails from "../components/currentDetails";
 import Search from "../components/Search";
 
