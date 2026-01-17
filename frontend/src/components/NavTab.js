@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useContext, useState, useEffect } from 'react'
 import { FunctionsContext } from '../context/functionsContext'
+import GlassSurface from './GlassSurface';
+import { useNavigate } from 'react-router-dom';
 
 const NavTab = () => {
     const { tab, dispatch } = useContext(FunctionsContext);
@@ -9,6 +11,8 @@ const NavTab = () => {
     const [optionsOpened, setOptionsOpened] = useState(false);
 
     const API_URL = process.env.REACT_APP_API_URL;
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserInfo = async () => {
