@@ -44,6 +44,4 @@ const routineSchema = new Schema({
     }
 });
 
-routineSchema.index({section: 1, day: 1, time: 1}, { unique: true });
-
 module.exports = mongoose.model('Routine', routineSchema);
