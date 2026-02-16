@@ -109,7 +109,7 @@ const CurrentTab = ({ API_URL }) => {
 
                         <div className="divider"></div>
 
-                        <div className='add'>
+                        <div className='add-section'>
                             <h3>ADD TEACHER DETAILS</h3>
                             <form onSubmit={handleSubmit} className="teacher-form">
                                 <div className="form-group">

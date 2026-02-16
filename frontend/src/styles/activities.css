@@ -23,6 +23,7 @@ input[type="number"] {
 
 /* NavTab Styling */
 .NavTab {
+  position: relative;
   grid-area: navtab;
   background-color: #1a1a1a;
   padding: 20px;
@@ -123,8 +124,8 @@ input[type="number"] {
   grid-area: currenttab;
   background-color: #070707;
   padding: 5px 10px; /* Reduced padding */
-  height: 95vh;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: hidden;
   width: 100%;
   box-sizing: border-box;
 }
@@ -386,7 +387,7 @@ input[type="number"] {
   background-color: #1a1a1a;
   padding: 20px;
   border-left: 2px solid #333;
-  overflow-y: auto;
+  overflow-y: hidden;
   height: 95vh;
 }
 
@@ -629,4 +630,230 @@ input[type="number"] {
   .RoutinePage .header h1 {
     font-size: 1.3rem;
   }
+}
+
+/* ===== FACULTY PAGE MODERN UI FIX ===== */
+
+/* Center the content like target design */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Glass card effect for upload and form */
+.TeacherListPage .upload-section,
+.TeacherListPage .add-section,
+.StudentListPage .upload-section,
+.StudentListPage .add-section,
+.RoutinePage .upload-section,
+.RoutinePage .add-section {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Better header */
+.TeacherListPage .header h1,
+.StudentListPage .header h1,
+.RoutinePage .header h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+/* Rounded modern input fields */
+.TeacherListPage .form-group input,
+.StudentListPage .form-group input,
+.RoutinePage .form-group input {
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px;
+  height: auto;
+}
+
+/* Modern button */
+.TeacherListPage .add-teacher-button,
+.StudentListPage .add-student-button,
+.RoutinePage .add-routine-button {
+  background: linear-gradient(135deg, #111, #333);
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 12px;
+}
+
+/* Upload box modern */
+.upload-box {
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Background glow like your design */
+.CurrentTab {
+  background: radial-gradient(circle at center, #111 0%, #070707 80%);
+}
+
+/* ===== Revolving Earth Background ===== */
+
+.CurrentTab {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background globe */
+.CurrentTab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/bg.gif") center center / cover no-repeat;
+  opacity: 0.18; /* adjust glow */
+  z-index: 0;
+}
+
+/* Dark overlay for readability */
+.CurrentTab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, #070707 85%);
+  z-index: 0;
+}
+
+/* Bring content above background */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
+  position: relative;
+  z-index: 1;
+}/* ===== FACULTY PAGE MODERN UI FIX ===== */
+
+/* Center the content like target design */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Glass card effect for upload and form */
+.TeacherListPage .upload-section,
+.TeacherListPage .add-section,
+.StudentListPage .upload-section,
+.StudentListPage .add-section,
+.RoutinePage .upload-section,
+.RoutinePage .add-section {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Better header */
+.TeacherListPage .header h1,
+.StudentListPage .header h1,
+.RoutinePage .header h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+/* Rounded modern input fields */
+.TeacherListPage .form-group input,
+.StudentListPage .form-group input,
+.RoutinePage .form-group input {
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px;
+  height: auto;
+}
+
+/* Modern button */
+.TeacherListPage .add-teacher-button,
+.StudentListPage .add-student-button,
+.RoutinePage .add-routine-button {
+  background: linear-gradient(135deg, #111, #333);
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 12px;
+}
+
+/* Upload box modern */
+.upload-box {
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Background glow like your design */
+.CurrentTab {
+  background: radial-gradient(circle at center, #111 0%, #070707 80%);
+}
+
+
+/* ===== REVOLVING EARTH BACKGROUND ===== */
+
+.CurrentTab {
+  position: relative;
+  overflow: hidden; /* important */
+}
+
+/* Globe background */
+.CurrentTab::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: url("/images/bg.gif") no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep form above the globe */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ===== USER PANEL GLASS ===== */
+
+.UserPanel {
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+  padding: 16px 22px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: 0.3s ease;
+}
+
+/* small slide animation */
+.UserPanel:hover {
+  transform: translateX(8px);
 }
