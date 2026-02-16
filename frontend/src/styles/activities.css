@@ -23,6 +23,7 @@ input[type="number"] {
 
 /* NavTab Styling */
 .NavTab {
+  position: relative;
   grid-area: navtab;
   background-color: #1a1a1a;
   padding: 20px;
@@ -123,8 +124,8 @@ input[type="number"] {
   grid-area: currenttab;
   background-color: #070707;
   padding: 5px 10px; /* Reduced padding */
-  height: 95vh;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: hidden;
   width: 100%;
   box-sizing: border-box;
 }
@@ -386,7 +387,7 @@ input[type="number"] {
   background-color: #1a1a1a;
   padding: 20px;
   border-left: 2px solid #333;
-  overflow-y: auto;
+  overflow-y: hidden;
   height: 95vh;
 }
 
@@ -797,13 +798,15 @@ input[type="number"] {
   background: radial-gradient(circle at center, #111 0%, #070707 80%);
 }
 
-/* ===== Revolving Earth Background ===== */
+
+/* ===== REVOLVING EARTH BACKGROUND ===== */
+
 .CurrentTab {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* important */
 }
 
-/* Background globe */
+/* Globe background */
 .CurrentTab::before {
   content: "";
   position: absolute;
@@ -811,65 +814,46 @@ input[type="number"] {
   left: 50%;
   width: 700px;
   height: 700px;
-  transform: translate(-50%, -50%);
   background: url("/images/bg.gif") no-repeat center;
   background-size: contain;
-  opacity: 0.25; /* adjust if needed */
-  z-index: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0.18;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Ensure form content stays above globe */
-.CurrentTab > * {
+/* keep form above the globe */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
   position: relative;
   z-index: 1;
 }
 
-/* ===== User Panel Glass Slide ===== */
+
+/* ===== USER PANEL GLASS ===== */
 
 .UserPanel {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  padding: 15px 25px;
-  border-radius: 40px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Slide glow effect */
-.UserPanel::before {
-  content: "";
   position: absolute;
-  top: 0;
-  left: -120%;
-  width: 120%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.2),
-    transparent
-  );
-  transition: all 0.6s ease;
+  bottom: 25px;
+  left: 20px;
+  padding: 16px 22px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: 0.3s ease;
 }
 
-.UserPanel:hover::before {
-  left: 100%;
-}
-
-/* Hover lift */
+/* small slide animation */
 .UserPanel:hover {
-  transform: translateY(-3px) scale(1.03);
-  border-color: rgba(255,255,255,0.4);
+  transform: translateX(8px);
 }
-
