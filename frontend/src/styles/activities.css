@@ -710,7 +710,7 @@ input[type="number"] {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/bg.gif") center center / cover no-repeat;
+  background: url("/images/bg.gif") center center / cover no-repeat;
   opacity: 0.18; /* adjust glow */
   z-index: 0;
 }
