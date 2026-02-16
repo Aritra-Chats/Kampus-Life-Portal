@@ -41,11 +41,6 @@ const routineSchema = new Schema({
         type: String,
         required: true,
         trim: true
-    },
-    teacher: {
-        type: String,
-        required: true,
-        trim: true
     }
 });
 

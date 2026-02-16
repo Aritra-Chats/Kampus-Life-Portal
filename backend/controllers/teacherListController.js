@@ -9,20 +9,20 @@ const getTeacherList = async (req, res) => {
 
 //post a new teacher list
 const postTeacherData = async (req, res) => {
-    const { name, roll, email, phone, cabin } = req.body;
+    const { name, email, phone, cabin, sections } = req.body;
 
     //Empty field check
     let emptyFields = [];
     if(!name || name.trim() === '') emptyFields.push('name');
-    if(roll === '' || roll == null || isNaN(Number(roll))) emptyFields.push('roll');
     if(!email || email.trim() === '') emptyFields.push('email');
     if(phone === '' || phone == null || isNaN(Number(phone))) emptyFields.push('phone');
     if(!cabin || cabin.trim() === '') emptyFields.push('cabin');
+    if(!sections || sections.length <= 0) emptyFields.push('section');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
 
     //add document to db
     try {
-        const teacherData = await TeacherList.create({ name, roll, email, phone, cabin });
+        const teacherData = await TeacherList.create({ name, email, phone, cabin, sections });
         res.status(200).json(teacherData);
     } catch (error) {
         res.status(400).json({error: error.message});

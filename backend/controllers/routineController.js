@@ -9,7 +9,7 @@ const getRoutine = async (req, res) => {
 
 //post a new student routine
 const postRoutine = async (req, res) => {
-    const { section, subject, day, time, classroom, teacher } = req.body;
+    const { section, subject, day, time, classroom } = req.body;
 
     //Empty field check
     let emptyFields = [];
@@ -18,12 +18,11 @@ const postRoutine = async (req, res) => {
     if(!day || day.trim() === '' || day.trim() === 'day') emptyFields.push('day');
     if(!time || time.trim() === '') emptyFields.push('time');
     if(!classroom || classroom.trim() === '') emptyFields.push('classroom');
-    if(!teacher || teacher.trim() === '') emptyFields.push('teacher');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
 
     //add document to db
     try {
-        const routine = await Routine.create({ section, subject, day, time, classroom, teacher });
+        const routine = await Routine.create({ section, subject, day, time, classroom });
         res.status(200).json(routine);
     } catch (error) {
         res.status(400).json({error: error.message});
