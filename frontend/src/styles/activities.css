@@ -697,3 +697,65 @@ input[type="number"] {
 .CurrentTab {
   background: radial-gradient(circle at center, #111 0%, #070707 80%);
 }
+
+/* ===== Revolving Earth Background ===== */
+
+.CurrentTab {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background globe */
+.CurrentTab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/bg.gif") center center / cover no-repeat;
+  opacity: 0.18; /* adjust glow */
+  z-index: 0;
+}
+
+/* Dark overlay for readability */
+.CurrentTab::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, #070707 85%);
+  z-index: 0;
+}
+
+/* Bring content above background */
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage {
+  position: relative;
+  z-index: 1;
+}
+/* ===== User Profile Glass Card ===== */
+
+.userProfile {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 230px;
+  padding: 14px 18px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  transition: 0.3s;
+  cursor: default;
+}
+
+/* Glow hover */
+.userProfile:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255,255,255,0.3);
+}
