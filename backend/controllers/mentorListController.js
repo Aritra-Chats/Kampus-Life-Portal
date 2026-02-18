@@ -29,9 +29,9 @@ const getMentorById = async (req, res) => {
 };
 
 const postMentorData = async (req, res) => {
-    const { mentorName, menteeRolls } = req.body;
+    const { mentorRoll, menteeRolls } = req.body;
     let emptyFields = [];
-    if(!mentorName || mentorName.trim() === '') emptyFields.push('mentorName');
+    if(!mentorRoll || mentorRoll.trim() === '') emptyFields.push('mentorName');
     if(!menteeRolls || menteeRolls.length === 0) emptyFields.push('menteeRolls');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
     try {

@@ -23,7 +23,7 @@ const administrationListSchema = new Schema({
         lowercase: true,
         trim: true,
         match: [
-            /^[0-9]+@kiit\.ac\.in$/,
+            /^[a-zA-Z]+\.[a-zA-Z]+@kiit\.ac\.in$/,
             'Please enter a valid email address'
         ]
     },

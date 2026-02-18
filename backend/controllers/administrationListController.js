@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //get all administration list
 const getAdministrationList = async (req, res) => {
     const administrationList = await AdministrationList.find({}).sort({createdAt: 1});
-    res.status(200).json(studentList);
+    res.status(200).json(administrationList);
 };
 
 //post a new administration list
