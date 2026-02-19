@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const adminSchema = new Schema({
+    sender: {
+        type: String,
+        required: true
+    },
     reciever: {
         type: String,
         required: true,

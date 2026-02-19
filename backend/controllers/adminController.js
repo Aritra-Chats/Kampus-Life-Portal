@@ -16,12 +16,13 @@ const postAnnouncement = async (req, res) => {
     if(!reciever || reciever === '' || reciever.trim() === '') emptyFields.push('reciever');
     if(!subject || subject.trim() === '') emptyFields.push('subject');
     if(!body || body.trim() === '') emptyFields.push('body');
-    if(!age || age.trim() === '' || isNaN(age)) emptyFields.push('age');
+    if(age === undefined || age === null || String(age).trim() === '' || isNaN(Number(age))) emptyFields.push('age');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
 
     //add document to db
     try {
-        const announcement = await Admin.create({ reciever, subject, body, age });
+        const sender = req.user.userid;
+        const announcement = await Admin.create({ sender, reciever, subject, body, age: Number(age) });
         res.status(200).json(announcement);
     } catch (error) {
         res.status(400).json({error: error.message});

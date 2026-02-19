@@ -36,6 +36,8 @@ const {
     deleteMentorData
 } = require('../controllers/mentorListController.js')
 
+const { requireAuth } = require('../controllers/authController.js');
+
 //get requests
 router.get('/TeacherList', getTeacherList);
 router.get('/StudentList', getStudentList);
@@ -51,7 +53,7 @@ router.post('/StudentList', postStudentData);
 router.post('/AdministrationList', postAdministrationData);
 router.post('/MentorList', postMentorData);
 router.post('/Routine', postRoutine);
-router.post('/Announcement', postAnnouncement);
+router.post('/Announcement', requireAuth, postAnnouncement);
 
 //delete requests
 router.delete('/TeacherList/:id', deleteTeacherData);
