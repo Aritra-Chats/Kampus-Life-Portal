@@ -18,10 +18,6 @@ const adminSchema = new Schema({
         type: String,
         required: true
     },
-    age: {
-        type: Number,
-        required: true,
-    },
     sendTime: {
         type: String,
         required: true,
@@ -29,7 +25,12 @@ const adminSchema = new Schema({
             /^([01]\d|2[0-3]):([0-5]\d)$/,
             'Please enter a valid time in the format HH:MM'
         ]
+    },
+    expiresAt: {
+        type: Date,
+        required: true,
+        expires: 0
     }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Admin', adminSchema)
