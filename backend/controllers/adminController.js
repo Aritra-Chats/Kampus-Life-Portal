@@ -22,7 +22,9 @@ const postAnnouncement = async (req, res) => {
     //add document to db
     try {
         const sender = req.user.userid;
-        const announcement = await Admin.create({ sender, reciever, subject, body, age: Number(age) });
+        const now = new Date();
+        const sendTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        const announcement = await Admin.create({ sender, reciever, subject, body, age: Number(age), sendTime });
         res.status(200).json(announcement);
     } catch (error) {
         res.status(400).json({error: error.message});
