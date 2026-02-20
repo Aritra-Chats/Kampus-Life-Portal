@@ -711,7 +711,6 @@ input[type="number"] {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/bg.gif") center center / cover no-repeat;
   opacity: 0.18; /* adjust glow */
   z-index: 0;
 }
@@ -814,7 +813,6 @@ input[type="number"] {
   left: 50%;
   width: 700px;
   height: 700px;
-  background: url("/images/bg.gif") no-repeat center;
   background-size: contain;
   transform: translate(-50%, -50%);
   opacity: 0.18;
