@@ -135,7 +135,7 @@ input[type="number"] {
 /* ========== UPDATED CURRENTTAB STYLING ========== */
 .CurrentTab {
   grid-area: currenttab;
-  background-color: transparent;
+  background-color: transparent !important;
   padding: 5px 10px; /* Reduced padding */
   height: 100vh;
   overflow-y: hidden;
@@ -709,7 +709,7 @@ input[type="number"] {
 
 /* Background glow like your design */
 .CurrentTab {
-  background: transparent;
+  background: transparent !important;
 }
 
 /* ===== Revolving Earth Background ===== */
@@ -721,20 +721,12 @@ input[type="number"] {
 
 /* Background globe */
 .CurrentTab::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.18; /* adjust glow */
-  z-index: 0;
+  display: none;
 }
 
 /* Dark overlay for readability */
 .CurrentTab::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 40%, rgba(7, 7, 7, 0.18) 100%);
-  z-index: 0;
+  display: none;
 }
 
 /* Bring content above background */
