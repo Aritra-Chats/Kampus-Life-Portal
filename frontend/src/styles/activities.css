@@ -4,17 +4,12 @@
   grid-template-columns: 1fr 4fr 1.5fr;
   grid-template-areas: "navtab currenttab currentdetails";
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background-color: transparent;
   gap: 0;
   position: relative;
 }
 
 .activity .page-bg-image {
-  position: fixed;
-  left: 0;
-  top: -10%;
-  height: 120vh;
-  width: 125vh;
   z-index: 0;
 }
 
@@ -42,7 +37,7 @@ input[type="number"] {
 .NavTab {
   position: relative;
   grid-area: navtab;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.82);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -139,7 +134,7 @@ input[type="number"] {
 /* ========== UPDATED CURRENTTAB STYLING ========== */
 .CurrentTab {
   grid-area: currenttab;
-  background-color: #070707;
+  background-color: rgba(7, 7, 7, 0.7);
   padding: 5px 10px; /* Reduced padding */
   height: 100vh;
   overflow-y: hidden;
@@ -401,7 +396,7 @@ input[type="number"] {
 .TeacherRoutines,
 .StudentRoutines {
   grid-area: currentdetails;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.82);
   padding: 20px;
   border-left: 2px solid #333;
   overflow-y: hidden;
@@ -713,7 +708,7 @@ input[type="number"] {
 
 /* Background glow like your design */
 .CurrentTab {
-  background: radial-gradient(circle at center, #111 0%, #070707 80%);
+  background: radial-gradient(circle at center, rgba(17, 17, 17, 0.62) 0%, rgba(7, 7, 7, 0.72) 80%);
 }
 
 /* ===== Revolving Earth Background ===== */
@@ -737,7 +732,7 @@ input[type="number"] {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, transparent 20%, #070707 85%);
+  background: radial-gradient(circle, transparent 20%, rgba(7, 7, 7, 0.65) 85%);
   z-index: 0;
 }
 

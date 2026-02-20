@@ -19,10 +19,13 @@ code {
 }
 
 .page-bg-image {
-  background-color: black;
   position: fixed;
-  left: 0;
-  top: -10%;
-  height: 120vh;
-  width: 125vh;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.38;
+  z-index: 0;
+  pointer-events: none;
 }
