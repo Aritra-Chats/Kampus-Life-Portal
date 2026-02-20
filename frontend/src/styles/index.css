@@ -17,3 +17,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.page-bg-image {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: -10%;
+  height: 120vh;
+  width: 125vh;
+}

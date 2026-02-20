@@ -6,6 +6,23 @@
   min-height: 100vh;
   background-color: #1a1a1a;
   gap: 0;
+  position: relative;
+}
+
+.activity .page-bg-image {
+  position: fixed;
+  left: 0;
+  top: -10%;
+  height: 120vh;
+  width: 125vh;
+  z-index: 0;
+}
+
+.activity .NavTab,
+.activity .CurrentTab,
+.activity .DisplayDetails {
+  position: relative;
+  z-index: 1;
 }
 
 /* Hide spin arrow of number field */

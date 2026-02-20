@@ -4,15 +4,6 @@
   background-color: black;
   text-align: center;
 }
-
-.Background {
-  background-color: black !important;
-  position: fixed;
-  left: 0;
-  top: -10%;
-  height: 120vh;
-  width: 125vh;
-}
 /* More specific override to beat .glass-surface { position: relative } */
 .Login .glass-surface.Panel, .Login .glass-surface.panel {
   position: fixed !important;
