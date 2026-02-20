@@ -36,6 +36,9 @@ input[type="number"] {
 
 /* NavTab Styling */
 .NavTab {
+  width: 260px;     
+  min-width: 260px;    
+
   position: relative;
   grid-area: navtab;
   background-color: rgba(26, 26, 26, 0.82);
@@ -840,21 +843,20 @@ input[type="number"] {
 .UserPanel {
   position: absolute;
   bottom: 20px;
-  left: 12px;
-  right: 12px; 
+  left: 16px;
+  right: 16px;   /* prevents overflow */
 
   padding: 10px 14px;
-  border-radius: 18px;
+  border-radius: 16px;
 
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 
   border: 1px solid rgba(255,255,255,0.12);
   color: white;
-  font-weight: 500;
+
   font-size: 13px;
-  line-height: 1.4;
+  font-weight: 500;
 
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
   transition: 0.25s ease;
@@ -863,6 +865,7 @@ input[type="number"] {
 .UserPanel:hover {
   transform: translateX(5px);
 }
+
 
 .UserPanel p {
   margin: 0;
