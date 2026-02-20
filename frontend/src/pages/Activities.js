@@ -134,6 +134,7 @@ const Activity = () => {
 
   return (
     <div className="activity">
+      <img className="Background" src='/images/bg.gif' alt="Background"/>
       <NavTab />
       <CurrentTab API_URL={API_URL}/>
       <DisplayDetails
