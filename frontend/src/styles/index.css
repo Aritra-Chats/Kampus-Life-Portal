@@ -25,7 +25,7 @@ code {
   height: 100vh;
   object-fit: cover;
   object-position: center;
-  transform: translateX(-25%) scale(0.6);
+  transform: scale(0.8);
   transform-origin: center center;
   opacity: 0.38;
   z-index: 0;
