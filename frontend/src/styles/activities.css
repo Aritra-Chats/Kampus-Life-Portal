@@ -43,6 +43,7 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
   border-right: 2px solid #333;
+  overflow: visible;  
 }
 
 .NavTab img {
@@ -845,42 +846,30 @@ input[type="number"] {
 
 .UserPanel {
   position: fixed;
-  bottom: 25px;
-  left: 20px;
+  bottom: 20px;
+  left: 15px;          /* slightly tighter to edge */
   z-index: 999;
-  padding: 16px 22px;
-  border-radius: 30px;
 
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  padding: 12px 18px;  /* smaller padding */
+  border-radius: 25px;
 
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255,255,255,0.12);
   color: white;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;     /* smaller text */
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  max-width: 240px;    /* prevent overflow */
+  box-sizing: border-box;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
   transition: 0.3s ease;
   overflow: hidden;
 }
 
-/* slide animation */
 .UserPanel:hover {
-  transform: translateX(8px);
-}
-
-/* glass shine */
-.UserPanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 30px;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
-  opacity: 0;
-  transition: 0.3s ease;
-}
-
-.UserPanel:hover::before {
-  opacity: 1;
+  transform: translateX(6px);
 }
