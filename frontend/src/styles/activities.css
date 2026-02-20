@@ -1,13 +1,14 @@
 /* Activities Page Main Container */
 .activity {
   display: grid;
-  grid-template-columns: 260px 1fr 380px; /* FIXED WIDTH */
+  grid-template-columns: 260px 1fr 250px; /* equal left & right */
   grid-template-areas: "navtab currenttab currentdetails";
   min-height: 100vh;
-  background-color: transparent;
+  background-color: #1a1a1a;
   gap: 0;
   position: relative;
 }
+
 
 .activity .page-bg-image {
   z-index: 0;
@@ -845,30 +846,33 @@ input[type="number"] {
 /* ===== USER PANEL GLASS ===== */
 
 .UserPanel {
-  position: fixed;
-  bottom: 25px;
-  left: 20px;
-  z-index: 9999;
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  right: 12px; 
 
-  padding: 14px 20px;
-  border-radius: 30px;
+  padding: 10px 14px;
+  border-radius: 18px;
 
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.12);
   color: white;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
 
-  max-width: 220px;
-  white-space: normal;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: 0.25s ease;
 }
 
 .UserPanel:hover {
-  transform: translateX(8px);
+  transform: translateX(5px);
+}
+
+.UserPanel p {
+  margin: 0;
+  font-size: 13px;
 }
