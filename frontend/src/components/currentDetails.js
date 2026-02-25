@@ -23,6 +23,10 @@ const CurrentDetails = ({ details, API_URL }) => {
                 response = await fetch(`${API_URL}/api/Routine/` + details._id, {
                     method: 'DELETE'
                 });
+            case 'administration':
+                response = await fetch(`${API_URL}/api/Administration/` + details._id, {
+                    method: 'DELETE'
+                });
                 break;
             default:
                 console.log('currentDetails: responseError: Invalid option');
@@ -47,6 +51,9 @@ const CurrentDetails = ({ details, API_URL }) => {
                 break;
             case 'routine':
                 dispatch({ type: 'DELETE_ROUTINE', payload: json});
+                break;
+            case 'administration':
+                dispatch({ type: 'DELETE_ADMINISTRATION', payload: json });
                 break;
             default:
                 console.log('currentDetails: jsonError: Invalid option');
@@ -94,6 +101,22 @@ const CurrentDetails = ({ details, API_URL }) => {
                     <p><strong>Teacher:</strong> {details.teacher}</p>
                 </div>
             )
+        case 'administration':
+            return (
+                <div className='AdministrationDetails'>
+                    <div className='header'>
+                        <h4>{details.name.replace(/ /g, '\n')}</h4>
+                        <span className="material-symbols-outlined" onClick={handleClick}>
+                            delete
+                        </span>
+                    </div>
+
+                    <p><strong>Email:</strong> {details.email}</p>
+                    <p><strong>Phone:</strong> {details.phone}</p>
+                    <p><strong>Cabin:</strong> {details.cabin}</p>
+                    <p><strong>Department:</strong> {details.department}</p>
+                </div>
+            );
         default:
             console.log('currentDetails: cardDetails: Invalid option');
             return null;

@@ -84,7 +84,31 @@ export const functionsReducer = (state, action) => {
                 ...state,
                 studentList: state.studentList.filter((sl) => sl._id !== action.payload._id)
             };
-   
+        case 'GET_ADMINISTRATION':
+            return {
+                ...state,
+                administration: action.payload
+            };
+
+        case 'ADD_ADMINISTRATION':
+            return {
+                ...state,
+                administration: [action.payload, ...state.administration]
+            };
+
+        case 'SET_ADMINISTRATION':
+            return {
+                ...state,
+                administration: action.payload
+            };
+
+        case 'DELETE_ADMINISTRATION':
+            return {
+                ...state,
+                administration: state.administration.filter(
+                    (ad) => ad._id !== action.payload._id
+                )
+            };   
         default:
             console.log("Invalid case");
             return state;
@@ -97,6 +121,7 @@ export const FunctionsContextProvider = ({ children }) => {
         teacherList: null,
         routine: null,  
         studentList: null,
+        administration: null 
         
     });
 

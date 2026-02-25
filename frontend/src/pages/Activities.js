@@ -27,6 +27,7 @@ const Activity = () => {
     teacherList,
     studentList,
     routine,
+    administration, 
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -49,6 +50,9 @@ const Activity = () => {
             break;
           case "routine":
             response = await fetch(`${API_URL}/api/Routine`);
+            break;
+          case "administration":
+            response = await fetch(`${API_URL}/api/Administration`);
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -73,6 +77,9 @@ const Activity = () => {
             break;
           case "routine":
             dispatch({ type: "GET_ROUTINE", payload: json });
+            break;
+          case "administration":
+            dispatch({ type: "GET_ADMINISTRATION", payload: json });
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -121,6 +128,19 @@ const Activity = () => {
                 <CurrentDetails
                   key={routineDetails._id}
                   details={routineDetails}
+                  API_URL={API_URL}
+                />
+              ))}
+          </div>
+        );
+      case "administration":
+        return (
+          <div className="AdministrationList">
+            {administration &&
+              administration.map((adminDetails) => (
+                <CurrentDetails
+                  key={adminDetails._id}
+                  details={adminDetails}
                   API_URL={API_URL}
                 />
               ))}

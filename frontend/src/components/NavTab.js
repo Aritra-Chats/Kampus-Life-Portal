@@ -44,6 +44,9 @@ const NavTab = () => {
             case 'Routine':
                 dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
+            case 'Administration':   // ✅ ADD THIS
+                dispatch({ type: 'SET_TAB', payload: 'administration' });
+                break;
             default:
                 console.log({error: "Invalid option"});
                 break;
@@ -65,6 +68,8 @@ const NavTab = () => {
                 <div className={`option ${tab === 'studentList' ? 'selected' : ''}`} onClick={() => switchTab('StudentList')}>Student List</div>
                 <h6>Routine List</h6>
                 <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
+                <h6>Administration</h6>
+                <div className={`option ${tab === 'administration' ? 'selected' : ''}`} onClick={() => switchTab('Administration')}>Administration</div>
             </div>
             
             {/* ========== ADDED USER PANEL HERE (OUTSIDE tabOptions) ========== */}

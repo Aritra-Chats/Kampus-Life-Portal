@@ -13,7 +13,8 @@ const CurrentTab = ({ API_URL }) => {
         const apiMap = {
             teacherList: `${API_URL}/api/TeacherList`,
             studentList: `${API_URL}/api/StudentList`,
-            routine: `${API_URL}/api/Routine`
+            routine: `${API_URL}/api/Routine`,
+            administration: `${API_URL}/api/Administration` 
         };
 
         try {
@@ -32,7 +33,8 @@ const CurrentTab = ({ API_URL }) => {
             const actionMap = {
                 teacherList: 'ADD_TEACHER_DETAILS',
                 studentList: 'ADD_STUDENT_DETAILS',
-                routine: 'ADD_ROUTINE'
+                routine: 'ADD_ROUTINE',
+                administration: 'ADD_ADMINISTRATION_DETAILS'
             };
 
             dispatch({ type: actionMap[tab], payload: json });
@@ -243,6 +245,45 @@ const CurrentTab = ({ API_URL }) => {
                                     <input name="classroom" placeholder="classroom" onChange={handleChange} required />
                                 </div>
                                 <button type="submit" className="add-routine-button">ADD ROUTINE DETAILS</button>
+                            </form>
+                        </div>
+                    </div>
+                );
+            case 'administration':
+                return (
+                    <div className='AdministrationPage'>
+                        <div className='header'>
+                            <h1>Administration List</h1>
+                        </div>
+
+                        <div className="divider"></div>
+
+                        <div className='add-section'>
+                            <h3>ADD ADMINISTRATION DETAILS</h3>
+                            <form onSubmit={handleSubmit} className="admin-form">
+                                <div className="form-group">
+                                    <label>Name:</label>
+                                    <input name="name" placeholder="name" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email:</label>
+                                    <input name="email" type="email" placeholder="email" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Phone No:</label>
+                                    <input name="phone" placeholder="phone" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Cabin:</label>
+                                    <input name="cabin" placeholder="cabin" onChange={handleChange} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Department:</label>
+                                    <input name="department" placeholder="department" onChange={handleChange} required />
+                                </div>
+                                <button type="submit" className="add-admin-button">
+                                    ADD ADMINISTRATION DETAILS
+                                </button>
                             </form>
                         </div>
                     </div>
