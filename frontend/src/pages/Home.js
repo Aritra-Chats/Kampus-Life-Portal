@@ -60,7 +60,7 @@ const Home = () => {
             setOptionsOpened(true);
         }
     }
-
+    
     return (
         <div className='home'>
             <img className="page-bg-image" src='/images/bg.gif' alt="Background"/>
