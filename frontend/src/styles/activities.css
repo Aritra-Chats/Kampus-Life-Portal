@@ -544,7 +544,6 @@ input[type="number"] {
   color: #ff4444;
   text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
 }
-
 .TeacherDetails p,
 .StudentDetails p,
 .TeacherRoutine p,
@@ -553,8 +552,8 @@ input[type="number"] {
   font-size: 14px;
   margin: 8px 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .TeacherDetails p strong,
@@ -564,6 +563,15 @@ input[type="number"] {
   color: white;
   font-weight: 600;
   min-width: 80px;
+  flex-shrink: 0;
+}
+
+.TeacherDetails p,
+.StudentDetails p,
+.TeacherRoutine p,
+.StudentRoutine p {
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* Search Bar Styling */
