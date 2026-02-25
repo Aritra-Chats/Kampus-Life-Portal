@@ -1,7 +1,7 @@
 /* Activities Page Main Container */
 .activity {
   display: grid;
-  grid-template-columns: 260px 1fr 260px; /* equal left & right */
+  grid-template-columns: 260px 1fr 280px; /* equal left & right */
   grid-template-areas: "navtab currenttab currentdetails";
   min-height: 100vh;
   background-color: #1a1a1a;
