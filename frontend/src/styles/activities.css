@@ -552,31 +552,35 @@ input[type="number"] {
   font-size: 14px;
   margin: 8px 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  gap: 10px;
+  gap: 8px;                  /* small controlled gap */
 }
 
+/* label */
 .TeacherDetails p strong,
 .StudentDetails p strong,
 .TeacherRoutine p strong,
 .StudentRoutine p strong {
   color: white;
   font-weight: 600;
-  min-width: 80px;
+  min-width: 70px;           /* fixed label width */
   flex-shrink: 0;
+  text-align: left;
 }
 
-.TeacherDetails p span:not(strong),
-.StudentDetails p span:not(strong),
-.TeacherRoutine p span:not(strong),
-.StudentRoutine p span:not(strong) {
-  white-space: nowrap;
-  overflow: visible;
-  text-align: right;
+/* value */
+.TeacherDetails p span,
+.StudentDetails p span,
+.TeacherRoutine p span,
+.StudentRoutine p span {
   flex: 1;
+  color: #ccc;
+  text-align: left;          /* align inside box */
+  white-space: nowrap;       /* single line */
+  overflow: hidden;          /* stay inside card */
+  text-overflow: ellipsis;   /* ... if too long */
 }
 /* Search Bar Styling */
 .Search {
