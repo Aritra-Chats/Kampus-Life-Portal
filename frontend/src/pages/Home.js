@@ -23,6 +23,8 @@ const Home = () => {
                 });
                 if (response.ok) {
                     const userData = await response.json();
+                    console.log('User data received:', userData);
+                    console.log('Designation:', userData.designation);
                     setUserID(userData.userid);
                     setDesignation(userData.designation);
                 }
@@ -61,6 +63,8 @@ const Home = () => {
         }
     }
 
+    console.log('Current designation state:', designation);
+    
     return (
         <div className='home'>
             <img className="page-bg-image" src='/images/bg.gif' alt="Background"/>
@@ -71,6 +75,7 @@ const Home = () => {
                     <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                    <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
                     </>
                 )}
                 {designation === 'official' && (
