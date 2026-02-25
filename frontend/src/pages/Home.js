@@ -71,10 +71,10 @@ const Home = () => {
                     <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                    {designation === 'official' && (
+                        <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
+                    )}
                     </>
-                )}
-                {designation === 'official' && (
-                    <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
                 )}
             </GlassSurface>
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
