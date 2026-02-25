@@ -36,7 +36,7 @@ const IMPORT_CONFIG = {
   },
   teacherList: {
     model: TeacherList,
-    requiredHeaders: ['Name', 'Roll No.', 'Email id', 'Phone No.', 'Cabin'],
+    requiredHeaders: ['Name', 'Roll No.', 'Email id', 'Phone No.', 'Cabin', 'Sections'],
     mapRow: (row) => ({
       name: row['Name'],
       roll: row['Roll No.'],
