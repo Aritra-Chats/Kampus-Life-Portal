@@ -556,6 +556,7 @@ input[type="number"] {
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+  gap: 10px;
 }
 
 .TeacherDetails p strong,
@@ -568,14 +569,15 @@ input[type="number"] {
   flex-shrink: 0;
 }
 
-.TeacherDetails p,
-.StudentDetails p,
-.TeacherRoutine p,
-.StudentRoutine p {
+.TeacherDetails p span:not(strong),
+.StudentDetails p span:not(strong),
+.TeacherRoutine p span:not(strong),
+.StudentRoutine p span:not(strong) {
   white-space: nowrap;
   overflow: visible;
+  text-align: right;
+  flex: 1;
 }
-
 /* Search Bar Styling */
 .Search {
   display: flex;
