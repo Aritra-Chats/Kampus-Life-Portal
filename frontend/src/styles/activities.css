@@ -180,7 +180,8 @@ input[type="number"] {
 
 .TeacherListPage,
 .StudentListPage,
-.RoutinePage {
+.RoutinePage,
+.AdministrationPage {
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -191,7 +192,8 @@ input[type="number"] {
 /* Header - VERY COMPACT */
 .TeacherListPage .header,
 .StudentListPage .header,
-.RoutinePage .header {
+.RoutinePage .header,
+.AdministrationPage .header {
   text-align: center;
   margin: 0 0 2px 0;
   padding: 3px 0;
@@ -199,7 +201,8 @@ input[type="number"] {
 
 .TeacherListPage .header h1,
 .StudentListPage .header h1,
-.RoutinePage .header h1 {
+.RoutinePage .header h1,
+.AdministrationPage .header h1 {
   color: white;
   font-size: 1.5rem;
   font-weight: 700;
@@ -211,7 +214,8 @@ input[type="number"] {
 /* Upload Section - EXTREMELY COMPACT LIKE IMAGE */
 .TeacherListPage .upload-section,
 .StudentListPage .upload-section,
-.RoutinePage .upload-section {
+.RoutinePage .upload-section, 
+.AdministrationPage .upload-section {
   background: transparent;
   border-radius: 0;
   padding: 4px 0;
@@ -221,7 +225,8 @@ input[type="number"] {
 
 .TeacherListPage .upload-section h3,
 .StudentListPage .upload-section h3,
-.RoutinePage .upload-section h3 {
+.RoutinePage .upload-section h3,
+.AdministrationPage .upload-section h3 {
   color: #ccc;
   font-size: 0.85rem;
   font-weight: 500;
@@ -233,7 +238,8 @@ input[type="number"] {
 /* Upload Box - SIMPLE LIKE IMAGE */
 .TeacherListPage .upload-box,
 .StudentListPage .upload-box,
-.RoutinePage .upload-box {
+.RoutinePage .upload-box,
+.AdministrationPage .upload-box {
   border: 0.5px solid #444;
   border-radius: 2px;
   padding: 6px 8px;
@@ -253,7 +259,8 @@ input[type="number"] {
 /* Upload Text - VERY SMALL AND LEFT */
 .TeacherListPage .upload-box p,
 .StudentListPage .upload-box p,
-.RoutinePage .upload-box p {
+.RoutinePage .upload-box p,
+.AdministrationPage .upload-box p {
   color: #aaa;
   font-size: 10px;
   margin: 0;
@@ -264,7 +271,8 @@ input[type="number"] {
 /* File Hint - TINY */
 .TeacherListPage .file-hint,
 .StudentListPage .file-hint,
-.RoutinePage .file-hint {
+.RoutinePage .file-hint,
+.AdministrationPage .file-hint {
   color: #777 !important;
   font-size: 8px !important;
   font-weight: normal !important;
@@ -275,7 +283,8 @@ input[type="number"] {
 /* Upload Button - SMALL AND SIMPLE */
 .TeacherListPage .upload-button,
 .StudentListPage .upload-button,
-.RoutinePage .upload-button {
+.RoutinePage .upload-button,
+.AdministrationPage .upload-button {
   padding: 3px 8px;
   background: #2a2a2a;
   color: white;
@@ -292,7 +301,8 @@ input[type="number"] {
 /* Divider Line - THIN AND SHORT */
 .TeacherListPage .divider,
 .StudentListPage .divider,
-.RoutinePage .divider {
+.RoutinePage .divider,
+.AdministrationPage .divider {
   height: 0.3px;
   background: #333;
   margin: 6px 0;
@@ -304,7 +314,8 @@ input[type="number"] {
 /* Add Section - COMPACT FORM */
 .TeacherListPage .add-section,
 .StudentListPage .add-section,
-.RoutinePage .add-section {
+.RoutinePage .add-section,
+.AdministrationPage .add-section {
   background: transparent;
   border-radius: 0;
   padding: 4px 0;
@@ -313,7 +324,8 @@ input[type="number"] {
 
 .TeacherListPage .add-section h3,
 .StudentListPage .add-section h3,
-.RoutinePage .add-section h3 {
+.RoutinePage .add-section h3,
+.AdministrationPage .add-section h3 {
   color: #ccc;
   font-size: 0.85rem;
   font-weight: 500;
@@ -325,13 +337,15 @@ input[type="number"] {
 /* Form Group - COMPACT */
 .TeacherListPage .form-group,
 .StudentListPage .form-group,
-.RoutinePage .form-group {
+.RoutinePage .form-group,
+.AdministrationPage .form-group {
   margin-bottom: 10px;
 }
 
 .TeacherListPage .form-group label,
 .StudentListPage .form-group label,
-.RoutinePage .form-group label {
+.RoutinePage .form-group label,
+.AdministrationPage .form-group label {
   display: block;
   color: white;
   margin-bottom: 2px;
@@ -342,7 +356,8 @@ input[type="number"] {
 /* Input Fields - COMPACT */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
-.RoutinePage .form-group input {
+.RoutinePage .form-group input,
+.AdministrationPage .form-group input {
   width: 100%;
   padding: 6px 8px;
   background-color: #2a2a2a;
@@ -357,7 +372,8 @@ input[type="number"] {
 
 .TeacherListPage .form-group input:focus,
 .StudentListPage .form-group input:focus,
-.RoutinePage .form-group input:focus {
+.RoutinePage .form-group input:focus,
+.AdministrationPage .form-group input:focus {
   outline: none;
   border-color: #666;
   background-color: #333;
@@ -366,14 +382,16 @@ input[type="number"] {
 /* Form styles */
 .TeacherListPage .teacher-form,
 .StudentListPage .student-form,
-.RoutinePage .routine-form {
+.RoutinePage .routine-form,
+.AdministrationPage .administration-form {
   width: 100%;
 }
 
 /* Add Button - COMPACT */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
-.RoutinePage .add-routine-button {
+.RoutinePage .add-routine-button,
+.AdministrationPage .add-administration-button {
   width: 100%;
   padding: 8px;
   background: #2a2a2a;
@@ -391,7 +409,8 @@ input[type="number"] {
 
 .TeacherListPage .add-teacher-button:hover,
 .StudentListPage .add-student-button:hover,
-.RoutinePage .add-routine-button:hover {
+.RoutinePage .add-routine-button:hover,
+.AdministrationPage .add-administration-button:hover {
   background: #333;
   border-color: #666;
 }
@@ -658,7 +677,8 @@ input[type="number"] {
 
   .TeacherListPage .header h1,
   .StudentListPage .header h1,
-  .RoutinePage .header h1 {
+  .RoutinePage .header h1,
+  .AdministrationPage .header h1 {
     font-size: 1.3rem;
   }
 }
@@ -668,7 +688,8 @@ input[type="number"] {
 /* Center the content like target design */
 .TeacherListPage,
 .StudentListPage,
-.RoutinePage {
+.RoutinePage,
+.AdministrationPage {
   max-width: 900px;
   margin: auto;
 }
@@ -679,7 +700,9 @@ input[type="number"] {
 .StudentListPage .upload-section,
 .StudentListPage .add-section,
 .RoutinePage .upload-section,
-.RoutinePage .add-section {
+.RoutinePage .add-section,
+.AdministrationPage .upload-section,
+.AdministrationPage .add-section {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -693,7 +716,8 @@ input[type="number"] {
 /* Better header */
 .TeacherListPage .header h1,
 .StudentListPage .header h1,
-.RoutinePage .header h1 {
+.RoutinePage .header h1,
+.AdministrationPage .header h1 {
   font-size: 2rem;
   margin-bottom: 12px;
 }
@@ -701,7 +725,8 @@ input[type="number"] {
 /* Rounded modern input fields */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
-.RoutinePage .form-group input {
+.RoutinePage .form-group input,
+.AdministrationPage .form-group input {
   border-radius: 8px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
@@ -712,7 +737,8 @@ input[type="number"] {
 /* Modern button */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
-.RoutinePage .add-routine-button {
+.RoutinePage .add-routine-button,
+.AdministrationPage .add-administration-button {
   background: linear-gradient(135deg, #111, #333);
   border-radius: 10px;
   font-size: 14px;
@@ -750,7 +776,8 @@ input[type="number"] {
 /* Bring content above background */
 .TeacherListPage,
 .StudentListPage,
-.RoutinePage {
+.RoutinePage,
+.AdministrationPage {
   position: relative;
   z-index: 1;
 }/* ===== FACULTY PAGE MODERN UI FIX ===== */
@@ -758,7 +785,8 @@ input[type="number"] {
 /* Center the content like target design */
 .TeacherListPage,
 .StudentListPage,
-.RoutinePage {
+.RoutinePage,
+.AdministrationPage {
   max-width: 900px;
   margin: auto;
 }
@@ -769,7 +797,9 @@ input[type="number"] {
 .StudentListPage .upload-section,
 .StudentListPage .add-section,
 .RoutinePage .upload-section,
-.RoutinePage .add-section {
+.RoutinePage .add-section,
+.AdministrationPage .upload-section,
+.AdministrationPage .add-section {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -783,7 +813,8 @@ input[type="number"] {
 /* Better header */
 .TeacherListPage .header h1,
 .StudentListPage .header h1,
-.RoutinePage .header h1 {
+.RoutinePage .header h1,
+.AdministrationPage .header h1 {
   font-size: 2rem;
   margin-bottom: 12px;
 }
@@ -791,7 +822,8 @@ input[type="number"] {
 /* Rounded modern input fields */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
-.RoutinePage .form-group input {
+.RoutinePage .form-group input,
+.AdministrationPage .form-group input {
   border-radius: 8px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
@@ -802,7 +834,8 @@ input[type="number"] {
 /* Modern button */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
-.RoutinePage .add-routine-button {
+.RoutinePage .add-routine-button,
+.AdministrationPage .add-administration-button {
   background: linear-gradient(135deg, #111, #333);
   border-radius: 10px;
   font-size: 14px;
@@ -846,7 +879,8 @@ input[type="number"] {
 /* keep form above the globe */
 .TeacherListPage,
 .StudentListPage,
-.RoutinePage {
+.RoutinePage,
+.AdministrationPage {
   position: relative;
   z-index: 1;
 }
