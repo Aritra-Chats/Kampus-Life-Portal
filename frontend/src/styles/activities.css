@@ -552,8 +552,10 @@ input[type="number"] {
   font-size: 14px;
   margin: 8px 0;
   display: flex;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .TeacherDetails p strong,
@@ -570,8 +572,8 @@ input[type="number"] {
 .StudentDetails p,
 .TeacherRoutine p,
 .StudentRoutine p {
-  word-break: break-word;
-  max-width: 100%;
+  white-space: nowrap;
+  overflow: visible;
 }
 
 /* Search Bar Styling */
