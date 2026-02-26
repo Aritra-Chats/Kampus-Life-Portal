@@ -37,6 +37,11 @@ const routineSchema = new Schema({
             message: 'Start time must be before end time'
         }
     },
+    teacher: {
+        type: String,
+        required: true,
+        trim: true
+    },
     classroom: {
         type: String,
         required: true,
