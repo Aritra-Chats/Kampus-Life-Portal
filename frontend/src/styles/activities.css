@@ -1034,3 +1034,12 @@ input[type="number"] {
   border-color: rgba(255,255,255,0.28) !important;
   box-shadow: 0 16px 40px rgba(0,0,0,0.75) !important;
 }
+
+.CurrentTab {
+  border-left: 2px solid #333;   /* same as CurrentDetails */
+  padding-left: 14px;           /* creates visual breathing space */
+}
+
+.NavTab {
+  padding-right: 20px;          /* balances spacing */
+}
