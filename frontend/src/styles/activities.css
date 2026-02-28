@@ -910,36 +910,55 @@ input[type="number"] {
 
 .UserPanel {
   position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;   /* prevents overflow */
+  bottom: 12px;
+  left: 10px;
+  right: 10px;              /* stays inside NavTab */
 
-  padding: 10px 14px;
-  border-radius: 16px;
+  padding: 6px 8px;         /* compact size */
+  border-radius: 10px;
 
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(14px);
 
   border: 1px solid rgba(255,255,255,0.12);
   color: white;
 
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
 
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
   transition: 0.25s ease;
-}
 
+  /* layout */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Small user icon */
+.UserPanel::before {
+  content: "👤";
+  font-size: 13px;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
 .UserPanel:hover {
   transform: translateX(5px);
 }
-
-
 .UserPanel p {
   margin: 0;
-  font-size: 13px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 /* ===== HARD SYNC UPLOAD BOX DIMENSIONS (PIXEL PERFECT) ===== */
 
 /* Outer section */
