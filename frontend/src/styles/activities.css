@@ -987,7 +987,7 @@ input[type="number"] {
 .RoutinePage .upload-box,
 .AdministrationPage .upload-box {
   width: 100% !important;
-  height: 160px !important;          /* FIXED HEIGHT */
+  height: 160px !important;
   min-height: 160px !important;
   max-height: 160px !important;
 
@@ -996,7 +996,7 @@ input[type="number"] {
   align-items: center !important;
   justify-content: center !important;
 
-  padding: 0 !important;             /* internal spacing controlled below */
+  padding: 0 !important;
   margin: 0 !important;
 
   border-radius: 14px !important;
@@ -1056,4 +1056,3 @@ input[type="number"] {
   border-color: rgba(255,255,255,0.28) !important;
   box-shadow: 0 16px 40px rgba(0,0,0,0.75) !important;
 }
-
