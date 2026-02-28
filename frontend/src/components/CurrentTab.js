@@ -258,7 +258,7 @@ const CurrentTab = ({ API_URL }) => {
                             {/* ===== UPLOAD SECTION (SAME AS TEACHER) ===== */}
                             <div className='upload-section'>
                                 <h3>Initialize Administration Details List:</h3>
-                                <form className='upload-section' onSubmit={handleAdminFileUpload}>
+                                <form className='upload-section' onSubmit={handleFileUpload}>
                                     <label htmlFor="admin-file-upload" className="upload-label">
                                         <span className="material-symbols-outlined">upload</span>
                                         <p>Upload administration details sheet:</p>
