@@ -1,345 +1,389 @@
 /* ============================= */
-/* GLOBAL RESET */
-/* ============================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", "Segoe UI", sans-serif;
-}
-
-body {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #0b0f1a;
-    color: #fff
-}
-
-/* ============================= */
-/* 🌍 EARTH / DHARTI BACKGROUND */
+/* GLOBAL RESET & BASE */
 /* ============================= */
 
-.earth-bg,
-.globe-bg,
-.canvas-bg,
-#earthCanvas,
-#globeCanvas {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-.earth-overlay {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.85));
-    z-index: 1;
-    pointer-events: none;
+body{
+  background:#0e0e0e;
+  color:white;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 /* ============================= */
-/* APP LAYOUT */
+/* MAIN LAYOUT */
 /* ============================= */
 
-.AppLayout {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    padding: 18px;
-    gap: 18px;
+.activity {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  grid-template-areas: "navtab currenttab currentdetails";
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
 }
 
 /* ============================= */
-/* NAVBAR / SIDEBAR */
+/* NAV TAB */
 /* ============================= */
 
 .NavTab {
-    width: 260px;
-    min-width: 260px;
-    height: 100%;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(18px);
-    border-radius: 22px;
-    border: 1px solid rgba(255,255,255,0.15);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 14px;
-    overflow: hidden;
+  grid-area: navtab;
+  background-color: rgba(26,26,26,0.9);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2px solid #333;
+  width:260px;
+  min-width:260px;
 }
 
-/* Nav items */
-.nav-items {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.NavTab img {
+  max-width: 200px;
+  margin-bottom: 30px;
 }
 
-.nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 14px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.25s ease;
-    color: rgba(255,255,255,0.85);
-    font-size: 14px;
+.tabOptions{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
-.nav-item:hover {
-    background: rgba(255,255,255,0.12);
+.tabOptions h6{
+  color:#777;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.nav-item.active {
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.25);
+.tabOptions .option{
+  color:white;
+  padding:12px 16px;
+  cursor:pointer;
+  border-radius:8px;
+  transition:.2s;
 }
 
-/* ============================= */
-/* USER PANEL (BOTTOM LEFT) */
-/* ============================= */
-
-.user-panel {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 10px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.18);
-    max-width: 100%;
-    overflow: hidden;
+.tabOptions .option:hover{
+  background:#2a2a2a;
 }
 
-.user-icon {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    min-height: 28px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-}
-
-.user-info {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.user-name {
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.user-designation {
-    font-size: 10px;
-    opacity: 0.7;
+.tabOptions .option.selected{
+  background:#2a2a2a;
+  border-left:3px solid white;
 }
 
 /* ============================= */
-/* MAIN CONTENT */
+/* SMALL USER PANEL */
 /* ============================= */
 
-.MainContent {
-    flex: 1;
-    height: 100%;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(22px);
-    border-radius: 24px;
-    border: 1px solid rgba(255,255,255,0.14);
-    padding: 22px;
-    overflow-y: auto;
+.user-glass{
+  margin-top:auto;
+  width:100%;
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 18px;
+.user-panel{
+  width:100%;
+  padding:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background: rgba(255,255,255,0.05);
+  border-top:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
 }
 
-.header h1 {
-    font-size: 22px;
-    font-weight: 600;
+.user-icon{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background: rgba(255,255,255,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
 }
 
-/* ============================= */
-/* GLASS UPLOAD BOX */
-/* ============================= */
-
-.upload-section {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 18px;
-    padding: 14px;
-    backdrop-filter: blur(14px);
-    width: 360px;
+.user-info{
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 }
 
-.upload-box {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.user-name{
+  font-size:12px;
+  font-weight:600;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.upload-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 18px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.10);
-    border: 1px dashed rgba(255,255,255,0.25);
-    cursor: pointer;
-    text-align: center;
-    transition: 0.25s;
+.user-designation{
+  font-size:11px;
+  color:#9fd3ff;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.upload-label:hover {
-    background: rgba(255,255,255,0.16);
+.user-options{
+  margin-top:6px;
 }
 
-.upload-label span {
-    font-size: 22px;
-}
-
-.file-hint {
-    font-size: 11px;
-    opacity: 0.7;
-}
-
-.upload-button {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background: rgba(0,153,255,0.85);
-    color: white;
-    font-weight: 600;
+.logout-btn{
+  width:100%;
+  padding:8px;
+  border-radius:8px;
+  background:#1a1a1a;
+  border:1px solid #333;
+  color:white;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
 }
 
 /* ============================= */
-/* DIVIDER */
+/* CURRENT TAB */
 /* ============================= */
 
-.divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(255,255,255,0.15);
-    margin: 18px 0;
+.CurrentTab{
+  grid-area: currenttab;
+  height:100vh;
+  overflow-y:auto;
+  border-left:2px solid #333;
+  padding:24px;
+  background:transparent;
+}
+
+/* ============================= */
+/* RIGHT PANEL */
+/* ============================= */
+
+.DisplayDetails{
+  grid-area: currentdetails;
+  background-color: rgba(26,26,26,0.9);
+  padding: 20px;
+  border-left: 2px solid #333;
+  overflow-y:auto;
+}
+
+/* ============================= */
+/* UNIFIED PAGE SYSTEM */
+/* ============================= */
+
+.TeacherListPage,
+.StudentListPage,
+.RoutinePage,
+.AdministrationPage{
+  max-width:900px;
+  margin:auto;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+/* ============================= */
+/* HEADERS */
+/* ============================= */
+
+.header{
+  text-align:center;
+}
+
+.header h1{
+  font-size:1.8rem;
+  letter-spacing:1px;
+}
+
+/* ============================= */
+/* HARD SYNC UPLOAD SYSTEM */
+/* ============================= */
+
+.upload-section{
+  width:100%;
+  padding:24px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+}
+
+.upload-section h3{
+  margin-bottom:12px;
+  color:#ccc;
+  font-size:14px;
+}
+
+/* Upload box */
+.upload-box{
+  width:100%;
+  height:160px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(22px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.upload-box:hover{
+  transform:scale(1.01);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.upload-box .material-symbols-outlined{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.upload-box p{
+  font-size:15px;
+  font-weight:500;
+}
+
+.file-hint{
+  font-size:11px;
+  opacity:.8;
+}
+
+.upload-button{
+  margin-top:10px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:#1a1a1a;
+  border:1px solid #333;
+  color:white;
+  cursor:pointer;
 }
 
 /* ============================= */
 /* FORMS */
 /* ============================= */
 
-.add-section {
-    background: rgba(255,255,255,0.07);
-    border-radius: 18px;
-    padding: 20px;
-    border: 1px solid rgba(255,255,255,0.15);
+.add-section{
+  width:100%;
+  padding:24px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
 }
 
-.add-section h3 {
-    margin-bottom: 14px;
-    font-size: 16px;
+.add-section h3{
+  margin-bottom:16px;
+  color:#ccc;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 12px;
+.form-group{
+  margin-bottom:14px;
 }
 
-.form-group label {
-    font-size: 12px;
-    opacity: 0.8;
+.form-group label{
+  font-size:13px;
+  display:block;
+  margin-bottom:6px;
 }
 
-.form-group input {
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.10);
-    color: white;
-    outline: none;
+.form-group input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
 }
 
-/* ============================= */
-/* BUTTONS */
-/* ============================= */
+.form-group input:focus{
+  outline:none;
+  border-color:white;
+}
+
+/* Buttons */
 
 .add-teacher-button,
 .add-student-button,
 .add-routine-button,
-.add-admin-button {
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s;
+.add-admin-button{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  background: linear-gradient(135deg,#111,#333);
+  border:1px solid #444;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:10px;
 }
 
 .add-teacher-button:hover,
 .add-student-button:hover,
 .add-routine-button:hover,
-.add-admin-button:hover {
-    transform: translateY(-1px);
-    opacity: 0.95;
+.add-admin-button:hover{
+  background: linear-gradient(135deg,#222,#444);
 }
 
 /* ============================= */
-/* SCROLLBAR */
+/* DETAILS PANEL FIX */
 /* ============================= */
 
-.MainContent::-webkit-scrollbar {
-    width: 6px;
+.TeacherDetails p,
+.StudentDetails p,
+.TeacherRoutine p,
+.StudentRoutine p{
+  display:flex;
+  gap:8px;
 }
 
-.MainContent::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.25);
-    border-radius: 10px;
+.TeacherDetails p span,
+.StudentDetails p span,
+.TeacherRoutine p span,
+.StudentRoutine p span{
+  min-width:0;
+  max-width:100%;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
 
-@media (max-width: 900px) {
-    .NavTab {
-        width: 210px;
-        min-width: 210px;
-    }
+@media(max-width:900px){
+  .activity{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "navtab"
+      "currenttab"
+      "currentdetails";
+  }
 
-    .upload-section {
-        width: 100%;
-    }
+  .NavTab{
+    width:100%;
+    flex-direction:row;
+    justify-content:space-between;
+  }
 
-    .header {
-        flex-direction: column;
-        gap: 12px;
-    }
+  .tabOptions{
+    flex-direction:row;
+    overflow-x:auto;
+  }
 }
