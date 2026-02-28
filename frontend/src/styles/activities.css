@@ -214,16 +214,20 @@ input[type="number"] {
   letter-spacing: 2px;
 }
 
-/* Upload Section - LIKE IMAGE */
+/* Upload Section - GLASS EFFECT */
 .TeacherListPage .upload-section,
 .StudentListPage .upload-section,
-.RoutinePage .upload-section, 
+.RoutinePage .upload-section,
 .AdministrationPage .upload-section {
-  background: transparent;
-  border-radius: 0;
-  padding: 4px 0;
-  margin: 0 0 6px 0;
-  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 
 .TeacherListPage .upload-section h3,
@@ -238,25 +242,22 @@ input[type="number"] {
   text-transform: none;
 }
 
-/* Upload Box - LIKE IMAGE */
+/* Upload Box - Glass */
 .TeacherListPage .upload-box,
 .StudentListPage .upload-box,
 .RoutinePage .upload-box,
 .AdministrationPage .upload-box {
-  border: 0.5px solid #444;
-  border-radius: 2px;
-  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
   width: 100%;
-  text-align: left;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
   cursor: pointer;
-  transition: all 0.2s;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  background: rgba(0, 0, 0, 0.1);
-  min-height: auto;
-  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
 }
 
 /* Upload Text - LIKE IMAGE */
@@ -302,17 +303,21 @@ input[type="number"] {
   width: 100%;
 }
 
-/* Add Section - LIKE IMAGE */
+/* ADD SECTION - GLASS EFFECT */
 .TeacherListPage .add-section,
 .StudentListPage .add-section,
 .RoutinePage .add-section,
 .AdministrationPage .add-section {
-  background: transparent;
-  border-radius: 0;
-  padding: 4px 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 16px;
   margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
-
 .TeacherListPage .add-section h3,
 .StudentListPage .add-section h3,
 .RoutinePage .add-section h3,
@@ -344,21 +349,18 @@ input[type="number"] {
   font-weight: 500;
 }
 
-/* Input Fields - LIKE IMAGE */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
 .RoutinePage .form-group input,
 .AdministrationPage .form-group input {
   width: 100%;
   padding: 10px 12px;
-  background-color: #2a2a2a;
-  border: 0.5px solid #444;
-  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   color: white;
   font-size: 13px;
   transition: all 0.2s ease;
-  box-sizing: border-box;
-  height: 40px;
 }
 
 .TeacherListPage .form-group input:focus,
@@ -377,33 +379,31 @@ input[type="number"] {
 .AdministrationPage .administration-form {
   width: 100%;
 }
-
-/* Add Button - LIKE IMAGE */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
 .RoutinePage .add-routine-button,
 .AdministrationPage .add-administration-button {
   width: 100%;
   padding: 12px;
-  background: #2a2a2a;
-  border: 0.5px solid #444;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.2s;
-  margin-top: 12px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
 }
 
 .TeacherListPage .add-teacher-button:hover,
 .StudentListPage .add-student-button:hover,
 .RoutinePage .add-routine-button:hover,
 .AdministrationPage .add-administration-button:hover {
-  background: #333;
-  border-color: #666;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ========== END OF CURRENTTAB ========== */
