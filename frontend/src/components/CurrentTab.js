@@ -254,10 +254,35 @@ const CurrentTab = ({ API_URL }) => {
                     <div className='AdministrationPage'>
                         <div className='header'>
                             <h1>Administration List</h1>
+
+                            {/* ===== UPLOAD SECTION (SAME AS TEACHER) ===== */}
+                            <div className='upload-section'>
+                                <h3>Initialize Administration Details List:</h3>
+                                <form className='upload-section' onSubmit={handleAdminFileUpload}>
+                                    <label htmlFor="admin-file-upload" className="upload-label">
+                                        <span className="material-symbols-outlined">upload</span>
+                                        <p>Upload administration details sheet:</p>
+                                        <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                    </label>
+                                    <input 
+                                        id="admin-file-upload"
+                                        type="file" 
+                                        accept=".csv,.xlsx,.xls"
+                                        onChange={(e) => setSelectedFile(e.target.files[0])}
+                                        style={{ display: 'none' }}
+                                    />
+                                    {selectedFile && (
+                                        <button type="submit" className="upload-button">
+                                            Upload File
+                                        </button>
+                                    )}
+                                </form>
+                            </div>
                         </div>
 
                         <div className="divider"></div>
 
+                        {/* ===== ADD SECTION ===== */}
                         <div className='add-section'>
                             <h3>ADD ADMINISTRATION DETAILS</h3>
                             <form onSubmit={handleSubmit} className="admin-form">
