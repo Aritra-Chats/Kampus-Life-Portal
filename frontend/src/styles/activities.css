@@ -62,7 +62,7 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
   border-right: 2px solid #333;
-  overflow: visible;  
+  overflow: hidden; 
 }
 
 .NavTab img {
@@ -160,6 +160,8 @@ input[type="number"] {
   overflow-y: hidden;
   width: 100%;
   box-sizing: border-box;
+  border-left: 2px solid #333;   /* symmetry line */
+  padding-left: 14px;            /* visual gap */
 }
 
 .CurrentTab::-webkit-scrollbar {
