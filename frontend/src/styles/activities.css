@@ -2,27 +2,27 @@
 /* GLOBAL RESET & BASE */
 /* ============================= */
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  background:#0e0e0e;
-  color:white;
+body {
+  background: #0e0e0e;
+  color: white;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 /* ============================= */
-/* MAIN LAYOUT */
+/* MAIN LAYOUT - FIXED HEIGHTS NO SCROLL */
 /* ============================= */
 
 .activity {
   display: grid;
-  grid-template-columns: auto 1fr 280px;
+  grid-template-columns: 260px 1fr 280px;
   grid-template-areas: "navtab currenttab currentdetails";
-  min-height: 100vh;
+  height: 100vh;
   background-color: #1a1a1a;
   position: relative;
   overflow: hidden;
@@ -34,365 +34,663 @@ body{
 
 .NavTab {
   grid-area: navtab;
-  background-color: rgba(26,26,26,0.9);
-  padding: 20px;
+  background-color: rgba(26, 26, 26, 0.95);
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 2px solid #333;
-  width:100%;
-  min-width:0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .NavTab img {
-  max-width: 200px;
-  margin-bottom: 30px;
+  max-width: 160px;
+  margin-bottom: 32px;
+  opacity: 0.9;
 }
 
-.tabOptions{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  overflow:hidden;
+.tabOptions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
 }
 
-.tabOptions h6{
-  color:#777;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
+.tabOptions h6 {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 16px 0 4px 0;
+  padding-left: 12px;
 }
 
-.tabOptions .option{
-  color:white;
-  padding:12px 16px;
-  cursor:pointer;
-  border-radius:8px;
-  transition:.2s;
+.tabOptions .option {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.tabOptions .option:hover{
-  background:#2a2a2a;
+.tabOptions .option:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
 }
 
-.tabOptions .option.selected{
-  background:#2a2a2a;
-  border-left:3px solid white;
-}
-
-/* ============================= */
-/* SMALL USER PANEL */
-/* ============================= */
-
-.user-glass{
-  margin-top:auto;
-  width:100%;
-  padding-top:10px;
-  box-sizing:border-box;
-}
-
-.user-panel{
-  width:100%;
-  padding:10px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background: rgba(255,255,255,0.05);
-  border-top:1px solid rgba(255,255,255,0.1);
-  cursor:pointer;
-}
-
-.user-icon{
-  width:26px;
-  height:26px;
-  border-radius:50%;
-  background: rgba(255,255,255,0.15);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:14px;
-}
-
-.user-info{
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
-
-.user-name{
-  font-size:12px;
-  font-weight:600;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.user-designation{
-  font-size:11px;
-  color:#9fd3ff;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.user-options{
-  margin-top:6px;
-}
-
-.logout-btn{
-  width:100%;
-  padding:8px;
-  border-radius:8px;
-  background:#1a1a1a;
-  border:1px solid #333;
-  color:white;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
+.tabOptions .option.selected {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-left: 3px solid white;
 }
 
 /* ============================= */
-/* CURRENT TAB */
+/* USER PANEL - BOTTOM OF NAV */
 /* ============================= */
 
-.CurrentTab{
+.user-glass {
+  margin-top: auto;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.user-panel {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user-panel:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-designation {
+  font-size: 11px;
+  color: #a0c0ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-options {
+  margin-top: 8px;
+  width: 100%;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 60, 60, 0.2);
+  border-color: rgba(255, 100, 100, 0.3);
+}
+
+/* ============================= */
+/* CURRENT TAB - GLASS SURFACE AREA */
+/* ============================= */
+
+.CurrentTab {
   grid-area: currenttab;
-  height:100vh;
-  overflow-y:auto;
-  border-left:2px solid #333;
-  padding:24px;
-  background:transparent;
+  height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  background: transparent;
+}
+
+/* Hide scrollbar but keep functionality */
+.CurrentTab::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 /* ============================= */
-/* RIGHT PANEL */
+/* RIGHT PANEL - DETAILS */
 /* ============================= */
 
-.DisplayDetails{
+.DisplayDetails {
   grid-area: currentdetails;
-  background-color: rgba(26,26,26,0.9);
-  padding: 20px;
-  border-left: 2px solid #333;
-  overflow-y:auto;
+  background-color: rgba(26, 26, 26, 0.95);
+  padding: 24px 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.DisplayDetails::-webkit-scrollbar {
+  width: 4px;
+}
+
+.DisplayDetails::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 
 /* ============================= */
-/* UNIFIED PAGE SYSTEM */
+/* PAGE CONTAINERS - UNIFIED STYLE */
 /* ============================= */
 
 .TeacherListPage,
 .StudentListPage,
 .RoutinePage,
-.AdministrationPage{
-  max-width:900px;
-  margin:auto;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:24px;
+.AdministrationPage {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================= */
 /* HEADERS */
 /* ============================= */
 
-.header{
-  text-align:center;
+.TeacherListPage .header,
+.StudentListPage .header,
+.RoutinePage .header,
+.AdministrationPage .header {
+  text-align: left;
+  margin-bottom: 4px;
 }
 
-.header h1{
-  font-size:1.8rem;
-  letter-spacing:1px;
-}
-
-/* ============================= */
-/* HARD SYNC UPLOAD SYSTEM */
-/* ============================= */
-
-.upload-section{
-  width:100%;
-  padding:24px;
-  border-radius:18px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
-}
-
-.upload-section h3{
-  margin-bottom:12px;
-  color:#ccc;
-  font-size:14px;
-}
-
-/* Upload box */
-.upload-box{
-  width:100%;
-  height:160px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  border-radius:14px;
-  background: rgba(255,255,255,0.10);
-  backdrop-filter: blur(22px);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  text-align:center;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.upload-box:hover{
-  transform:scale(1.01);
-  border-color: rgba(255,255,255,0.28);
-}
-
-.upload-box .material-symbols-outlined{
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.upload-box p{
-  font-size:15px;
-  font-weight:500;
-}
-
-.file-hint{
-  font-size:11px;
-  opacity:.8;
-}
-
-.upload-button{
-  margin-top:10px;
-  padding:10px 18px;
-  border-radius:10px;
-  background:#1a1a1a;
-  border:1px solid #333;
-  color:white;
-  cursor:pointer;
+.TeacherListPage .header h1,
+.StudentListPage .header h1,
+.RoutinePage .header h1,
+.AdministrationPage .header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
 }
 
 /* ============================= */
-/* FORMS */
+/* GLASS SECTIONS - UPLOAD & FORMS */
 /* ============================= */
 
-.add-section{
-  width:100%;
-  padding:24px;
-  border-radius:18px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+.TeacherListPage .upload-section,
+.StudentListPage .upload-section,
+.RoutinePage .upload-section,
+.AdministrationPage .upload-section,
+.TeacherListPage .add-section,
+.StudentListPage .add-section,
+.RoutinePage .add-section,
+.AdministrationPage .add-section {
+  width: 100%;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
 }
 
-.add-section h3{
-  margin-bottom:16px;
-  color:#ccc;
+.TeacherListPage .upload-section:hover,
+.StudentListPage .upload-section:hover,
+.RoutinePage .upload-section:hover,
+.AdministrationPage .upload-section:hover,
+.TeacherListPage .add-section:hover,
+.StudentListPage .add-section:hover,
+.RoutinePage .add-section:hover,
+.AdministrationPage .add-section:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-.form-group{
-  margin-bottom:14px;
-}
-
-.form-group label{
-  font-size:13px;
-  display:block;
-  margin-bottom:6px;
-}
-
-.form-group input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  background: rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.2);
-  color:white;
-}
-
-.form-group input:focus{
-  outline:none;
-  border-color:white;
-}
-
-/* Buttons */
-
-.add-teacher-button,
-.add-student-button,
-.add-routine-button,
-.add-admin-button{
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  background: linear-gradient(135deg,#111,#333);
-  border:1px solid #444;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
-  margin-top:10px;
-}
-
-.add-teacher-button:hover,
-.add-student-button:hover,
-.add-routine-button:hover,
-.add-admin-button:hover{
-  background: linear-gradient(135deg,#222,#444);
+.TeacherListPage .upload-section h3,
+.StudentListPage .upload-section h3,
+.RoutinePage .upload-section h3,
+.AdministrationPage .upload-section h3,
+.TeacherListPage .add-section h3,
+.StudentListPage .add-section h3,
+.RoutinePage .add-section h3,
+.AdministrationPage .add-section h3 {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 /* ============================= */
-/* DETAILS PANEL FIX */
+/* UPLOAD BOX - GLASS CARD */
 /* ============================= */
 
+.TeacherListPage .upload-box,
+.StudentListPage .upload-box,
+.RoutinePage .upload-box,
+.AdministrationPage .upload-box {
+  width: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 24px;
+}
+
+.TeacherListPage .upload-box:hover,
+.StudentListPage .upload-box:hover,
+.RoutinePage .upload-box:hover,
+.AdministrationPage .upload-box:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.01);
+}
+
+.TeacherListPage .upload-box .material-symbols-outlined,
+.StudentListPage .upload-box .material-symbols-outlined,
+.RoutinePage .upload-box .material-symbols-outlined,
+.AdministrationPage .upload-box .material-symbols-outlined {
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.TeacherListPage .upload-box p,
+.StudentListPage .upload-box p,
+.RoutinePage .upload-box p,
+.AdministrationPage .upload-box p {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 6px 0;
+}
+
+.TeacherListPage .file-hint,
+.StudentListPage .file-hint,
+.RoutinePage .file-hint,
+.AdministrationPage .file-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.TeacherListPage .upload-button,
+.StudentListPage .upload-button,
+.RoutinePage .upload-button,
+.AdministrationPage .upload-button {
+  display: none; /* Hidden as per second image */
+}
+
+/* ============================= */
+/* FORM STYLES - GLASS INPUTS */
+/* ============================= */
+
+.TeacherListPage .form-group,
+.StudentListPage .form-group,
+.RoutinePage .form-group,
+.AdministrationPage .form-group {
+  margin-bottom: 16px;
+}
+
+.TeacherListPage .form-group label,
+.StudentListPage .form-group label,
+.RoutinePage .form-group label,
+.AdministrationPage .form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.3px;
+}
+
+.TeacherListPage .form-group input,
+.StudentListPage .form-group input,
+.RoutinePage .form-group input,
+.AdministrationPage .form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.TeacherListPage .form-group input:focus,
+.StudentListPage .form-group input:focus,
+.RoutinePage .form-group input:focus,
+.AdministrationPage .form-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.02);
+}
+
+.TeacherListPage .form-group input::placeholder,
+.StudentListPage .form-group input::placeholder,
+.RoutinePage .form-group input::placeholder,
+.AdministrationPage .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================= */
+/* BUTTONS - GLASS STYLE */
+/* ============================= */
+
+.TeacherListPage .add-teacher-button,
+.StudentListPage .add-student-button,
+.RoutinePage .add-routine-button,
+.AdministrationPage .add-administration-button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.TeacherListPage .add-teacher-button:hover,
+.StudentListPage .add-student-button:hover,
+.RoutinePage .add-routine-button:hover,
+.AdministrationPage .add-administration-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================= */
+/* DETAILS PANEL - RIGHT SIDE CARDS */
+/* ============================= */
+
+.TeacherDetails,
+.StudentDetails,
+.TeacherRoutine,
+.StudentRoutine {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.TeacherDetails:hover,
+.StudentDetails:hover,
+.TeacherRoutine:hover,
+.StudentRoutine:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.TeacherDetails .header,
+.StudentDetails .header,
+.TeacherRoutine .header,
+.StudentRoutine .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.TeacherDetails .header h4,
+.StudentDetails .header h4,
+.TeacherRoutine .header h4,
+.StudentRoutine .header h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.TeacherDetails .header .material-symbols-outlined,
+.StudentDetails .header .material-symbols-outlined,
+.TeacherRoutine .header .material-symbols-outlined,
+.StudentRoutine .header .material-symbols-outlined {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.TeacherDetails .header .material-symbols-outlined:hover,
+.StudentDetails .header .material-symbols-outlined:hover,
+.TeacherRoutine .header .material-symbols-outlined:hover,
+.StudentRoutine .header .material-symbols-outlined:hover {
+  color: #ff6b6b;
+}
+
+/* Details rows */
 .TeacherDetails p,
 .StudentDetails p,
 .TeacherRoutine p,
-.StudentRoutine p{
-  display:flex;
-  gap:8px;
+.StudentRoutine p {
+  display: flex;
+  margin: 12px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.TeacherDetails p strong,
+.StudentDetails p strong,
+.TeacherRoutine p strong,
+.StudentRoutine p strong {
+  min-width: 70px;
+  color: white;
+  font-weight: 500;
 }
 
 .TeacherDetails p span,
 .StudentDetails p span,
 .TeacherRoutine p span,
-.StudentRoutine p span{
-  min-width:0;
-  max-width:100%;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.StudentRoutine p span {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.9);
 }
-.TeacherDetails p,
-.StudentDetails p,
-.TeacherRoutine p,
-.StudentRoutine p{
-  width:100%;
-  overflow:hidden;
+
+/* ============================= */
+/* DIVIDERS */
+/* ============================= */
+
+.TeacherListPage .divider,
+.StudentListPage .divider,
+.RoutinePage .divider,
+.AdministrationPage .divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 8px 0;
+  width: 100%;
 }
+
+/* ============================= */
+/* SEARCH BAR */
+/* ============================= */
+
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 20px auto;
+  width: fit-content;
+  position: sticky;
+  top: 10px;
+  z-index: 5;
+}
+
+.searchInput {
+  width: 250px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.searchButton {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.searchButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
 
-@media(max-width:900px){
-  .activity{
-    grid-template-columns:1fr;
+@media (max-width: 1000px) {
+  .activity {
+    grid-template-columns: 220px 1fr 240px;
+  }
+}
+
+@media (max-width: 800px) {
+  .activity {
+    grid-template-columns: 1fr;
     grid-template-areas:
       "navtab"
       "currenttab"
       "currentdetails";
   }
-
-  .NavTab{
-    width:100%;
-    flex-direction:row;
-    justify-content:space-between;
+  
+  .NavTab {
+    height: auto;
+    min-height: 80px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 12px;
   }
-
-  .tabOptions{
-    flex-direction:row;
-    overflow-x:auto;
+  
+  .NavTab img {
+    margin-bottom: 0;
+    max-width: 120px;
+  }
+  
+  .tabOptions {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  
+  .tabOptions h6 {
+    display: none;
+  }
+  
+  .user-glass {
+    margin-top: 0;
+    padding-top: 0;
+    min-width: 180px;
+  }
+  
+  .CurrentTab,
+  .DisplayDetails {
+    height: auto;
+    min-height: 50vh;
   }
 }
