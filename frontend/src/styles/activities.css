@@ -570,18 +570,19 @@ input[type="number"] {
   flex-shrink: 0;
   text-align: left;
 }
-
-/* value */
 .TeacherDetails p span,
 .StudentDetails p span,
 .TeacherRoutine p span,
 .StudentRoutine p span {
   flex: 1;
+  min-width: 0;                 /* 🔥 CRITICAL FIX */
+  max-width: 100%;              /* 🔥 prevents overflow */
   color: #ccc;
-  text-align: left;          /* align inside box */
-  white-space: nowrap;       /* single line */
-  overflow: hidden;          /* stay inside card */
-  text-overflow: ellipsis;   /* ... if too long */
+  text-align: left;
+  white-space: nowrap;          /* single line */
+  overflow: hidden;             /* stay inside box */
+  text-overflow: ellipsis;      /* ... if too long */
+  display: block;               /* force width control */
 }
 /* Search Bar Styling */
 .Search {
