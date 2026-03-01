@@ -62,7 +62,7 @@ input[type="number"] {
   flex-direction: column;
   align-items: center;
   border-right: 2px solid #333;
-  overflow: visible;  
+  overflow: hidden; 
 }
 
 .NavTab img {
@@ -131,7 +131,7 @@ input[type="number"] {
 
 /* Selected state */
 .tabOptions .option.selected {
-  background-color: #2a2a2a !important; /* Slightly whiter than navtab background */
+  background-color: #2a2a2a !important;
   color: white !important;
 }
 
@@ -151,15 +151,17 @@ input[type="number"] {
   color: white !important;
 }
 
-/* ========== UPDATED CURRENTTAB STYLING ========== */
+/* ========== CURRENTTAB STYLING ========== */
 .CurrentTab {
   grid-area: currenttab;
   background-color: rgba(0,0,0, 0.15) !important;
-  padding: 5px 10px; /* Reduced padding */
+  padding: 5px 10px;
   height: 100vh;
   overflow-y: hidden;
   width: 100%;
   box-sizing: border-box;
+  border-left: 2px solid #333;
+  padding-left: 14px;
 }
 
 .CurrentTab::-webkit-scrollbar {
@@ -190,7 +192,7 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
-/* Header - VERY COMPACT */
+/* Header - LIKE IMAGE */
 .TeacherListPage .header,
 .StudentListPage .header,
 .RoutinePage .header,
@@ -205,23 +207,27 @@ input[type="number"] {
 .RoutinePage .header h1,
 .AdministrationPage .header h1 {
   color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
 }
 
-/* Upload Section - EXTREMELY COMPACT LIKE IMAGE */
+/* Upload Section - GLASS EFFECT */
 .TeacherListPage .upload-section,
 .StudentListPage .upload-section,
-.RoutinePage .upload-section, 
+.RoutinePage .upload-section,
 .AdministrationPage .upload-section {
-  background: transparent;
-  border-radius: 0;
-  padding: 4px 0;
-  margin: 0 0 6px 0;
-  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 
 .TeacherListPage .upload-section h3,
@@ -229,118 +235,107 @@ input[type="number"] {
 .RoutinePage .upload-section h3,
 .AdministrationPage .upload-section h3 {
   color: #ccc;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
   margin: 0 0 3px 0;
   text-align: left;
   text-transform: none;
 }
 
-/* Upload Box - SIMPLE LIKE IMAGE */
+/* Upload Box - Glass */
 .TeacherListPage .upload-box,
 .StudentListPage .upload-box,
 .RoutinePage .upload-box,
 .AdministrationPage .upload-box {
-  border: 0.5px solid #444;
-  border-radius: 2px;
-  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 16px;
   width: 100%;
-  text-align: left;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
   cursor: pointer;
-  transition: all 0.2s;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  background: rgba(0, 0, 0, 0.1);
-  min-height: 30px;
-  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s ease;
 }
 
-/* Upload Text - VERY SMALL AND LEFT */
+/* Upload Text - LIKE IMAGE */
 .TeacherListPage .upload-box p,
 .StudentListPage .upload-box p,
 .RoutinePage .upload-box p,
 .AdministrationPage .upload-box p {
   color: #aaa;
-  font-size: 10px;
+  font-size: 13px;
   margin: 0;
   font-weight: normal;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
-/* File Hint - TINY */
+/* File Hint - LIKE IMAGE */
 .TeacherListPage .file-hint,
 .StudentListPage .file-hint,
 .RoutinePage .file-hint,
 .AdministrationPage .file-hint {
   color: #777 !important;
-  font-size: 8px !important;
+  font-size: 11px !important;
   font-weight: normal !important;
   margin: 0 !important;
   line-height: 1;
 }
 
-/* Upload Button - SMALL AND SIMPLE */
+/* Upload Button - HIDDEN (not in image) */
 .TeacherListPage .upload-button,
 .StudentListPage .upload-button,
 .RoutinePage .upload-button,
 .AdministrationPage .upload-button {
-  padding: 3px 8px;
-  background: #2a2a2a;
-  color: white;
-  border: 0.5px solid #444;
-  border-radius: 1px;
-  cursor: pointer;
-  font-size: 9px;
-  font-weight: 500;
-  margin-top: 4px;
-  min-width: 60px;
-  align-self: flex-start;
+  display: none;
 }
 
-/* Divider Line - THIN AND SHORT */
+/* Divider Line - LIKE IMAGE */
 .TeacherListPage .divider,
 .StudentListPage .divider,
 .RoutinePage .divider,
 .AdministrationPage .divider {
-  height: 0.3px;
+  height: 0.5px;
   background: #333;
-  margin: 6px 0;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 8px 0;
+  width: 100%;
 }
 
-/* Add Section - COMPACT FORM */
+/* ADD SECTION - GLASS EFFECT */
 .TeacherListPage .add-section,
 .StudentListPage .add-section,
 .RoutinePage .add-section,
 .AdministrationPage .add-section {
-  background: transparent;
-  border-radius: 0;
-  padding: 4px 0;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 16px;
   margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
-
 .TeacherListPage .add-section h3,
 .StudentListPage .add-section h3,
 .RoutinePage .add-section h3,
 .AdministrationPage .add-section h3 {
   color: #ccc;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   text-align: left;
   text-transform: none;
 }
 
-/* Form Group - COMPACT */
+/* Form Group - LIKE IMAGE */
 .TeacherListPage .form-group,
 .StudentListPage .form-group,
 .RoutinePage .form-group,
 .AdministrationPage .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .TeacherListPage .form-group label,
@@ -349,26 +344,23 @@ input[type="number"] {
 .AdministrationPage .form-group label {
   display: block;
   color: white;
-  margin-bottom: 2px;
-  font-size: 11px;
+  margin-bottom: 4px;
+  font-size: 13px;
   font-weight: 500;
 }
 
-/* Input Fields - COMPACT */
 .TeacherListPage .form-group input,
 .StudentListPage .form-group input,
 .RoutinePage .form-group input,
 .AdministrationPage .form-group input {
   width: 100%;
-  padding: 6px 8px;
-  background-color: #2a2a2a;
-  border: 0.5px solid #444;
-  border-radius: 2px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
   color: white;
-  font-size: 11px;
+  font-size: 13px;
   transition: all 0.2s ease;
-  box-sizing: border-box;
-  height: 30px;
 }
 
 .TeacherListPage .form-group input:focus,
@@ -387,36 +379,34 @@ input[type="number"] {
 .AdministrationPage .administration-form {
   width: 100%;
 }
-
-/* Add Button - COMPACT */
 .TeacherListPage .add-teacher-button,
 .StudentListPage .add-student-button,
 .RoutinePage .add-routine-button,
 .AdministrationPage .add-administration-button {
   width: 100%;
-  padding: 8px;
-  background: #2a2a2a;
-  border: 0.5px solid #444;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
-  transition: all 0.2s;
-  margin-top: 12px;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  transition: all 0.2s ease;
 }
 
 .TeacherListPage .add-teacher-button:hover,
 .StudentListPage .add-student-button:hover,
 .RoutinePage .add-routine-button:hover,
 .AdministrationPage .add-administration-button:hover {
-  background: #333;
-  border-color: #666;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ========== END OF UPDATED CURRENTTAB ========== */
+/* ========== END OF CURRENTTAB ========== */
 
 /* Error styling */
 .CurrentTab .error {
@@ -429,7 +419,7 @@ input[type="number"] {
   border-left: 1px solid #ff4444;
 }
 
-/* CurrentDetails Styling - UNCHANGED */
+/* CurrentDetails Styling - LIKE IMAGE */
 .TeacherList,
 .StudentList,
 .TeacherRoutines,
@@ -446,7 +436,7 @@ input[type="number"] {
 .StudentList::-webkit-scrollbar,
 .TeacherRoutines::-webkit-scrollbar,
 .StudentRoutines::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .TeacherList::-webkit-scrollbar-track,
@@ -492,8 +482,8 @@ input[type="number"] {
 .TeacherRoutine:hover,
 .StudentRoutine:hover {
   transform: scale(1.02);
-  border: 2px solid white;
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
 }
 
 /* Header container styling */
@@ -520,7 +510,6 @@ input[type="number"] {
   text-align: center;
   margin: 0;
   flex: 1;
-  white-space: pre-wrap;
 }
 
 /* Delete button styling */
@@ -543,8 +532,8 @@ input[type="number"] {
 .TeacherRoutine .header .material-symbols-outlined:hover,
 .StudentRoutine .header .material-symbols-outlined:hover {
   color: #ff4444;
-  text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
 }
+
 .TeacherDetails p,
 .StudentDetails p,
 .TeacherRoutine p,
@@ -556,7 +545,7 @@ input[type="number"] {
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  gap: 8px;                  /* small controlled gap */
+  gap: 8px;
 }
 
 /* label */
@@ -566,23 +555,26 @@ input[type="number"] {
 .StudentRoutine p strong {
   color: white;
   font-weight: 600;
-  min-width: 70px;           /* fixed label width */
+  min-width: 70px;
   flex-shrink: 0;
   text-align: left;
 }
 
-/* value */
 .TeacherDetails p span,
 .StudentDetails p span,
 .TeacherRoutine p span,
 .StudentRoutine p span {
   flex: 1;
+  min-width: 0;
+  max-width: 100%;
   color: #ccc;
-  text-align: left;          /* align inside box */
-  white-space: nowrap;       /* single line */
-  overflow: hidden;          /* stay inside card */
-  text-overflow: ellipsis;   /* ... if too long */
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
+
 /* Search Bar Styling */
 .Search {
   display: flex;
@@ -596,7 +588,6 @@ input[type="number"] {
   z-index: 5;
 }
 
-/* Input: same style as .CurrentTab input */
 .searchInput {
   width: 225px;
   padding: 12px 15px;
@@ -615,7 +606,6 @@ input[type="number"] {
   transform: scale(1.05);
 }
 
-/* Button: visually similar to delete icon */
 .searchButton {
   background: none;
   border: none;
@@ -660,6 +650,101 @@ input[type="number"] {
   font-size: 1.1rem;
 }
 
+/* ===== SMALL GLASS USER PANEL (KEEP ONLY THIS ONE) ===== */
+
+.user-glass {
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-panel {
+  width: 100%;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.user-panel:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.user-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-designation {
+  font-size: 10px;
+  color: #9fd3ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-options-glass {
+  width: 100%;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.user-options {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 7px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #333;
+  border-color: #666;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .activity {
@@ -696,341 +781,6 @@ input[type="number"] {
   .StudentListPage .header h1,
   .RoutinePage .header h1,
   .AdministrationPage .header h1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
-}
-
-/* ===== FACULTY PAGE MODERN UI FIX ===== */
-
-/* Center the content like target design */
-.TeacherListPage,
-.StudentListPage,
-.RoutinePage,
-.AdministrationPage {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Glass card effect for upload and form */
-.TeacherListPage .upload-section,
-.TeacherListPage .add-section,
-.StudentListPage .upload-section,
-.StudentListPage .add-section,
-.RoutinePage .upload-section,
-.RoutinePage .add-section,
-.AdministrationPage .upload-section,
-.AdministrationPage .add-section {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Better header */
-.TeacherListPage .header h1,
-.StudentListPage .header h1,
-.RoutinePage .header h1,
-.AdministrationPage .header h1 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-/* Rounded modern input fields */
-.TeacherListPage .form-group input,
-.StudentListPage .form-group input,
-.RoutinePage .form-group input,
-.AdministrationPage .form-group input {
-  border-radius: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 12px;
-  height: auto;
-}
-
-/* Modern button */
-.TeacherListPage .add-teacher-button,
-.StudentListPage .add-student-button,
-.RoutinePage .add-routine-button,
-.AdministrationPage .add-administration-button {
-  background: linear-gradient(135deg, #111, #333);
-  border-radius: 10px;
-  font-size: 14px;
-  padding: 12px;
-}
-
-/* Upload box modern */
-.upload-box {
-  border-radius: 10px;
-  padding: 15px;
-}
-
-/* Background glow like your design */
-.CurrentTab {
-  background: transparent !important;
-}
-
-/* ===== Revolving Earth Background ===== */
-
-.CurrentTab {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Background globe */
-.CurrentTab::before {
-  display: none;
-}
-
-/* Dark overlay for readability */
-.CurrentTab::after {
-  display: none;
-}
-
-/* Bring content above background */
-.TeacherListPage,
-.StudentListPage,
-.RoutinePage,
-.AdministrationPage {
-  position: relative;
-  z-index: 1;
-}/* ===== FACULTY PAGE MODERN UI FIX ===== */
-
-/* Center the content like target design */
-.TeacherListPage,
-.StudentListPage,
-.RoutinePage,
-.AdministrationPage {
-  max-width: 900px;
-  margin: auto;
-}
-
-/* Glass card effect for upload and form */
-.TeacherListPage .upload-section,
-.TeacherListPage .add-section,
-.StudentListPage .upload-section,
-.StudentListPage .add-section,
-.RoutinePage .upload-section,
-.RoutinePage .add-section,
-.AdministrationPage .upload-section,
-.AdministrationPage .add-section {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Better header */
-.TeacherListPage .header h1,
-.StudentListPage .header h1,
-.RoutinePage .header h1,
-.AdministrationPage .header h1 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-/* Rounded modern input fields */
-.TeacherListPage .form-group input,
-.StudentListPage .form-group input,
-.RoutinePage .form-group input,
-.AdministrationPage .form-group input {
-  border-radius: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 12px;
-  height: auto;
-}
-
-/* Modern button */
-.TeacherListPage .add-teacher-button,
-.StudentListPage .add-student-button,
-.RoutinePage .add-routine-button,
-.AdministrationPage .add-administration-button {
-  background: linear-gradient(135deg, #111, #333);
-  border-radius: 10px;
-  font-size: 14px;
-  padding: 12px;
-}
-
-/* Upload box modern */
-.upload-box {
-  border-radius: 10px;
-  padding: 15px;
-}
-
-/* Background glow like your design */
-.CurrentTab {
-  background: radial-gradient(circle at center, #111 0%, #070707 80%);
-}
-
-
-/* ===== REVOLVING EARTH BACKGROUND ===== */
-
-.CurrentTab {
-  position: relative;
-  overflow: hidden; /* important */
-}
-
-/* Globe background */
-.CurrentTab::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  height: 700px;
-  background-size: contain;
-  transform: translate(-50%, -50%);
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* keep form above the globe */
-.TeacherListPage,
-.StudentListPage,
-.RoutinePage,
-.AdministrationPage {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ===== USER PANEL GLASS ===== */
-
-.UserPanel {
-  position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;   /* prevents overflow */
-
-  padding: 10px 14px;
-  border-radius: 16px;
-
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-
-  border: 1px solid rgba(255,255,255,0.12);
-  color: white;
-
-  font-size: 13px;
-  font-weight: 500;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-  transition: 0.25s ease;
-}
-
-.UserPanel:hover {
-  transform: translateX(5px);
-}
-
-
-.UserPanel p {
-  margin: 0;
-  font-size: 13px;
-}
-
-/* ===== HARD SYNC UPLOAD BOX DIMENSIONS (PIXEL PERFECT) ===== */
-
-/* Outer section */
-.TeacherListPage .upload-section,
-.StudentListPage .upload-section,
-.RoutinePage .upload-section,
-.AdministrationPage .upload-section {
-  width: 100% !important;
-  padding: 24px !important;
-  margin: 0 0 24px 0 !important;
-  border-radius: 18px !important;
-
-  background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(18px) !important;
-  -webkit-backdrop-filter: blur(18px) !important;
-
-  border: 1px solid rgba(255,255,255,0.14) !important;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.55) !important;
-
-  box-sizing: border-box !important;
-}
-
-/* Upload box */
-.TeacherListPage .upload-box,
-.StudentListPage .upload-box,
-.RoutinePage .upload-box,
-.AdministrationPage .upload-box {
-  width: 100% !important;
-  height: 160px !important;          /* FIXED HEIGHT */
-  min-height: 160px !important;
-  max-height: 160px !important;
-
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  padding: 0 !important;             /* internal spacing controlled below */
-  margin: 0 !important;
-
-  border-radius: 14px !important;
-
-  background: rgba(255,255,255,0.10) !important;
-  backdrop-filter: blur(22px) !important;
-  -webkit-backdrop-filter: blur(22px) !important;
-
-  border: 1px solid rgba(255,255,255,0.18) !important;
-  box-shadow: inset 0 0 0 rgba(255,255,255,0.0),
-              0 10px 30px rgba(0,0,0,0.6) !important;
-
-  text-align: center !important;
-  cursor: pointer !important;
-}
-
-/* Upload icon */
-.TeacherListPage .upload-box .material-symbols-outlined,
-.StudentListPage .upload-box .material-symbols-outlined,
-.RoutinePage .upload-box .material-symbols-outlined,
-.AdministrationPage .upload-box .material-symbols-outlined {
-  font-size: 34px !important;
-  color: white !important;
-  margin-bottom: 10px !important;
-  opacity: 0.9 !important;
-}
-
-/* Main text */
-.TeacherListPage .upload-box p,
-.StudentListPage .upload-box p,
-.RoutinePage .upload-box p,
-.AdministrationPage .upload-box p {
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  color: #f0f0f0 !important;
-  margin: 0 !important;
-  line-height: 1.4 !important;
-}
-
-/* Subtext */
-.TeacherListPage .upload-box .file-hint,
-.StudentListPage .upload-box .file-hint,
-.RoutinePage .upload-box .file-hint,
-.AdministrationPage .upload-box .file-hint {
-  font-size: 11px !important;
-  color: #cfcfcf !important;
-  margin-top: 6px !important;
-  opacity: 0.85 !important;
-}
-
-/* Hover */
-.TeacherListPage .upload-box:hover,
-.StudentListPage .upload-box:hover,
-.RoutinePage .upload-box:hover,
-.AdministrationPage .upload-box:hover {
-  transform: scale(1.01) !important;
-  border-color: rgba(255,255,255,0.28) !important;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.75) !important;
 }
