@@ -36,6 +36,12 @@ const {
     deleteMentorData
 } = require('../controllers/mentorListController.js')
 
+const {
+    getHolidays,
+    postHoliday,
+    deleteSpecificHoliday
+} = require('../controllers/holidayController.js')
+
 const { requireAuth } = require('../controllers/authController.js');
 
 //get requests
@@ -46,6 +52,7 @@ router.get('/MentorList', getMentorList);
 router.get('/MentorList/:id', getMentorById);
 router.get('/Routine', getRoutine);
 router.get('/Announcement', getAnnouncements);
+router.get('/Holiday', getHolidays);
 
 //post requests
 router.post('/TeacherList', postTeacherData);
@@ -54,6 +61,7 @@ router.post('/AdministrationList', postAdministrationData);
 router.post('/MentorList', postMentorData);
 router.post('/Routine', postRoutine);
 router.post('/Announcement', requireAuth, postAnnouncement);
+router.post('/Holiday', postHoliday);
 
 //delete requests
 router.delete('/TeacherList/:id', deleteTeacherData);
@@ -62,5 +70,6 @@ router.delete('/AdministrationList/:id', deleteAdministrationData);
 router.delete('/MentorList/:id', deleteMentorData);
 router.delete('/Routine/:id', deleteSpecificRoutine);
 router.delete('/Announcement/:id', deleteAnnouncement);
+router.delete('/Holiday/:id', deleteSpecificHoliday);
 
 module.exports = router;

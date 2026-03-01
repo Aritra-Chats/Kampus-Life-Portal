@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //get all mentor list
 const getMentorList = async (req, res) => {
     try {
-        const mentorList = await MentorList.find({}).populate('mentor').populate('mentee').sort({createdAt: 1});
+        const mentorList = await MentorList.find({}).populate('Mentor').populate('Mentee').sort({createdAt: 1});
         res.status(200).json(mentorList);
     } catch (error) {
         res.status(400).json({error: error.message});
@@ -19,7 +19,7 @@ const getMentorById = async (req, res) => {
         return res.status(400).json({error: "Incorrect mentor id"});
     
     try {
-        const mentorList = await MentorList.findById(id).populate('mentor').populate('mentee');
+        const mentorList = await MentorList.findById(id).populate('Mentor').populate('Mentee');
         if(!mentorList)
             return res.status(404).json({error: "No such mentor found"});
         res.status(200).json(mentorList);
@@ -31,22 +31,22 @@ const getMentorById = async (req, res) => {
 const postMentorData = async (req, res) => {
     const { mentorRoll, menteeRolls } = req.body;
     let emptyFields = [];
-    if(!mentorRoll || mentorRoll.trim() === '') emptyFields.push('mentorName');
+    if(!mentorRoll || String(mentorRoll).trim() === '') emptyFields.push('mentorRoll');
     if(!menteeRolls || menteeRolls.length === 0) emptyFields.push('menteeRolls');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
     try {
-        const teacher = await TeacherList.findOne({ name: mentorName });
+        const teacher = await TeacherList.findOne({ roll: mentorRoll });
         if (!teacher) return res.status(404).json({error: "Teacher not found"});
         const students = await StudentList.find({ roll: { $in: menteeRolls } });
         if (students.length !== menteeRolls.length) 
             return res.status(404).json({error: "Some students not found"});
         const studentObjectIds = students.map(student => student._id);
         const mentorList = new MentorList({
-            mentor: teacher._id,
-            mentee: studentObjectIds
+            Mentor: teacher._id,
+            Mentee: studentObjectIds
         });
         await mentorList.save();
-        const populatedMentorList = await MentorList.findById(mentorList._id).populate('mentor').populate('mentee');
+        const populatedMentorList = await MentorList.findById(mentorList._id).populate('Mentor').populate('Mentee');
         res.status(201).json(populatedMentorList);
     } catch (error) {
         res.status(400).json({error: error.message});

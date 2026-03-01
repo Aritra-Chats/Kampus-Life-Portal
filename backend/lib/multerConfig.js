@@ -5,6 +5,8 @@ const StudentList = require('../models/studentListModel');
 const TeacherList = require('../models/teacherListModel');
 const Routine = require('../models/routineModel');
 const AdministrationList = require('../models/administrationListModel');
+const MentorList = require('../models/mentorListModel');
+const Holiday = require('../models/holidayModel');
 
 const storage = multer.memoryStorage();
 
@@ -51,12 +53,13 @@ const IMPORT_CONFIG = {
   },
   routine: {
     model: Routine,
-    requiredHeaders: ['Section', 'Subject', 'Day', 'Time', 'Classroom'],
+    requiredHeaders: ['Section', 'Subject', 'Day', 'Time', 'Teacher', 'Classroom'],
     mapRow: (row) => ({
       section: row['Section'],
       subject: row['Subject'],
       day: row['Day'],
       time: row['Time'],
+      teacher: row['Teacher'],
       classroom: row['Classroom']
     })
   },
@@ -71,7 +74,23 @@ const IMPORT_CONFIG = {
       phone: row['Phone No.'],
       cabin: row['Cabin']
     })
-  }
+  },
+  mentorList: {
+    model: MentorList,
+    requiredHeaders: ['Mentor', 'Mentee'],
+    mapRow: (row) => ({
+      Mentor: row['Mentor'],
+      Mentee: row['Mentee']
+    })
+  },
+  holiday: {
+    model: Holiday,
+    requiredHeaders: ['Date', 'Event'],
+    mapRow: (row) => ({
+      Date: row['Date'],
+      Event: row['Event']
+    })
+  },
 };
 
 const parseAndSend = async (req, res, apiType) => {
