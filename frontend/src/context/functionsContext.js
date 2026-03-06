@@ -91,82 +91,82 @@ export const functionsReducer = (state, action) => {
                 studentList: state.studentList.filter((sl) => sl._id !== action.payload._id)
             };
         
-        // Administration cases
+        // Administration cases - CHANGED to match Activities.js
         case 'GET_ADMINISTRATION':
             return {
                 ...state,
-                administration: action.payload
+                administrationList: action.payload  // Changed from 'administration' to 'administrationList'
             };
         case 'ADD_ADMINISTRATION_DETAILS':
             return {
                 ...state,
-                administration: [action.payload, ...state.administration]
+                administrationList: [action.payload, ...state.administrationList]  // Changed
             };
         case 'SET_ADMINISTRATION':
             return {
                 ...state,
-                administration: action.payload
+                administrationList: action.payload  // Changed
             };
         case 'DELETE_ADMINISTRATION_DETAILS':
             return {
                 ...state,
-                administration: state.administration.filter(
+                administrationList: state.administrationList.filter(  // Changed
                     (ad) => ad._id !== action.payload._id
                 )
             };
         
-        // Mentors cases
+        // Mentors cases - CHANGED to match Activities.js
         case 'GET_MENTORS':
             return {
                 ...state,
-                mentors: action.payload
+                mentorList: action.payload  // Changed from 'mentors' to 'mentorList'
             };
         case 'ADD_MENTOR_DETAILS':
             return {
                 ...state,
-                mentors: [action.payload, ...state.mentors]
+                mentorList: [action.payload, ...state.mentorList]  // Changed
             };
         case 'SET_MENTORS':
             return {
                 ...state,
-                mentors: action.payload
+                mentorList: action.payload  // Changed
             };
         case 'SEARCH_MENTORS':
             return {
                 ...state,
-                mentors: action.payload.json.filter((j) => j.id.toString().includes(action.payload.id.toString()))
+                mentorList: action.payload.json.filter((j) => j.id.toString().includes(action.payload.id.toString()))  // Changed
             };
         case 'DELETE_MENTOR_DETAILS':
             return {
                 ...state,
-                mentors: state.mentors.filter((m) => m._id !== action.payload._id)
+                mentorList: state.mentorList.filter((m) => m._id !== action.payload._id)  // Changed
             };
         
-        // Holidays cases
+        // Holidays cases - CHANGED to match Activities.js
         case 'GET_HOLIDAYS':
             return {
                 ...state,
-                holidays: action.payload
+                holidayList: action.payload  // Changed from 'holidays' to 'holidayList'
             };
         case 'ADD_HOLIDAY_DETAILS':
             return {
                 ...state,
-                holidays: [action.payload, ...state.holidays]
+                holidayList: [action.payload, ...state.holidayList]  // Changed
             };
         case 'SET_HOLIDAYS':
             return {
                 ...state,
-                holidays: action.payload
+                holidayList: action.payload  // Changed
             };
         case 'SEARCH_HOLIDAYS':
             return {
                 ...state,
-                holidays: action.payload.json.filter((j) => j.event.toLowerCase().includes(action.payload.event.toLowerCase()))
+                holidayList: action.payload.json.filter((j) => j.event.toLowerCase().includes(action.payload.event.toLowerCase()))  // Changed
             };
         case 'DELETE_HOLIDAY_DETAILS':
             return {
                 ...state,
-                holidays: state.holidays.filter((h) => h._id !== action.payload._id)
+                holidayList: state.holidayList.filter((h) => h._id !== action.payload._id)  // Changed
             };
             
         default:
@@ -181,9 +181,9 @@ export const FunctionsContextProvider = ({ children }) => {
         teacherList: null,
         routine: null,  
         studentList: null,
-        administration: null,  // Fixed: was 'administrationList'
-        mentors: null,         // Fixed: was 'mentorsList'
-        holidays: null         // Fixed: was 'holidayList'
+        administrationList: null,  // Changed from 'administration' to 'administrationList'
+        mentorList: null,           // Changed from 'mentors' to 'mentorList'
+        holidayList: null           // Changed from 'holidays' to 'holidayList'
     });
 
     return (
