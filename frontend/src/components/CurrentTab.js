@@ -497,7 +497,7 @@ const CurrentTab = ({ API_URL }) => {
                 return (
                     <div className='MentorsPage'>
                         <div className='header'>
-                            <h1>Mentors List</h1>
+                            <h1>Mentor List</h1>
                         </div>
 
                         <div className='upload-section'>
@@ -560,7 +560,7 @@ const CurrentTab = ({ API_URL }) => {
                 return (
                     <div className='HolidaysPage'>
                         <div className='header'>
-                            <h1>Holidays List</h1>
+                            <h1>Holiday List</h1>
                         </div>
 
                         <div className='upload-section'>

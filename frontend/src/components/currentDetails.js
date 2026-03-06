@@ -112,7 +112,7 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='TeacherRoutine'>
                     <div className='header'>
-                        <h4>{details.section || 'No Section'}</h4>
+                        <h4>ROUTINE DETAILS</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
                     <p><strong>Subject:</strong> <span>{details.subject || 'N/A'}</span></p>
@@ -126,12 +126,12 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='AdministrationDetails'>
                     <div className='header'>
-                        <h4>{details.name ? details.name.replace(/ /g, '\n') : 'No Name'}</h4>
+                        <h4>{details.name ? details.name.replace(/ /g, '\n') : 'Administrator'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
+                    <p><strong>Designation:</strong> <span>{details.designation || 'N/A'}</span></p>
                     <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
                     <p><strong>Phone:</strong> <span>{details.phone || 'N/A'}</span></p>
-                    <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
                     <p><strong>Department:</strong> <span>{details.department || 'N/A'}</span></p>
                     <p><strong>Office:</strong> <span>{details.office || 'N/A'}</span></p>
                 </div>
@@ -141,11 +141,14 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='MentorDetails'>
                     <div className='header'>
-                        <h4>{details.name ? details.name.replace(/ /g, '\n') : 'No Name'}</h4>
+                        <h4>{details.name ? details.name.replace(/ /g, '\n') : 'Mentor'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>Mentor ID:</strong> <span>{details.id || details.mentorId || 'N/A'}</span></p>
-                    <p><strong>Mentee ID:</strong> <span>{details.id || details.menteeId || 'N/A'}</span></p>
+                    <p><strong>MENTOR ID:</strong> <span>{details.mentorId || details.id || 'N/A'}</span></p>
+                    <p><strong>MENTEE ID:</strong> <span>{details.menteeId || 'N/A'}</span></p>
+                    <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
+                    <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
+                    <p><strong>Campus:</strong> <span>{details.campus || 'N/A'}</span></p>
                 </div>
             );
             
@@ -153,11 +156,12 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='HolidayDetails'>
                     <div className='header'>
-                        <h4>{details.event || 'No Event'}</h4>
+                        <h4>{details.event || 'Holiday'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
                     <p><strong>Date:</strong> <span>{details.date ? new Date(details.date).toLocaleDateString() : 'N/A'}</span></p>
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
+                    <p><strong>Description:</strong> <span>{details.description || 'N/A'}</span></p>
                 </div>
             );
             
