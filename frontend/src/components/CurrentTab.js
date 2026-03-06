@@ -389,7 +389,7 @@ const CurrentTab = ({ API_URL }) => {
                     </div>
                 );
                 
-            case 'administration':
+            case 'administrationList':
                 return (
                     <div className='AdministrationPage'>
                         <div className='header'>
@@ -493,7 +493,7 @@ const CurrentTab = ({ API_URL }) => {
                     </div>
                 );
 
-            case 'mentors':
+            case 'mentorsList':
                 return (
                     <div className='MentorsPage'>
                         <div className='header'>
@@ -556,7 +556,7 @@ const CurrentTab = ({ API_URL }) => {
                     </div>
                 );
 
-            case 'holidays':
+            case 'holidayList':
                 return (
                     <div className='HolidaysPage'>
                         <div className='header'>
