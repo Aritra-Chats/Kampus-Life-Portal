@@ -28,7 +28,7 @@ const Activity = () => {
     studentList,
     routine,
     administrationList,
-    mentorsList,
+    mentorList,
     holidayList,
     dispatch,
   } = useContext(FunctionsContext);
@@ -58,8 +58,8 @@ const Activity = () => {
           case "administrationList":
             response = await fetch(`${API_URL}/api/AdministrationList`);
             break;
-          case "mentorsList":
-            response = await fetch(`${API_URL}/api/MentorsList`);
+          case "mentorList":
+            response = await fetch(`${API_URL}/api/MentorList`);
             break;
           case "holidayList":
             response = await fetch(`${API_URL}/api/HolidayList`);
@@ -95,7 +95,7 @@ const Activity = () => {
           case "administrationList":
             dispatch({ type: "GET_ADMINISTRATION", payload: json });
             break;
-          case "mentorsList":
+          case "mentorList":
             dispatch({ type: "GET_MENTORS", payload: json });
             break;
           case "holidayList":
@@ -184,11 +184,11 @@ const Activity = () => {
           </div>
         );
         
-      case "mentorsList":
+      case "mentorList":
         return (
-          <div className="MentorsList">
-            {mentorsList && mentorsList.length > 0 ? (
-              mentorsList.map((mentorDetails) => (
+          <div className="MentorList">
+            {mentorList && mentorList.length > 0 ? (
+              mentorList.map((mentorDetails) => (
                 <CurrentDetails
                   key={mentorDetails._id}
                   details={mentorDetails}

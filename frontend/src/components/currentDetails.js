@@ -28,8 +28,8 @@ const CurrentDetails = ({ details, API_URL }) => {
                     method: 'DELETE'
                 });
                 break;
-            case 'mentorsList':
-                response = await fetch(`${API_URL}/api/MentorsList/` + details._id, {
+            case 'mentorList':
+                response = await fetch(`${API_URL}/api/MentorList/` + details._id, {
                     method: 'DELETE'
                 });
                 break;
@@ -67,7 +67,7 @@ const CurrentDetails = ({ details, API_URL }) => {
             case 'administrationList':
                 dispatch({ type: 'DELETE_ADMINISTRATION_DETAILS', payload: json });
                 break;
-            case 'mentorsList':
+            case 'mentorList':
                 dispatch({ type: 'DELETE_MENTOR_DETAILS', payload: json });
                 break;
             case 'holidaysList':
@@ -137,7 +137,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                 </div>
             );
             
-        case 'mentorsList':
+        case 'mentorList':
             return (
                 <div className='MentorDetails'>
                     <div className='header'>

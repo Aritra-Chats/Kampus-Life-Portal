@@ -46,8 +46,8 @@ const NavTab = () => {
             case 'AdministrationList':
                 dispatch({ type: 'SET_TAB', payload: 'administrationList' });
                 break;
-            case 'MentorsList':
-                dispatch({ type: 'SET_TAB', payload: 'mentorsList' });
+            case 'MentorList':
+                dispatch({ type: 'SET_TAB', payload: 'mentorList' });
                 break;
             case 'HolidayList':
                 dispatch({ type: 'SET_TAB', payload: 'holidayList' });
@@ -99,10 +99,10 @@ const NavTab = () => {
                     Administration List
                 </div>
                 <div 
-                    className={`option ${tab === 'mentorsList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('MentorsList')}
+                    className={`option ${tab === 'mentorList' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('MentorList')}
                 >
-                    Mentors List
+                    Mentor List
                 </div>
                 <div 
                     className={`option ${tab === 'holidayList' ? 'selected' : ''}`} 

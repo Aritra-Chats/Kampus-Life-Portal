@@ -14,7 +14,7 @@ const CurrentTab = ({ API_URL }) => {
             studentList: `${API_URL}/api/StudentList`,
             routine: `${API_URL}/api/Routine`,
             administrationList: `${API_URL}/api/AdministrationList`,
-            mentorsList: `${API_URL}/api/MentorsList`,
+            mentorList: `${API_URL}/api/MentorList`,
             holidayList: `${API_URL}/api/HolidayList`
         };
 
@@ -36,7 +36,7 @@ const CurrentTab = ({ API_URL }) => {
                 studentList: 'ADD_STUDENT_DETAILS',
                 routine: 'ADD_ROUTINE',
                 administrationList: 'ADD_ADMINISTRATION_DETAILS',
-                mentorsList: 'ADD_MENTOR_DETAILS',
+                mentorList: 'ADD_MENTOR_DETAILS',
                 holidayList: 'ADD_HOLIDAY_DETAILS'
             };
 
@@ -76,7 +76,7 @@ const CurrentTab = ({ API_URL }) => {
             case 'administrationList':
                 uploadEndpoint += 'administration';
                 break;
-            case 'mentorsList':
+            case 'mentorList':
                 uploadEndpoint += 'mentors';
                 break;
             case 'holidayList':
@@ -493,7 +493,7 @@ const CurrentTab = ({ API_URL }) => {
                     </div>
                 );
 
-            case 'mentorsList':
+            case 'mentorList':
                 return (
                     <div className='MentorsPage'>
                         <div className='header'>
