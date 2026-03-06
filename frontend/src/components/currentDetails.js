@@ -70,7 +70,7 @@ const CurrentDetails = ({ details, API_URL }) => {
             case 'mentorList':
                 dispatch({ type: 'DELETE_MENTOR_DETAILS', payload: json });
                 break;
-            case 'holidaysList':
+            case 'holidayList':
                 dispatch({ type: 'DELETE_HOLIDAY_DETAILS', payload: json });
                 break;
             default:
