@@ -175,7 +175,7 @@ const CurrentTab = ({ API_URL }) => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Sections:</label>
+                                    <label>Cabin:</label>
                                     <input 
                                         name="cabin" 
                                         placeholder="Enter cabin number"
