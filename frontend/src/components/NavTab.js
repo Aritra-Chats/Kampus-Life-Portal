@@ -82,53 +82,50 @@ const NavTab = () => {
                 <div className={`option ${tab === 'holidays' ? 'selected' : ''}`} onClick={() => switchTab('Holidays')}>Holidays</div>
             </div>
             
-            {/* ========== ADDED USER PANEL HERE (OUTSIDE tabOptions) ========== */}
-            {/* ===== USER PANEL (GLASS + COMPACT SIDEBAR VERSION) ===== */}
-            <GlassSurface
-                className="user-glass"
-                borderRadius={14}
-                opacity={0.15}
-                blur={8}
-            >
-            <div className="user-panel" onClick={userOptions}>
-                <div className="user-icon">
-                    <span className="material-symbols-outlined">account_circle</span>
-                </div>
-
-                <div className="user-info">
-                    <div className="user-name">{userid || 'Loading...'}</div>
-                    <div className="user-designation">{designation || 'Designation'}</div>
+                        {/* User Panel - Sleek Chic Design */}
+            <div className="user-glass">
+                <div className="user-panel" onClick={userOptions}>
+                    <div className="user-icon">
+                        <span className="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <div className="user-info">
+                        <div className="user-name">{userid || 'User'}</div>
+                        <div className="user-designation">{designation || 'Member'}</div>
+                    </div>
                 </div>
             </div>
-            </GlassSurface>
 
+            {/* Popup User Options - Glass Slide Effect */}
             {optionsOpened && (
-            <GlassSurface
-                className="user-options-glass"
-                borderRadius={12}
-                opacity={0.15}
-                blur={10}
-            >
-                <div className="user-options">
-                <button
-                    className="logout-btn"
-                    onClick={async () => {
-                    try {
-                        const response = await fetch(`${API_URL}/auth/logout`, {
-                        method: 'POST',
-                        credentials: 'include'
-                        });
-                        if (response.ok) navigate('/Login');
-                    } catch (err) {
-                        console.error('Error logging out:', err.message);
-                    }
-                    }}
+                <GlassSurface
+                    className="user-options-glass"
+                    borderRadius={16}
+                    opacity={0.15}
+                    blur={15}
                 >
-                    <span className="material-symbols-outlined">logout</span>
-                    Logout
-                </button>
-                </div>
-            </GlassSurface>
+                    <div className="UserDetails">
+                        Hello,<br />
+                        {userid || 'User'}<br />
+                        <span>({designation || 'Member'})</span>
+                    </div>
+                    <button
+                        className="logout-btn"
+                        onClick={async () => {
+                            try {
+                                const response = await fetch(`${API_URL}/auth/logout`, {
+                                    method: 'POST',
+                                    credentials: 'include'
+                                });
+                                if (response.ok) navigate('/Login');
+                            } catch (err) {
+                                console.error('Error logging out:', err.message);
+                            }
+                        }}
+                    >
+                        <span className="material-symbols-outlined">logout</span>
+                        Logout
+                    </button>
+                </GlassSurface>
             )}
         </div>
     )
