@@ -162,10 +162,15 @@ export const functionsReducer = (state, action) => {
                 holidayList: action.payload  // Changed
             };
         case 'SEARCH_HOLIDAYS':
-            return {
-                ...state,
-                holidayList: action.payload.json.filter((j) => j.event.toLowerCase().includes(action.payload.event.toLowerCase()))  // Changed
-            };
+             if (action.payload && action.payload.json) {
+                return {
+                    ...state,
+                    holidayList: action.payload.json.filter((j) => 
+                        j.event && j.event.toLowerCase().includes((action.payload.event || '').toLowerCase())
+                    )
+                };
+            }
+            return state;
         case 'DELETE_HOLIDAY_DETAILS':
             return {
                 ...state,
@@ -186,7 +191,7 @@ export const FunctionsContextProvider = ({ children }) => {
         studentList: null,
         administrationList: null,  // Changed from 'administration' to 'administrationList'
         mentorList: null,           // Changed from 'mentors' to 'mentorList'
-        holidayList: null           // Changed from 'holidays' to 'holidayList'
+        holidayList: []        // Changed from 'holidays' to 'holidayList'
     });
 
     return (
