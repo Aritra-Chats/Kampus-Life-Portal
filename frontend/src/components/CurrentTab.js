@@ -177,6 +177,16 @@ const CurrentTab = ({ API_URL }) => {
                                 <div className="form-group">
                                     <label>Sections:</label>
                                     <input 
+                                        name="cabin" 
+                                        placeholder="Enter sections"
+                                        value={formData.cabin || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Sections:</label>
+                                    <input 
                                         name="sections" 
                                         placeholder="Enter sections"
                                         value={formData.sections || ''}
