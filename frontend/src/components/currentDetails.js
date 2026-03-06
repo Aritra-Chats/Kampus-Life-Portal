@@ -159,7 +159,6 @@ const CurrentDetails = ({ details, API_URL }) => {
                     </div>
                     <p><strong>Date:</strong> <span>{details.date ? new Date(details.date).toLocaleDateString() : 'N/A'}</span></p>
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
-                    <p><strong>Description:</strong> <span>{details.description || 'N/A'}</span></p>
                 </div>
             );
             

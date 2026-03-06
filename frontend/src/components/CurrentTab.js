@@ -633,15 +633,6 @@ const CurrentTab = ({ API_URL }) => {
                                         required 
                                     />
                                 </div>
-                                <div className="form-group">
-                                    <label>Description:</label>
-                                    <input 
-                                        name="description" 
-                                        placeholder="Enter description (optional)"
-                                        value={formData.description || ''}
-                                        onChange={handleChange} 
-                                    />
-                                </div>
                                 <button type="submit" className="add-holiday-button">
                                     ADD HOLIDAY DETAILS
                                 </button>
