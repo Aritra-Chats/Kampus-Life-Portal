@@ -11,7 +11,6 @@ const NavTab = () => {
     const [optionsOpened, setOptionsOpened] = useState(false);
 
     const API_URL = process.env.REACT_APP_API_URL;
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -68,34 +67,52 @@ const NavTab = () => {
             <Link to='/Home'>
                 <img src='/images/logo.png' alt='Kampus Life Home redirect' />
             </Link>
-            <div className='tabOptions'>
-                <h6>Details List</h6>
-                <div className={`option ${tab === 'teacherList' ? 'selected' : ''}`} onClick={() => switchTab('TeacherList')}>Teacher List</div>
-                <div className={`option ${tab === 'studentList' ? 'selected' : ''}`} onClick={() => switchTab('StudentList')}>Student List</div>
-                
-                <h6>Routine List</h6>
-                <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
-                
-                <h6>Administration</h6>
-                <div className={`option ${tab === 'administration' ? 'selected' : ''}`} onClick={() => switchTab('Administration')}>Administration</div>
-                <div className={`option ${tab === 'mentors' ? 'selected' : ''}`} onClick={() => switchTab('Mentors')}>Mentors</div>
-                <div className={`option ${tab === 'holidays' ? 'selected' : ''}`} onClick={() => switchTab('Holidays')}>Holidays</div>
-            </div>
             
-                        {/* User Panel - Sleek Chic Design */}
-            <div className="user-glass">
-                <div className="user-panel" onClick={userOptions}>
-                    <div className="user-icon">
-                        <span className="material-symbols-outlined">account_circle</span>
-                    </div>
-                    <div className="user-info">
-                        <div className="user-name">{userid || 'User'}</div>
-                        <div className="user-designation">{designation || 'Member'}</div>
-                    </div>
+            <div className='tabOptions'>
+                <h6>DETAILS LIST</h6>
+                <div 
+                    className={`option ${tab === 'teacherList' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('TeacherList')}
+                >
+                    Teacher List
+                </div>
+                <div 
+                    className={`option ${tab === 'studentList' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('StudentList')}
+                >
+                    Student List
+                </div>
+                
+                <h6>ROUTINE LIST</h6>
+                <div 
+                    className={`option ${tab === 'routine' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('Routine')}
+                >
+                    Routine
+                </div>
+                
+                <h6>ADMINISTRATION</h6>
+                <div 
+                    className={`option ${tab === 'administration' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('Administration')}
+                >
+                    Administration
+                </div>
+                <div 
+                    className={`option ${tab === 'mentors' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('Mentors')}
+                >
+                    Mentors
+                </div>
+                <div 
+                    className={`option ${tab === 'holidays' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('Holidays')}
+                >
+                    Holidays
                 </div>
             </div>
-
-                        {/* User Panel - Perfectly Fitted */}
+            
+            {/* ===== ONLY ONE USER PANEL - OPTIMIZED VERSION ===== */}
             <div className="user-glass">
                 <div className="user-panel" onClick={userOptions}>
                     <div className="user-icon">
@@ -108,13 +125,13 @@ const NavTab = () => {
                 </div>
             </div>
 
-            {/* Popup User Options - Fits Inside NavTab */}
+            {/* ===== ONLY ONE POPUP - OPTIMIZED VERSION ===== */}
             {optionsOpened && (
                 <GlassSurface
                     className="user-options-glass"
-                    borderRadius={16}
+                    borderRadius={18}
                     opacity={0.15}
-                    blur={15}
+                    blur={16}
                 >
                     <div className="UserDetails">
                         Hello, <strong>{userid || 'User'}</strong>
