@@ -90,6 +90,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                     <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
                     <p><strong>Phone:</strong> <span>{details.phone || 'N/A'}</span></p>
                     <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
+                    <p><strong>Sections:</strong> <span>{details.sections || 'N/A'}</span></p>
                 </div>
             );
             
