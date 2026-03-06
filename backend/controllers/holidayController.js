@@ -16,8 +16,8 @@ const getHolidays = async (req, res) => {
     try {
         const holidays = await Holidays.find({});
         holidays.sort((left, right) => {
-            const leftTime = parseDDMMYYYYToTimestamp(getRangeStartDate(left.Date));
-            const rightTime = parseDDMMYYYYToTimestamp(getRangeStartDate(right.Date));
+            const leftTime = parseDDMMYYYYToTimestamp(getRangeStartDate(left.dateString));
+            const rightTime = parseDDMMYYYYToTimestamp(getRangeStartDate(right.dateString));
             return leftTime - rightTime;
         });
         res.status(200).json(holidays);
@@ -28,19 +28,19 @@ const getHolidays = async (req, res) => {
 
 //post a new holiday
 const postHoliday = async (req, res) => {
-    const { date, event } = req.body;
-    const normalizedDate = typeof date === 'string' ? date.trim() : date;
+    const { dateString, event } = req.body;
+    const normalizedDateString = typeof date === 'string' ? dateString.trim() : date;
     const normalizedEvent = typeof event === 'string' ? event.trim() : event;
 
     //Empty field check
     let emptyFields = [];
-    if (!normalizedDate || String(normalizedDate).trim() === '') emptyFields.push('date');
+    if (!normalizedDateString || String(normalizedDateString).trim() === '') emptyFields.push('date');
     if (!normalizedEvent || String(normalizedEvent).trim() === '') emptyFields.push('event');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
 
     //add document to db
     try {
-        const holiday = await Holidays.create({ Date: normalizedDate, Event: normalizedEvent });
+        const holiday = await Holidays.create({ dateString: normalizedDateString, event: normalizedEvent });
         res.status(200).json(holiday);
     } catch (error) {
         res.status(400).json({error: error.message});

@@ -148,8 +148,8 @@ const IMPORT_CONFIG = {
     model: Holiday,
     requiredHeaders: ['Date', 'Event'],
     mapRow: (row) => ({
-      Date: normalizeHolidayDate(row['Date']),
-      Event: String(row['Event'] ?? '').trim()
+      dateString: normalizeHolidayDate(row['Date']),
+      event: String(row['Event'] ?? '').trim()
     })
   },
 };

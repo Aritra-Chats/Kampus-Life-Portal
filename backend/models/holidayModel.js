@@ -45,7 +45,7 @@ function isValidHolidayDate(value) {
 }
 
 const holidaySchema = new Schema ({
-    Date: {
+    dateString: {
         type: String,
         required: true,
         trim: true,
@@ -58,7 +58,7 @@ const holidaySchema = new Schema ({
             }
         ]
     },
-    Event: {
+    event: {
         type: String,
         required: true,
         trim: true
