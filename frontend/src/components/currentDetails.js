@@ -144,7 +144,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                         <h4>{details.name ? details.name.replace(/ /g, '\n') : 'Mentor'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>MENTOR ID:</strong> <span>{details.mentorId || details.id || 'N/A'}</span></p>
+                    <p><strong>MENTOR ID:</strong> <span>{details.mentorId || 'N/A'}</span></p>
                     <p><strong>MENTEE ID:</strong> <span>{details.menteeId || 'N/A'}</span></p>
                 </div>
             );
@@ -156,7 +156,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                         <h4>{details.event || 'Holiday'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>Date:</strong> <span>{details.date ? new Date(details.date).toLocaleDateString() : 'N/A'}</span></p>
+                    <p><strong>Date:</strong> <span>{details.date || 'N/A'}</span></p>
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
                 </div>
             );

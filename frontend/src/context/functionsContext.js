@@ -134,7 +134,10 @@ export const functionsReducer = (state, action) => {
         case 'SEARCH_MENTORS':
             return {
                 ...state,
-                mentorList: action.payload.json.filter((j) => j.id.toString().includes(action.payload.id.toString()))  // Changed
+                mentorList: action.payload.json.filter((j) => 
+                    j.mentorId?.toString().includes(action.payload.id?.toString()) || 
+                    j.menteeId?.toString().includes(action.payload.id?.toString())
+                )
             };
         case 'DELETE_MENTOR_DETAILS':
             return {
