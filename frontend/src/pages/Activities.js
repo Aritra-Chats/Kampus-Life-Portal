@@ -27,9 +27,9 @@ const Activity = () => {
     teacherList,
     studentList,
     routine,
-    administration,
-    mentors,
-    holidays,
+    administrationList,
+    mentorsList,
+    holidayList,
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -55,13 +55,13 @@ const Activity = () => {
           case "routine":
             response = await fetch(`${API_URL}/api/Routine`);
             break;
-          case "administration":
+          case "administrationList":
             response = await fetch(`${API_URL}/api/AdministrationList`);
             break;
-          case "mentors":
+          case "mentorsList":
             response = await fetch(`${API_URL}/api/MentorsList`);
             break;
-          case "holidays":
+          case "holidayList":
             response = await fetch(`${API_URL}/api/HolidayList`);
             break;
           default:
@@ -92,13 +92,13 @@ const Activity = () => {
           case "routine":
             dispatch({ type: "GET_ROUTINE", payload: json });
             break;
-          case "administration":
+          case "administrationList":
             dispatch({ type: "GET_ADMINISTRATION", payload: json });
             break;
-          case "mentors":
+          case "mentorsList":
             dispatch({ type: "GET_MENTORS", payload: json });
             break;
-          case "holidays":
+          case "holidayList":
             dispatch({ type: "GET_HOLIDAYS", payload: json });
             break;
           default:
@@ -167,11 +167,11 @@ const Activity = () => {
           </div>
         );
         
-      case "administration":
+      case "administrationList":
         return (
           <div className="AdministrationList">
-            {administration && administration.length > 0 ? (
-              administration.map((adminDetails) => (
+            {administrationList && administrationList.length > 0 ? (
+              administrationList.map((adminDetails) => (
                 <CurrentDetails
                   key={adminDetails._id}
                   details={adminDetails}
@@ -184,11 +184,11 @@ const Activity = () => {
           </div>
         );
         
-      case "mentors":
+      case "mentorsList":
         return (
           <div className="MentorsList">
-            {mentors && mentors.length > 0 ? (
-              mentors.map((mentorDetails) => (
+            {mentorsList && mentorsList.length > 0 ? (
+              mentorsList.map((mentorDetails) => (
                 <CurrentDetails
                   key={mentorDetails._id}
                   details={mentorDetails}
@@ -201,11 +201,11 @@ const Activity = () => {
           </div>
         );
         
-      case "holidays":
+      case "holidayList":
         return (
           <div className="HolidaysList">
-            {holidays && holidays.length > 0 ? (
-              holidays.map((holidayDetails) => (
+            {holidayList && holidayList.length > 0 ? (
+              holidayList.map((holidayDetails) => (
                 <CurrentDetails
                   key={holidayDetails._id}
                   details={holidayDetails}
