@@ -13,9 +13,9 @@ const CurrentTab = ({ API_URL }) => {
             teacherList: `${API_URL}/api/TeacherList`,
             studentList: `${API_URL}/api/StudentList`,
             routine: `${API_URL}/api/Routine`,
-            administration: `${API_URL}/api/Administration`,
-            mentors: `${API_URL}/api/Mentors`,
-            holidays: `${API_URL}/api/Holidays`
+            administrationList: `${API_URL}/api/AdministrationList`,
+            mentorsList: `${API_URL}/api/MentorsList`,
+            holidayList: `${API_URL}/api/HolidayList`
         };
 
         try {
@@ -35,9 +35,9 @@ const CurrentTab = ({ API_URL }) => {
                 teacherList: 'ADD_TEACHER_DETAILS',
                 studentList: 'ADD_STUDENT_DETAILS',
                 routine: 'ADD_ROUTINE',
-                administration: 'ADD_ADMINISTRATION_DETAILS',
-                mentors: 'ADD_MENTOR_DETAILS',
-                holidays: 'ADD_HOLIDAY_DETAILS'
+                administrationList: 'ADD_ADMINISTRATION_DETAILS',
+                mentorsList: 'ADD_MENTOR_DETAILS',
+                holidayList: 'ADD_HOLIDAY_DETAILS'
             };
 
             dispatch({ type: actionMap[tab], payload: json });
@@ -73,13 +73,13 @@ const CurrentTab = ({ API_URL }) => {
             case 'routine':
                 uploadEndpoint += 'routines';
                 break;
-            case 'administration':
+            case 'administrationList':
                 uploadEndpoint += 'administration';
                 break;
-            case 'mentors':
+            case 'mentorsList':
                 uploadEndpoint += 'mentors';
                 break;
-            case 'holidays':
+            case 'holidayList':
                 uploadEndpoint += 'holidays';
                 break;
             default:
@@ -529,52 +529,21 @@ const CurrentTab = ({ API_URL }) => {
                             <h3>ADD MENTOR DETAILS</h3>
                             <form onSubmit={handleSubmit} className="mentors-form">
                                 <div className="form-group">
-                                    <label>Name:</label>
-                                    <input 
-                                        name="name" 
-                                        placeholder="Enter mentor name"
-                                        value={formData.name || ''}
-                                        onChange={handleChange} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>ID:</label>
+                                    <label>MENTOR ID:</label>
                                     <input 
                                         name="id" 
-                                        placeholder="Enter mentor ID"
+                                        placeholder="Enter mentor id"
                                         value={formData.id || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Email:</label>
+                                    <label>MENTEE ID:</label>
                                     <input 
-                                        name="email" 
-                                        type="email" 
-                                        placeholder="Enter email address"
-                                        value={formData.email || ''}
-                                        onChange={handleChange} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Cabin:</label>
-                                    <input 
-                                        name="cabin" 
-                                        placeholder="Enter cabin number"
-                                        value={formData.cabin || ''}
-                                        onChange={handleChange} 
-                                        required 
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Campus:</label>
-                                    <input 
-                                        name="campus" 
-                                        placeholder="Enter campus"
-                                        value={formData.campus || ''}
+                                        name="id" 
+                                        placeholder="Enter mentee id"
+                                        value={formData.id || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -626,7 +595,6 @@ const CurrentTab = ({ API_URL }) => {
                                     <label>Date:</label>
                                     <input 
                                         name="date" 
-                                        type="date" 
                                         placeholder="Select date"
                                         value={formData.date || ''}
                                         onChange={handleChange} 

@@ -23,18 +23,18 @@ const CurrentDetails = ({ details, API_URL }) => {
                     method: 'DELETE'
                 });
                 break;
-            case 'administration':
-                response = await fetch(`${API_URL}/api/Administration/` + details._id, {
+            case 'administrationList':
+                response = await fetch(`${API_URL}/api/AdministrationList/` + details._id, {
                     method: 'DELETE'
                 });
                 break;
-            case 'mentors':
-                response = await fetch(`${API_URL}/api/Mentors/` + details._id, {
+            case 'mentorsList':
+                response = await fetch(`${API_URL}/api/MentorsList/` + details._id, {
                     method: 'DELETE'
                 });
                 break;
-            case 'holidays':
-                response = await fetch(`${API_URL}/api/Holidays/` + details._id, {
+            case 'holidayList':
+                response = await fetch(`${API_URL}/api/HolidayList/` + details._id, {
                     method: 'DELETE'
                 });
                 break;
@@ -64,13 +64,13 @@ const CurrentDetails = ({ details, API_URL }) => {
             case 'routine':
                 dispatch({ type: 'DELETE_ROUTINE', payload: json});
                 break;
-            case 'administration':
+            case 'administrationList':
                 dispatch({ type: 'DELETE_ADMINISTRATION_DETAILS', payload: json });
                 break;
-            case 'mentors':
+            case 'mentorsList':
                 dispatch({ type: 'DELETE_MENTOR_DETAILS', payload: json });
                 break;
-            case 'holidays':
+            case 'holidaysList':
                 dispatch({ type: 'DELETE_HOLIDAY_DETAILS', payload: json });
                 break;
             default:
@@ -122,7 +122,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                 </div>
             );
             
-        case 'administration':
+        case 'administrationList':
             return (
                 <div className='AdministrationDetails'>
                     <div className='header'>
@@ -137,21 +137,19 @@ const CurrentDetails = ({ details, API_URL }) => {
                 </div>
             );
             
-        case 'mentors':
+        case 'mentorsList':
             return (
                 <div className='MentorDetails'>
                     <div className='header'>
                         <h4>{details.name ? details.name.replace(/ /g, '\n') : 'No Name'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>ID:</strong> <span>{details.id || details.mentorId || 'N/A'}</span></p>
-                    <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
-                    <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
-                    <p><strong>Campus:</strong> <span>{details.campus || 'N/A'}</span></p>
+                    <p><strong>Mentor ID:</strong> <span>{details.id || details.mentorId || 'N/A'}</span></p>
+                    <p><strong>Mentee ID:</strong> <span>{details.id || details.menteeId || 'N/A'}</span></p>
                 </div>
             );
             
-        case 'holidays':
+        case 'holidayList':
             return (
                 <div className='HolidayDetails'>
                     <div className='header'>

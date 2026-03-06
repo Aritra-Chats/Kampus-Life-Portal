@@ -27,9 +27,9 @@ const Activity = () => {
     teacherList,
     studentList,
     routine,
-    administration,
-    mentors,
-    holidays,
+    administrationList,
+    mentorsList,
+    holidayList,
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -53,14 +53,14 @@ const Activity = () => {
           case "routine":
             response = await fetch(`${API_URL}/api/Routine`);
             break;
-          case "administration":
-            response = await fetch(`${API_URL}/api/Administration`);
+          case "administrationList":
+            response = await fetch(`${API_URL}/api/AdministrationList`);
             break;
-          case "mentors":
-            response = await fetch(`${API_URL}/api/Mentors`);
+          case "mentorsList":
+            response = await fetch(`${API_URL}/api/MentorsList`);
             break;
-          case "holidays":
-            response = await fetch(`${API_URL}/api/Holidays`);
+          case "holidayList":
+            response = await fetch(`${API_URL}/api/HolidayList`);
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -86,13 +86,13 @@ const Activity = () => {
           case "routine":
             dispatch({ type: "GET_ROUTINE", payload: json });
             break;
-          case "administration":
+          case "administrationList":
             dispatch({ type: "GET_ADMINISTRATION", payload: json });
             break;
-          case "mentors":
+          case "mentorsList":
             dispatch({ type: "GET_MENTORS", payload: json });
             break;
-          case "holidays":
+          case "holidayList":
             dispatch({ type: "GET_HOLIDAYS", payload: json });
             break;
           default:
@@ -147,7 +147,7 @@ const Activity = () => {
               ))}
           </div>
         );
-      case "administration":
+      case "administrationList":
         return (
           <div className="AdministrationList">
             {administration &&
@@ -160,7 +160,7 @@ const Activity = () => {
               ))}
           </div>
         );
-      case "mentors":
+      case "mentorsList":
         return (
           <div className="MentorsList">
             {mentors &&
@@ -173,7 +173,7 @@ const Activity = () => {
               ))}
           </div>
         );
-      case "holidays":
+      case "holidayList":
         return (
           <div className="HolidaysList">
             {holidays &&

@@ -44,13 +44,13 @@ const NavTab = () => {
                 dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
             case 'Administration':
-                dispatch({ type: 'SET_TAB', payload: 'administration' });
+                dispatch({ type: 'SET_TAB', payload: 'administrationList' });
                 break;
             case 'Mentors':
                 dispatch({ type: 'SET_TAB', payload: 'mentors' });
                 break;
             case 'Holidays':
-                dispatch({ type: 'SET_TAB', payload: 'holidays' });
+                dispatch({ type: 'SET_TAB', payload: 'holidaysList' });
                 break;
             default:
                 console.log({error: "Invalid option"});
@@ -91,21 +91,21 @@ const NavTab = () => {
                     Routine
                 </div>
                 
-                <h6>ADMINISTRATION</h6>
+                <h6>MISCELLANEOUS</h6>
                 <div 
-                    className={`option ${tab === 'administration' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('Administration')}
+                    className={`option ${tab === 'administrationList' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('AdministrationList')}
                 >
                     Administration
                 </div>
                 <div 
-                    className={`option ${tab === 'mentors' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('Mentors')}
+                    className={`option ${tab === 'mentorsList' ? 'selected' : ''}`} 
+                    onClick={() => switchTab('MentorsList')}
                 >
                     Mentors
                 </div>
                 <div 
-                    className={`option ${tab === 'holidays' ? 'selected' : ''}`} 
+                    className={`option ${tab === 'holidaysList' ? 'selected' : ''}`} 
                     onClick={() => switchTab('Holidays')}
                 >
                     Holidays
