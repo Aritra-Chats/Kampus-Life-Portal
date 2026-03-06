@@ -95,7 +95,20 @@ const NavTab = () => {
                 </div>
             </div>
 
-            {/* Popup User Options - Glass Slide Effect */}
+                        {/* User Panel - Perfectly Fitted */}
+            <div className="user-glass">
+                <div className="user-panel" onClick={userOptions}>
+                    <div className="user-icon">
+                        <span className="material-symbols-outlined">person</span>
+                    </div>
+                    <div className="user-info">
+                        <div className="user-name">{userid || 'User'}</div>
+                        <div className="user-designation">{designation || 'Member'}</div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Popup User Options - Fits Inside NavTab */}
             {optionsOpened && (
                 <GlassSurface
                     className="user-options-glass"
@@ -104,8 +117,7 @@ const NavTab = () => {
                     blur={15}
                 >
                     <div className="UserDetails">
-                        Hello,<br />
-                        {userid || 'User'}<br />
+                        Hello, <strong>{userid || 'User'}</strong>
                         <span>({designation || 'Member'})</span>
                     </div>
                     <button
@@ -116,7 +128,10 @@ const NavTab = () => {
                                     method: 'POST',
                                     credentials: 'include'
                                 });
-                                if (response.ok) navigate('/Login');
+                                if (response.ok) {
+                                    setOptionsOpened(false);
+                                    navigate('/Login');
+                                }
                             } catch (err) {
                                 console.error('Error logging out:', err.message);
                             }
