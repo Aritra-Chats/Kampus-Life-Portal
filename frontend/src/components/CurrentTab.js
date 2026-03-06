@@ -13,7 +13,9 @@ const CurrentTab = ({ API_URL }) => {
             teacherList: `${API_URL}/api/TeacherList`,
             studentList: `${API_URL}/api/StudentList`,
             routine: `${API_URL}/api/Routine`,
-            administration: `${API_URL}/api/Administration` 
+            administration: `${API_URL}/api/Administration`,
+            mentors: `${API_URL}/api/Mentors`,
+            holidays: `${API_URL}/api/Holidays`
         };
 
         try {
@@ -33,7 +35,9 @@ const CurrentTab = ({ API_URL }) => {
                 teacherList: 'ADD_TEACHER_DETAILS',
                 studentList: 'ADD_STUDENT_DETAILS',
                 routine: 'ADD_ROUTINE',
-                administration: 'ADD_ADMINISTRATION_DETAILS'
+                administration: 'ADD_ADMINISTRATION_DETAILS',
+                mentors: 'ADD_MENTOR_DETAILS',
+                holidays: 'ADD_HOLIDAY_DETAILS'
             };
 
             dispatch({ type: actionMap[tab], payload: json });
@@ -71,6 +75,12 @@ const CurrentTab = ({ API_URL }) => {
                 break;
             case 'administration':
                 uploadEndpoint += 'administration';
+                break;
+            case 'mentors':
+                uploadEndpoint += 'mentors';
+                break;
+            case 'holidays':
+                uploadEndpoint += 'holidays';
                 break;
             default:
                 uploadEndpoint += 'teachers';
@@ -467,6 +477,164 @@ const CurrentTab = ({ API_URL }) => {
                                 </div>
                                 <button type="submit" className="add-administration-button">
                                     ADD ADMINISTRATION DETAILS
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                );
+
+            case 'mentors':
+                return (
+                    <div className='MentorsPage'>
+                        <div className='header'>
+                            <h1>Mentors List</h1>
+                        </div>
+
+                        <div className='upload-section'>
+                            <h3>Initialize Mentors Details List:</h3>
+                            <form className='upload-box' onSubmit={handleFileUpload}>
+                                <label htmlFor="mentors-file-upload" className="upload-label">
+                                    <span className="material-symbols-outlined">upload</span>
+                                    <p>{selectedFile ? selectedFile.name : 'Upload mentors details sheet:'}</p>
+                                    <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                </label>
+                                <input 
+                                    id="mentors-file-upload"
+                                    type="file" 
+                                    accept=".csv,.xlsx,.xls"
+                                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                                    style={{ display: 'none' }}
+                                />
+                                {selectedFile && (
+                                    <button type="submit" className="upload-button">
+                                        Upload File
+                                    </button>
+                                )}
+                            </form>
+                        </div>
+
+                        <div className="divider"></div>
+
+                        <div className='add-section'>
+                            <h3>ADD MENTOR DETAILS</h3>
+                            <form onSubmit={handleSubmit} className="mentors-form">
+                                <div className="form-group">
+                                    <label>Name:</label>
+                                    <input 
+                                        name="name" 
+                                        placeholder="Enter mentor name"
+                                        value={formData.name || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>ID:</label>
+                                    <input 
+                                        name="id" 
+                                        placeholder="Enter mentor ID"
+                                        value={formData.id || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email:</label>
+                                    <input 
+                                        name="email" 
+                                        type="email" 
+                                        placeholder="Enter email address"
+                                        value={formData.email || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Cabin:</label>
+                                    <input 
+                                        name="cabin" 
+                                        placeholder="Enter cabin number"
+                                        value={formData.cabin || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Campus:</label>
+                                    <input 
+                                        name="campus" 
+                                        placeholder="Enter campus"
+                                        value={formData.campus || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <button type="submit" className="add-mentor-button">
+                                    ADD MENTOR DETAILS
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                );
+
+            case 'holidays':
+                return (
+                    <div className='HolidaysPage'>
+                        <div className='header'>
+                            <h1>Holidays List</h1>
+                        </div>
+
+                        <div className='upload-section'>
+                            <h3>Initialize Holidays List:</h3>
+                            <form className='upload-box' onSubmit={handleFileUpload}>
+                                <label htmlFor="holidays-file-upload" className="upload-label">
+                                    <span className="material-symbols-outlined">upload</span>
+                                    <p>{selectedFile ? selectedFile.name : 'Upload holidays sheet:'}</p>
+                                    <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                </label>
+                                <input 
+                                    id="holidays-file-upload"
+                                    type="file" 
+                                    accept=".csv,.xlsx,.xls"
+                                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                                    style={{ display: 'none' }}
+                                />
+                                {selectedFile && (
+                                    <button type="submit" className="upload-button">
+                                        Upload File
+                                    </button>
+                                )}
+                            </form>
+                        </div>
+
+                        <div className="divider"></div>
+
+                        <div className='add-section'>
+                            <h3>ADD HOLIDAY DETAILS</h3>
+                            <form onSubmit={handleSubmit} className="holidays-form">
+                                <div className="form-group">
+                                    <label>Date:</label>
+                                    <input 
+                                        name="date" 
+                                        type="date" 
+                                        placeholder="Select date"
+                                        value={formData.date || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Event:</label>
+                                    <input 
+                                        name="event" 
+                                        placeholder="Enter event name"
+                                        value={formData.event || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <button type="submit" className="add-holiday-button">
+                                    ADD HOLIDAY DETAILS
                                 </button>
                             </form>
                         </div>
