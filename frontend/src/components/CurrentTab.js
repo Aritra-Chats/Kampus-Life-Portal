@@ -178,7 +178,7 @@ const CurrentTab = ({ API_URL }) => {
                                     <label>Sections:</label>
                                     <input 
                                         name="cabin" 
-                                        placeholder="Enter sections"
+                                        placeholder="Enter cabin number"
                                         value={formData.cabin || ''}
                                         onChange={handleChange} 
                                         required 
