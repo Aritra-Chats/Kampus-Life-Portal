@@ -27,7 +27,9 @@ const Activity = () => {
     teacherList,
     studentList,
     routine,
-    administration, 
+    administration,
+    mentors,
+    holidays,
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -53,6 +55,12 @@ const Activity = () => {
             break;
           case "administration":
             response = await fetch(`${API_URL}/api/Administration`);
+            break;
+          case "mentors":
+            response = await fetch(`${API_URL}/api/Mentors`);
+            break;
+          case "holidays":
+            response = await fetch(`${API_URL}/api/Holidays`);
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -80,6 +88,12 @@ const Activity = () => {
             break;
           case "administration":
             dispatch({ type: "GET_ADMINISTRATION", payload: json });
+            break;
+          case "mentors":
+            dispatch({ type: "GET_MENTORS", payload: json });
+            break;
+          case "holidays":
+            dispatch({ type: "GET_HOLIDAYS", payload: json });
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -141,6 +155,32 @@ const Activity = () => {
                 <CurrentDetails
                   key={adminDetails._id}
                   details={adminDetails}
+                  API_URL={API_URL}
+                />
+              ))}
+          </div>
+        );
+      case "mentors":
+        return (
+          <div className="MentorsList">
+            {mentors &&
+              mentors.map((mentorDetails) => (
+                <CurrentDetails
+                  key={mentorDetails._id}
+                  details={mentorDetails}
+                  API_URL={API_URL}
+                />
+              ))}
+          </div>
+        );
+      case "holidays":
+        return (
+          <div className="HolidaysList">
+            {holidays &&
+              holidays.map((holidayDetails) => (
+                <CurrentDetails
+                  key={holidayDetails._id}
+                  details={holidayDetails}
                   API_URL={API_URL}
                 />
               ))}

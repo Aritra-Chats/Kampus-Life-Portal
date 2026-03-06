@@ -44,8 +44,14 @@ const NavTab = () => {
             case 'Routine':
                 dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
-            case 'Administration':   // ✅ ADD THIS
+            case 'Administration':
                 dispatch({ type: 'SET_TAB', payload: 'administration' });
+                break;
+            case 'Mentors':
+                dispatch({ type: 'SET_TAB', payload: 'mentors' });
+                break;
+            case 'Holidays':
+                dispatch({ type: 'SET_TAB', payload: 'holidays' });
                 break;
             default:
                 console.log({error: "Invalid option"});
@@ -58,18 +64,22 @@ const NavTab = () => {
     }
 
     return (
-        <div className = 'NavTab'>
+        <div className='NavTab'>
             <Link to='/Home'>
-                <img src ='/images/logo.png' alt='Kampus Life Home redirect' />
+                <img src='/images/logo.png' alt='Kampus Life Home redirect' />
             </Link>
-            <div className = 'tabOptions'>
+            <div className='tabOptions'>
                 <h6>Details List</h6>
                 <div className={`option ${tab === 'teacherList' ? 'selected' : ''}`} onClick={() => switchTab('TeacherList')}>Teacher List</div>
                 <div className={`option ${tab === 'studentList' ? 'selected' : ''}`} onClick={() => switchTab('StudentList')}>Student List</div>
+                
                 <h6>Routine List</h6>
                 <div className={`option ${tab === 'routine' ? 'selected' : ''}`} onClick={() => switchTab('Routine')}>Routine</div>
+                
                 <h6>Administration</h6>
                 <div className={`option ${tab === 'administration' ? 'selected' : ''}`} onClick={() => switchTab('Administration')}>Administration</div>
+                <div className={`option ${tab === 'mentors' ? 'selected' : ''}`} onClick={() => switchTab('Mentors')}>Mentors</div>
+                <div className={`option ${tab === 'holidays' ? 'selected' : ''}`} onClick={() => switchTab('Holidays')}>Holidays</div>
             </div>
             
             {/* ========== ADDED USER PANEL HERE (OUTSIDE tabOptions) ========== */}
@@ -124,4 +134,4 @@ const NavTab = () => {
     )
 };
 
-export default NavTab
+export default NavTab;
