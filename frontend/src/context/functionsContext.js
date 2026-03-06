@@ -181,9 +181,9 @@ export const FunctionsContextProvider = ({ children }) => {
         teacherList: null,
         routine: null,  
         studentList: null,
-        administration: null,
-        mentors: null,  // Added mentors array
-        holidays: null   // Added holidays array
+        administration: null,  // Fixed: was 'administrationList'
+        mentors: null,         // Fixed: was 'mentorsList'
+        holidays: null         // Fixed: was 'holidayList'
     });
 
     return (

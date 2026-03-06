@@ -27,15 +27,16 @@ const Activity = () => {
     teacherList,
     studentList,
     routine,
-    administrationList,
-    mentorsList,
-    holidayList,
+    administration,
+    mentors,
+    holidays,
     dispatch,
   } = useContext(FunctionsContext);
 
   const navigate = useNavigate();
+  
   useEffect(() => {
-    if(!tab) navigate('/Home');
+    if (!tab) navigate('/Home');
   }, [tab, navigate]);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ const Activity = () => {
       try {
         console.log(API_URL);
         let response;
+        
         switch (tab) {
           case "teacherList":
             response = await fetch(`${API_URL}/api/TeacherList`);
@@ -53,18 +55,20 @@ const Activity = () => {
           case "routine":
             response = await fetch(`${API_URL}/api/Routine`);
             break;
-          case "administrationList":
+          case "administration":
             response = await fetch(`${API_URL}/api/AdministrationList`);
             break;
-          case "mentorsList":
+          case "mentors":
             response = await fetch(`${API_URL}/api/MentorsList`);
             break;
-          case "holidayList":
+          case "holidays":
             response = await fetch(`${API_URL}/api/HolidayList`);
             break;
           default:
             console.log("Activities: Invalid tab");
+            return;
         }
+        
         if (!response.ok) {
           console.log(tab, ": fetch error");
           try {
@@ -75,7 +79,9 @@ const Activity = () => {
           }
           return;
         }
+        
         const json = await response.json();
+        
         switch (tab) {
           case "teacherList":
             dispatch({ type: "GET_TEACHER_LIST", payload: json });
@@ -86,24 +92,26 @@ const Activity = () => {
           case "routine":
             dispatch({ type: "GET_ROUTINE", payload: json });
             break;
-          case "administrationList":
+          case "administration":
             dispatch({ type: "GET_ADMINISTRATION", payload: json });
             break;
-          case "mentorsList":
+          case "mentors":
             dispatch({ type: "GET_MENTORS", payload: json });
             break;
-          case "holidayList":
+          case "holidays":
             dispatch({ type: "GET_HOLIDAYS", payload: json });
             break;
           default:
-            console.log("Activities: Invalid tab");
+            console.log("Activities: Invalid tab for dispatch");
         }
       } catch (e) {
         console.log("error: ", e.message);
       }
     };
 
-    selectFetch();
+    if (tab) {
+      selectFetch();
+    }
   }, [tab, dispatch]);
 
   const selectDetails = () => {
@@ -111,92 +119,121 @@ const Activity = () => {
       case "teacherList":
         return (
           <div className="TeacherList">
-            {teacherList &&
+            {teacherList && teacherList.length > 0 ? (
               teacherList.map((teacherDetails) => (
                 <CurrentDetails
                   key={teacherDetails._id}
                   details={teacherDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No teachers found</p>
+            )}
           </div>
         );
+        
       case "studentList":
         return (
           <div className="StudentList">
-            {studentList &&
+            {studentList && studentList.length > 0 ? (
               studentList.map((studentDetails) => (
                 <CurrentDetails
                   key={studentDetails._id}
                   details={studentDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No students found</p>
+            )}
           </div>
         );
+        
       case "routine":
         return (
           <div className="Routines">
-            {routine &&
+            {routine && routine.length > 0 ? (
               routine.map((routineDetails) => (
                 <CurrentDetails
                   key={routineDetails._id}
                   details={routineDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No routines found</p>
+            )}
           </div>
         );
-      case "administrationList":
+        
+      case "administration":
         return (
           <div className="AdministrationList">
-            {administration &&
+            {administration && administration.length > 0 ? (
               administration.map((adminDetails) => (
                 <CurrentDetails
                   key={adminDetails._id}
                   details={adminDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No administration data found</p>
+            )}
           </div>
         );
-      case "mentorsList":
+        
+      case "mentors":
         return (
           <div className="MentorsList">
-            {mentors &&
+            {mentors && mentors.length > 0 ? (
               mentors.map((mentorDetails) => (
                 <CurrentDetails
                   key={mentorDetails._id}
                   details={mentorDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No mentors found</p>
+            )}
           </div>
         );
-      case "holidayList":
+        
+      case "holidays":
         return (
           <div className="HolidaysList">
-            {holidays &&
+            {holidays && holidays.length > 0 ? (
               holidays.map((holidayDetails) => (
                 <CurrentDetails
                   key={holidayDetails._id}
                   details={holidayDetails}
                   API_URL={API_URL}
                 />
-              ))}
+              ))
+            ) : (
+              <p className="no-data">No holidays found</p>
+            )}
           </div>
         );
+        
       default:
         console.log("Invalid Selection");
-        return null;
+        return (
+          <div className="InvalidTab">
+            <h1>Invalid Tab Selected</h1>
+            <p>Please select a valid option from the navigation menu</p>
+          </div>
+        );
     }
   };
 
   return (
     <div className="activity">
-      <img className="bg-image" src='/images/bg.gif' alt="Background"/>
+      <img className="bg-image" src='/images/bg.gif' alt="Background" />
       <NavTab />
-      <CurrentTab API_URL={API_URL}/>
+      <CurrentTab API_URL={API_URL} />
       <DisplayDetails
         tab={tab}
         dispatch={dispatch}
