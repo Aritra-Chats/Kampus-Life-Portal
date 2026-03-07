@@ -112,7 +112,7 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='TeacherRoutine'>
                     <div className='header'>
-                        <h4>ROUTINE DETAILS</h4>
+                        <h4>{details.section || 'No Section'}</h4>  {/* Changed from 'ROUTINE DETAILS' to show section */}
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
                     <p><strong>Subject:</strong> <span>{details.subject || 'N/A'}</span></p>
@@ -120,8 +120,8 @@ const CurrentDetails = ({ details, API_URL }) => {
                     <p><strong>Classroom:</strong> <span>{details.classroom || 'N/A'}</span></p>
                     <p><strong>Teacher:</strong> <span>{details.teacher || 'N/A'}</span></p>
                 </div>
-            );
-            
+            );  
+                   
         case 'administrationList':
             return (
                 <div className='AdministrationDetails'>
