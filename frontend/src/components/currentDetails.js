@@ -153,10 +153,10 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='HolidayDetails'>
                     <div className='header'>
-                        <h4>{details.event || 'Holiday'}</h4>
+                        <h4>{'Holiday'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>Date:</strong> <span>{details.date || 'N/A'}</span></p>
+                    <p><strong>Date:</strong> <span>{details.dateString || 'N/A'}</span></p>
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
                 </div>
             );
