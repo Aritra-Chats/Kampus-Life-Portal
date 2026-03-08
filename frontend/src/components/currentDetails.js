@@ -34,7 +34,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                 });
                 break;
             case 'holidayList':
-                response = await fetch(`${API_URL}/api/HolidayList/` + details._id, {
+                response = await fetch(`${API_URL}/api/Holiday/` + details._id, {
                     method: 'DELETE'
                 });
                 break;

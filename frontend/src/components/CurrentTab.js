@@ -15,7 +15,7 @@ const CurrentTab = ({ API_URL }) => {
             routine: `${API_URL}/api/Routine`,
             administrationList: `${API_URL}/api/AdministrationList`,
             mentorList: `${API_URL}/api/MentorList`,
-            holidayList: `${API_URL}/api/HolidayList`
+            holidayList: `${API_URL}/api/Holiday`
         };
 
         try {
