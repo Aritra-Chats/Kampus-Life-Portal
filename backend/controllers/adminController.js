@@ -21,7 +21,7 @@ const postAnnouncement = async (req, res) => {
 
     //add document to db
     try {
-        const sender = req.user.userid;
+        const sender = req.user.userid
         const now = new Date();
         const sendTime = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
         const ageInDays = Number(age);
