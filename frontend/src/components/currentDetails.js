@@ -129,6 +129,7 @@ const CurrentDetails = ({ details, API_URL }) => {
                         <h4>{details.name ? details.name.replace(/ /g, '\n') : 'Administrator'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
+                    <p><strong>Designation:</strong> <span>{details.designation || 'N/A'}</span></p>
                     <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
                     <p><strong>Phone:</strong> <span>{details.phone || 'N/A'}</span></p>
                     <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>

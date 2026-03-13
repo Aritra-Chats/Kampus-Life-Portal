@@ -154,6 +154,16 @@ const CurrentTab = ({ API_URL }) => {
                                     />
                                 </div>
                                 <div className="form-group">
+                                    <label>Roll No:</label>
+                                    <input 
+                                        name="roll" 
+                                        placeholder="Enter teacher roll number"
+                                        value={formData.roll || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
                                     <label>Email:</label>
                                     <input 
                                         name="email" 
