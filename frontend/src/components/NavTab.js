@@ -40,15 +40,19 @@ const NavTab = () => {
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (optionsOpened) {
+                // Check if click is on logout button or inside the popup
+                const isClickOnLogout = event.target.closest('.logout-btn');
                 const isClickOnUserPanel = userPanelRef.current && userPanelRef.current.contains(event.target);
                 const isClickOnUserOptions = userOptionsRef.current && userOptionsRef.current.contains(event.target);
                 
-                if (!isClickOnUserPanel && !isClickOnUserOptions) {
+                // Only close if click is outside both components and not on logout button
+                if (!isClickOnUserPanel && !isClickOnUserOptions && !isClickOnLogout) {
                     setOptionsOpened(false);
                 }
             }
         };
 
+        // Use mousedown for better responsiveness
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -163,7 +167,8 @@ const NavTab = () => {
                     </div>
                     <button
                         className="logout-btn"
-                        onClick={async () => {
+                        onClick={async (e) => {
+                            e.stopPropagation(); // Prevent event bubbling
                             try {
                                 const response = await fetch(`${API_URL}/auth/logout`, {
                                     method: 'POST',
