@@ -44,6 +44,15 @@ const Home = () => {
             case 'routine':
                 dispatch({ type: 'SET_TAB', payload: 'routine' });
                 break;
+            case 'administrationList':
+                dispatch({ type: 'SET_TAB', payload: 'administrationList' });
+                break;
+            case 'mentorList':
+                dispatch({ type: 'SET_TAB', payload: 'mentorList' });
+                break;
+            case 'holidayList':
+                dispatch({ type: 'SET_TAB', payload: 'holidayList' });
+                break;
             case 'announcements':
                 dispatch({ type: 'SET_TAB', payload: 'announcements' });
                 break;
@@ -71,6 +80,9 @@ const Home = () => {
                     <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
                     <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'administrationList')}>Administration List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'mentorList')}>Mentor List</button>
+                    <button className='Option' onClick={() => switchPage('/Activity', 'holidayList')}>Holiday List</button>
                     {designation === 'official' && (
                         <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
                     )}
