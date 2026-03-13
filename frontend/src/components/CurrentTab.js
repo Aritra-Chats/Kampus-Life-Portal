@@ -154,11 +154,21 @@ const CurrentTab = ({ API_URL }) => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Roll No:</label>
+                                    <label>ID:</label>
                                     <input 
-                                        name="roll" 
-                                        placeholder="Enter teacher roll number"
-                                        value={formData.roll || ''}
+                                        name="id" 
+                                        placeholder="Enter teacher ID"
+                                        value={formData.id || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Designation:</label>
+                                    <input 
+                                        name="designation" 
+                                        placeholder="Enter teacher designation"
+                                        value={formData.designation || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -486,11 +496,11 @@ const CurrentTab = ({ API_URL }) => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Office:</label>
+                                    <label>Cabin:</label>
                                     <input 
-                                        name="office" 
-                                        placeholder="Enter office location"
-                                        value={formData.office || ''}
+                                        name="cabin" 
+                                        placeholder="Enter cabin location"
+                                        value={formData.cabin || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
