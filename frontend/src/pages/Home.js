@@ -73,7 +73,7 @@ const Home = () => {
     return (
         <div className='home'>
             <img className="page-bg-image" src='/images/bg.gif' alt="Background"/>
-            <GlassSurface className='Panel' width={'450px'} height={'650px'} borderRadius={20} opacity={0.5} blur={5} >
+            <GlassSurface className='Panel' width={'450px'} height={'680px'} borderRadius={20} opacity={0.5} blur={5} >
                 <img className='Logo' src='/images/logo.png' alt='Kampus Life logo'/>
                 {designation === 'management' && (
                     <>

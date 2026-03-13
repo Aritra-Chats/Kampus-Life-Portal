@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-/* More specific override to beat .glass-surface { position: relative } */
 .home .glass-surface.Panel, .home .glass-surface.panel {
   position: fixed !important;
   left: 60% !important;
@@ -13,11 +12,10 @@
   transform: translate(0, -50%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2) !important;
-  padding: 40px !important;
-  gap: 12px !important;
+  padding: 25px !important;
+  gap: 8px !important;
 }
 
-/* Override the content wrapper inside GlassSurface */
 .home .glass-surface.Panel .glass-surface__content,
 .home .glass-surface.panel .glass-surface__content {
   display: flex !important;
@@ -25,31 +23,32 @@
   align-items: center !important;
   justify-content: flex-start !important;
   padding: 0 !important;
-  gap: 35px !important;
+  gap: 15px !important;
   width: 100% !important;
+  height: 100% !important;
 }
 
 .Logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
 .Logo img {
-  max-width: 300px;
+  max-width: 220px;
   height: auto;
 }
 
 .Option {
-  padding: 14px 24px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 22px !important;
-  font-weight: 600 !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
   width: 100%;
-  min-width: 450px;
+  min-width: 380px;
   transition: all 0.3s ease;
   color: white;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
