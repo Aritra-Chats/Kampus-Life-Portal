@@ -62,7 +62,7 @@ const Activity = () => {
             response = await fetch(`${API_URL}/api/MentorList`);
             break;
           case "holidayList":
-            response = await fetch(`${API_URL}/api/HolidayList`);
+            response = await fetch(`${API_URL}/api/Holiday`);
             break;
           default:
             console.log("Activities: Invalid tab");

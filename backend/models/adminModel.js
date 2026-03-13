@@ -22,8 +22,8 @@ const adminSchema = new Schema({
         type: String,
         required: true,
         match: [
-            /^([01]\d|2[0-3]):([0-5]\d)$/,
-            'Please enter a valid time in the format HH:MM'
+            /^(\d{2})\/(\d{2})\/(\d{4})\s-\s([01]\d|2[0-3]):([0-5]\d)$/,
+            'Please enter a valid date & time in the format DD/MM/YYYY - HH:MM'
         ]
     },
     expiresAt: {

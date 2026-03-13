@@ -9,11 +9,13 @@ const getTeacherList = async (req, res) => {
 
 //post a new teacher list
 const postTeacherData = async (req, res) => {
-    const { name, email, phone, cabin, sections } = req.body;
+    const { name, id, designation, email, phone, cabin, sections } = req.body;
 
     //Empty field check
     let emptyFields = [];
     if(!name || name.trim() === '') emptyFields.push('name');
+    if(id === '' || id == null || isNaN(Number(id))) emptyFields.push('id');
+    if(!designation || designation.trim() === '') emptyFields.push('designation');
     if(!email || email.trim() === '') emptyFields.push('email');
     if(phone === '' || phone == null || isNaN(Number(phone))) emptyFields.push('phone');
     if(!cabin || cabin.trim() === '') emptyFields.push('cabin');
@@ -22,7 +24,7 @@ const postTeacherData = async (req, res) => {
 
     //add document to db
     try {
-        const teacherData = await TeacherList.create({ name, email, phone, cabin, sections });
+        const teacherData = await TeacherList.create({ name, id, designation, email, phone, cabin, sections });
         res.status(200).json(teacherData);
     } catch (error) {
         res.status(400).json({error: error.message});

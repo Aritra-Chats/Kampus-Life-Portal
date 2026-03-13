@@ -29,13 +29,13 @@ const getMentorById = async (req, res) => {
 };
 
 const postMentorData = async (req, res) => {
-    const { mentorRoll, menteeRolls } = req.body;
+    const { mentorId, menteeRolls } = req.body;
     let emptyFields = [];
-    if(!mentorRoll || String(mentorRoll).trim() === '') emptyFields.push('mentorRoll');
+    if(mentorId === '' || mentorId == null || isNaN(Number(mentorId))) emptyFields.push('mentorId');
     if(!menteeRolls || menteeRolls.length === 0) emptyFields.push('menteeRolls');
     if(emptyFields.length > 0) return res.status(400).json({error: 'Please fill in all fields', emptyFields});
     try {
-        const teacher = await TeacherList.findOne({ roll: mentorRoll });
+        const teacher = await TeacherList.findOne({ id: mentorId });
         if (!teacher) return res.status(404).json({error: "Teacher not found"});
         const students = await StudentList.find({ roll: { $in: menteeRolls } });
         if (students.length !== menteeRolls.length) 

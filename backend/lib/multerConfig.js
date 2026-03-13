@@ -88,25 +88,26 @@ const upload = multer({
 const IMPORT_CONFIG = {
   studentList: {
     model: StudentList,
-    requiredHeaders: ['Name', 'Roll No.', 'Email id', 'Phone No.', 'Section'],
+    requiredHeaders: ['name', 'roll No.', 'email id', 'phone No.', 'section'],
     mapRow: (row) => ({
-      name: row['Name'],
-      roll: row['Roll No.'],
-      email: row['Email id'],
-      phone: row['Phone No.'],
-      section: row['Section']
+      name: row['name'],
+      roll: row['roll No.'],
+      email: row['email id'],
+      phone: row['phone No.'],
+      section: row['section']
     })
   },
   teacherList: {
     model: TeacherList,
-    requiredHeaders: ['Name', 'Roll No.', 'Email id', 'Phone No.', 'Cabin', 'Sections'],
+    requiredHeaders: ['name', 'id', 'designation', 'email id', 'phone No.', 'cabin', 'sections'],
     mapRow: (row) => ({
-      name: row['Name'],
-      roll: row['Roll No.'],
-      email: row['Email id'],
-      phone: row['Phone No.'],
-      cabin: row['Cabin'],
-      sections: String(row['Sections'] ?? row['Section'] ?? '')
+      name: row['name'],
+      id: row['id'],
+      designation: row['designation'],
+      email: row['email id'],
+      phone: row['phone No.'],
+      cabin: row['cabin'],
+      sections: String(row['sections'] ?? row['section'] ?? '')
         .split(',')
         .map((s) => s.trim())
         .filter(Boolean)
@@ -114,42 +115,42 @@ const IMPORT_CONFIG = {
   },
   routine: {
     model: Routine,
-    requiredHeaders: ['Section', 'Subject', 'Day', 'Time', 'Teacher', 'Classroom'],
+    requiredHeaders: ['section', 'subject', 'day', 'time', 'teacher', 'classroom'],
     mapRow: (row) => ({
-      section: row['Section'],
-      subject: row['Subject'],
-      day: row['Day'],
-      time: row['Time'],
-      teacher: row['Teacher'],
-      classroom: row['Classroom']
+      section: row['section'],
+      subject: row['subject'],
+      day: row['day'],
+      time: row['time'],
+      teacher: row['teacher'],
+      classroom: row['classroom']
     })
   },
   administrationList: {
     model: AdministrationList,
-    requiredHeaders: ['Name', 'Designation', 'Department', 'Email id', 'Phone No.', 'Cabin'],
+    requiredHeaders: ['name', 'designation', 'department', 'email id', 'phone No.', 'cabin'],
     mapRow: (row) => ({
-      name: row['Name'],
-      designation: row['Designation'],
-      department: row['Department'],
-      email: row['Email id'],
-      phone: row['Phone No.'],
-      cabin: row['Cabin']
+      name: row['name'],
+      designation: row['designation'],
+      department: row['department'],
+      email: row['email id'],
+      phone: row['phone No.'],
+      cabin: row['cabin']
     })
   },
   mentorList: {
     model: MentorList,
-    requiredHeaders: ['Mentor', 'Mentee'],
+    requiredHeaders: ['mentor', 'mentee'],
     mapRow: (row) => ({
-      Mentor: row['Mentor'],
-      Mentee: row['Mentee']
+      Mentor: row['mentor'],
+      Mentee: row['mentee']
     })
   },
   holiday: {
     model: Holiday,
-    requiredHeaders: ['Date', 'Event'],
+    requiredHeaders: ['date', 'event'],
     mapRow: (row) => ({
-      dateString: normalizeHolidayDate(row['Date']),
-      event: String(row['Event'] ?? '').trim()
+      dateString: normalizeHolidayDate(row['date']),
+      event: String(row['event'] ?? '').trim()
     })
   },
 };
@@ -167,7 +168,7 @@ const parseAndSend = async (req, res, apiType) => {
     const rows = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName], { defval: '' });
     if (!rows.length) return res.status(400).json({ error: 'No data found in sheet' });
 
-    const headers = Object.keys(rows[0] || {});
+    const headers = Object.keys(rows[0] || {}).map((h) => h.toLowerCase());
     const missingHeaders = config.requiredHeaders.filter((h) => !headers.includes(h));
     if (missingHeaders.length) {
       return res.status(400).json({
