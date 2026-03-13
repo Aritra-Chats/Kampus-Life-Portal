@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useState, useEffect, useRef } from 'react'
 import { FunctionsContext } from '../context/functionsContext'
 import GlassSurface from './GlassSurface';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,10 @@ const NavTab = () => {
     const [userid, setUserID] = useState('');
     const [designation, setDesignation] = useState('');
     const [optionsOpened, setOptionsOpened] = useState(false);
+
+    // Add refs for click outside detection
+    const userPanelRef = useRef(null);
+    const userOptionsRef = useRef(null);
 
     const API_URL = process.env.REACT_APP_API_URL;
     const navigate = useNavigate();
@@ -31,6 +35,25 @@ const NavTab = () => {
         };
         fetchUserInfo();
     }, [API_URL]);
+
+    // Add click outside handler
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (optionsOpened) {
+                const isClickOnUserPanel = userPanelRef.current && userPanelRef.current.contains(event.target);
+                const isClickOnUserOptions = userOptionsRef.current && userOptionsRef.current.contains(event.target);
+                
+                if (!isClickOnUserPanel && !isClickOnUserOptions) {
+                    setOptionsOpened(false);
+                }
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [optionsOpened]);
 
     const switchTab = (tab) => {
         switch (tab) {
@@ -112,8 +135,8 @@ const NavTab = () => {
                 </div>
             </div>
             
-            {/* ===== ONLY ONE USER PANEL - OPTIMIZED VERSION ===== */}
-            <div className="user-glass">
+            {/* ===== ONLY ONE USER PANEL - WITH REF ADDED ===== */}
+            <div className="user-glass" ref={userPanelRef}>
                 <div className="user-panel" onClick={userOptions}>
                     <div className="user-icon">
                         <span className="material-symbols-outlined">person</span>
@@ -125,13 +148,14 @@ const NavTab = () => {
                 </div>
             </div>
 
-            {/* ===== ONLY ONE POPUP - OPTIMIZED VERSION ===== */}
+            {/* ===== ONLY ONE POPUP - WITH REF ADDED ===== */}
             {optionsOpened && (
                 <GlassSurface
                     className="user-options-glass"
                     borderRadius={18}
                     opacity={0.15}
                     blur={16}
+                    ref={userOptionsRef}
                 >
                     <div className="UserDetails">
                         Hello, <strong>{userid || 'User'}</strong>
