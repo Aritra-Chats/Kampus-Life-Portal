@@ -75,26 +75,35 @@ const Home = () => {
             <img className="page-bg-image" src='/images/bg.gif' alt="Background"/>
             <GlassSurface className='Panel' width={'450px'} height={'680px'} borderRadius={20} opacity={0.5} blur={5} >
                 <img className='Logo' src='/images/logo.png' alt='Kampus Life logo'/>
+                
+                {/* Management Account Options - 6 options */}
                 {designation === 'management' && (
                     <>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'administrationList')}>Administration List</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'mentorList')}>Mentor List</button>
-                    <button className='Option' onClick={() => switchPage('/Activity', 'holidayList')}>Holiday List</button>
-                    {designation === 'official' && (
+                        <button className='Option' onClick={() => switchPage('/Activity', 'teacherList')}>Faculty List</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'studentList')}>Student List</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'routine')}>Routine</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'administrationList')}>Administration List</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'mentorList')}>Mentor List</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'holidayList')}>Holiday List</button>
+                    </>
+                )}
+                
+                {/* Official Account Options - 2 options with same styling */}
+                {designation === 'official' && (
+                    <>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'holidayList')}>Holiday List</button>
                         <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
-                    )}
                     </>
                 )}
             </GlassSurface>
+            
             <GlassSurface className='UserPanel' width={'300px'} height={'75px'} borderRadius={60} opacity={0.5} blur={5}>
                 <div className='UserInfo' onClick={userOptions}>
                     Hello,<br/>
                     {userid || 'Loading...'} {designation && `(${designation})`}
                 </div>
             </GlassSurface>
+            
             {optionsOpened && (
                 <GlassSurface className='UserOptions' width={'300px'} height={'275px'} borderRadius={20} opacity={0.5} blur={5}>
                     <div className='UserDetails'>
