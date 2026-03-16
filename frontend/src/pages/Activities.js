@@ -30,6 +30,7 @@ const Activity = () => {
     administrationList,
     mentorList,
     holidayList,
+    announcements,
     dispatch,
   } = useContext(FunctionsContext);
 
@@ -63,6 +64,9 @@ const Activity = () => {
             break;
           case "holidayList":
             response = await fetch(`${API_URL}/api/Holiday`);
+            break;
+          case "announcements":        
+            response = await fetch(`${API_URL}/api/Announcements`);
             break;
           default:
             console.log("Activities: Invalid tab");
@@ -100,6 +104,9 @@ const Activity = () => {
             break;
           case "holidayList":
             dispatch({ type: "GET_HOLIDAYS", payload: json });
+            break;
+          case "announcements":        
+            dispatch({ type: "GET_ANNOUNCEMENTS", payload: json });
             break;
           default:
             console.log("Activities: Invalid tab for dispatch");
@@ -217,7 +224,22 @@ const Activity = () => {
             )}
           </div>
         );
-        
+      case "announcements":
+        return (
+            <div className="AnnouncementsList">
+                {announcements && announcements.length > 0 ? (
+                    announcements.map((announcement) => (
+                        <CurrentDetails
+                            key={announcement._id}
+                            details={announcement}
+                            API_URL={API_URL}
+                        />
+                    ))
+                ) : (
+                    <p className="no-data">No announcements found</p>
+                )}
+            </div>
+        );
       default:
         console.log("Invalid Selection");
         return (

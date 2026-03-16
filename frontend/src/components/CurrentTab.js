@@ -15,7 +15,8 @@ const CurrentTab = ({ API_URL }) => {
             routine: `${API_URL}/api/Routine`,
             administrationList: `${API_URL}/api/AdministrationList`,
             mentorList: `${API_URL}/api/MentorList`,
-            holidayList: `${API_URL}/api/Holiday`
+            holidayList: `${API_URL}/api/Holiday`,
+            announcements: `${API_URL}/api/Announcements` 
         };
 
         try {
@@ -37,7 +38,8 @@ const CurrentTab = ({ API_URL }) => {
                 routine: 'ADD_ROUTINE',
                 administrationList: 'ADD_ADMINISTRATION_DETAILS',
                 mentorList: 'ADD_MENTOR_DETAILS',
-                holidayList: 'ADD_HOLIDAY_DETAILS'
+                holidayList: 'ADD_HOLIDAY_DETAILS',
+                announcements: 'ADD_ANNOUNCEMENT'
             };
 
             dispatch({ type: actionMap[tab], payload: json });
@@ -81,6 +83,9 @@ const CurrentTab = ({ API_URL }) => {
                 break;
             case 'holidayList':
                 uploadEndpoint += 'holidays';
+                break;
+            case 'announcements':        
+                uploadEndpoint += 'announcements';
                 break;
             default:
                 uploadEndpoint += 'teachers';
@@ -149,6 +154,26 @@ const CurrentTab = ({ API_URL }) => {
                                         name="name" 
                                         placeholder="Enter teacher name" 
                                         value={formData.name || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>ID:</label>
+                                    <input 
+                                        name="id" 
+                                        placeholder="Enter teacher ID"
+                                        value={formData.id || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Designation:</label>
+                                    <input 
+                                        name="designation" 
+                                        placeholder="Enter teacher designation"
+                                        value={formData.designation || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -476,11 +501,11 @@ const CurrentTab = ({ API_URL }) => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Office:</label>
+                                    <label>Cabin:</label>
                                     <input 
-                                        name="office" 
-                                        placeholder="Enter office location"
-                                        value={formData.office || ''}
+                                        name="cabin" 
+                                        placeholder="Enter cabin location"
+                                        value={formData.cabin || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -531,9 +556,9 @@ const CurrentTab = ({ API_URL }) => {
                                 <div className="form-group">
                                     <label>MENTOR ID:</label>
                                     <input 
-                                        name="mentorid" 
+                                        name="mentorId" 
                                         placeholder="Enter mentor id"
-                                        value={formData.mentorid || ''}
+                                        value={formData.mentorId || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -541,9 +566,9 @@ const CurrentTab = ({ API_URL }) => {
                                 <div className="form-group">
                                     <label>MENTEE ID:</label>
                                     <input 
-                                        name="menteeid" 
+                                        name="menteeId" 
                                         placeholder="Enter mentee id"
-                                        value={formData.menteeid || ''}
+                                        value={formData.menteeId || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -619,7 +644,80 @@ const CurrentTab = ({ API_URL }) => {
                         </div>
                     </div>
                 );
-                
+            case 'announcements':
+                return (
+                    <div className='AnnouncementsPage'>
+                        <div className='header'>
+                            <h1>Announcements</h1>
+                        </div>
+
+                        <div className='upload-section'>
+                            <h3>Create New Announcement:</h3>
+                            <form className='upload-box' onSubmit={handleFileUpload}>
+                                <label htmlFor="announcements-file-upload" className="upload-label">
+                                    <span className="material-symbols-outlined">upload</span>
+                                    <p>{selectedFile ? selectedFile.name : 'Upload announcements sheet:'}</p>
+                                    <p className='file-hint'>Supported: .csv, .xlsx, .xls</p>
+                                </label>
+                                <input 
+                                    id="announcements-file-upload"
+                                    type="file" 
+                                    accept=".csv,.xlsx,.xls"
+                                    onChange={(e) => setSelectedFile(e.target.files[0])}
+                                    style={{ display: 'none' }}
+                                />
+                                {selectedFile && (
+                                    <button type="submit" className="upload-button">
+                                        Upload File
+                                    </button>
+                                )}
+                            </form>
+                        </div>
+
+                        <div className="divider"></div>
+
+                        <div className='add-section'>
+                            <h3>ADD ANNOUNCEMENT</h3>
+                            <form onSubmit={handleSubmit} className="announcements-form">
+                                <div className="form-group">
+                                    <label>Title:</label>
+                                    <input 
+                                        name="title" 
+                                        placeholder="Enter announcement title"
+                                        value={formData.title || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Content:</label>
+                                    <textarea 
+                                        name="content" 
+                                        placeholder="Enter announcement content"
+                                        value={formData.content || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                        rows="4"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Date:</label>
+                                    <input 
+                                        name="date" 
+                                        type="text" 
+                                        placeholder="Enter date"
+                                        value={formData.date || ''}
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
+                                <button type="submit" className="add-announcement-button">
+                                    ADD ANNOUNCEMENT
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                );   
             default:
                 return null;
         }

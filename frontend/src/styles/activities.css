@@ -342,6 +342,7 @@ input[type="number"] {
 .logout-btn .material-symbols-outlined {
   font-size: 20px;
 }
+
 /* ========== CURRENTTAB STYLING - NO VISIBLE EDGES ========== */
 .CurrentTab {
   grid-area: currenttab;
@@ -361,7 +362,8 @@ input[type="number"] {
 .RoutinePage,
 .AdministrationPage,
 .MentorsPage,
-.HolidaysPage {
+.HolidaysPage,
+.AnnouncementsPage {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -377,7 +379,8 @@ input[type="number"] {
 .RoutinePage .header,
 .AdministrationPage .header,
 .MentorsPage .header,
-.HolidaysPage .header {
+.HolidaysPage .header,
+.AnnouncementsPage .header {
   text-align: center;
   margin: 0;
   padding: 5px 0;
@@ -389,7 +392,8 @@ input[type="number"] {
 .RoutinePage .header h1,
 .AdministrationPage .header h1,
 .MentorsPage .header h1,
-.HolidaysPage .header h1 {
+.HolidaysPage .header h1,
+.AnnouncementsPage .header h1 {
   color: white;
   font-size: 1.8rem;
   font-weight: 700;
@@ -405,7 +409,8 @@ input[type="number"] {
 .RoutinePage .upload-section,
 .AdministrationPage .upload-section,
 .MentorsPage .upload-section,
-.HolidaysPage .upload-section {
+.HolidaysPage .upload-section,
+.AnnouncementsPage .upload-section {
   background: rgba(20, 20, 20, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -424,7 +429,8 @@ input[type="number"] {
 .RoutinePage .upload-section h3,
 .AdministrationPage .upload-section h3,
 .MentorsPage .upload-section h3,
-.HolidaysPage .upload-section h3 {
+.HolidaysPage .upload-section h3,
+.AnnouncementsPage .upload-section h3 {
   color: #ccc;
   font-size: 0.95rem;
   font-weight: 500;
@@ -439,7 +445,8 @@ input[type="number"] {
 .RoutinePage .upload-box,
 .AdministrationPage .upload-box,
 .MentorsPage .upload-box,
-.HolidaysPage .upload-box {
+.HolidaysPage .upload-box,
+.AnnouncementsPage .upload-box {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 15px;
@@ -459,7 +466,8 @@ input[type="number"] {
 .RoutinePage .upload-box:hover,
 .AdministrationPage .upload-box:hover,
 .MentorsPage .upload-box:hover,
-.HolidaysPage .upload-box:hover {
+.HolidaysPage .upload-box:hover,
+.AnnouncementsPage .upload-box:hover {
   background: rgba(60, 60, 60, 0.8);
   border-color: rgba(255, 255, 255, 0.25);
 }
@@ -470,7 +478,8 @@ input[type="number"] {
 .RoutinePage .upload-label,
 .AdministrationPage .upload-label,
 .MentorsPage .upload-label,
-.HolidaysPage .upload-label {
+.HolidaysPage .upload-label,
+.AnnouncementsPage .upload-label {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -484,7 +493,8 @@ input[type="number"] {
 .RoutinePage .upload-label .material-symbols-outlined,
 .AdministrationPage .upload-label .material-symbols-outlined,
 .MentorsPage .upload-label .material-symbols-outlined,
-.HolidaysPage .upload-label .material-symbols-outlined {
+.HolidaysPage .upload-label .material-symbols-outlined,
+.AnnouncementsPage .upload-label .material-symbols-outlined {
   color: #fff;
   font-size: 24px;
   margin-bottom: 2px;
@@ -496,7 +506,8 @@ input[type="number"] {
 .RoutinePage .upload-box p,
 .AdministrationPage .upload-box p,
 .MentorsPage .upload-box p,
-.HolidaysPage .upload-box p {
+.HolidaysPage .upload-box p,
+.AnnouncementsPage .upload-box p {
   color: #e0e0e0;
   font-size: 13px;
   margin: 0;
@@ -510,7 +521,8 @@ input[type="number"] {
 .RoutinePage .file-hint,
 .AdministrationPage .file-hint,
 .MentorsPage .file-hint,
-.HolidaysPage .file-hint {
+.HolidaysPage .file-hint,
+.AnnouncementsPage .file-hint {
   color: #999 !important;
   font-size: 11px !important;
   margin: 0 !important;
@@ -523,7 +535,8 @@ input[type="number"] {
 .RoutinePage .upload-button,
 .AdministrationPage .upload-button,
 .MentorsPage .upload-button,
-.HolidaysPage .upload-button {
+.HolidaysPage .upload-button,
+.AnnouncementsPage .upload-button {
   display: none;
 }
 
@@ -533,7 +546,8 @@ input[type="number"] {
 .RoutinePage .divider,
 .AdministrationPage .divider,
 .MentorsPage .divider,
-.HolidaysPage .divider {
+.HolidaysPage .divider,
+.AnnouncementsPage .divider {
   height: 1px;
   background: #333;
   margin: 2px 0;
@@ -547,7 +561,8 @@ input[type="number"] {
 .RoutinePage .add-section,
 .AdministrationPage .add-section,
 .MentorsPage .add-section,
-.HolidaysPage .add-section {
+.HolidaysPage .add-section,
+.AnnouncementsPage .add-section {
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -568,7 +583,8 @@ input[type="number"] {
 .RoutinePage .add-section::-webkit-scrollbar,
 .AdministrationPage .add-section::-webkit-scrollbar,
 .MentorsPage .add-section::-webkit-scrollbar,
-.HolidaysPage .add-section::-webkit-scrollbar {
+.HolidaysPage .add-section::-webkit-scrollbar,
+.AnnouncementsPage .add-section::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
@@ -579,7 +595,8 @@ input[type="number"] {
 .RoutinePage .add-section h3,
 .AdministrationPage .add-section h3,
 .MentorsPage .add-section h3,
-.HolidaysPage .add-section h3 {
+.HolidaysPage .add-section h3,
+.AnnouncementsPage .add-section h3 {
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
@@ -595,7 +612,8 @@ input[type="number"] {
 .RoutinePage .form-group,
 .AdministrationPage .form-group,
 .MentorsPage .form-group,
-.HolidaysPage .form-group {
+.HolidaysPage .form-group,
+.AnnouncementsPage .form-group {
   margin-bottom: 12px;
   width: 100%;
   box-sizing: border-box;
@@ -606,7 +624,8 @@ input[type="number"] {
 .RoutinePage .form-group label,
 .AdministrationPage .form-group label,
 .MentorsPage .form-group label,
-.HolidaysPage .form-group label {
+.HolidaysPage .form-group label,
+.AnnouncementsPage .form-group label {
   display: block;
   color: #ddd;
   margin-bottom: 4px;
@@ -619,7 +638,9 @@ input[type="number"] {
 .RoutinePage .form-group input,
 .AdministrationPage .form-group input,
 .MentorsPage .form-group input,
-.HolidaysPage .form-group input {
+.HolidaysPage .form-group input,
+.AnnouncementsPage .form-group input,
+.AnnouncementsPage .form-group textarea {
   width: 100%;
   padding: 10px 14px;
   background: rgba(0, 0, 0, 0.5);
@@ -628,6 +649,12 @@ input[type="number"] {
   color: white;
   font-size: 13px;
   box-sizing: border-box;
+  font-family: inherit;
+}
+
+.AnnouncementsPage .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
 .TeacherListPage .form-group input:focus,
@@ -635,7 +662,9 @@ input[type="number"] {
 .RoutinePage .form-group input:focus,
 .AdministrationPage .form-group input:focus,
 .MentorsPage .form-group input:focus,
-.HolidaysPage .form-group input:focus {
+.HolidaysPage .form-group input:focus,
+.AnnouncementsPage .form-group input:focus,
+.AnnouncementsPage .form-group textarea:focus {
   outline: none;
   border-color: #888;
   background-color: rgba(30, 30, 30, 0.7);
@@ -647,7 +676,8 @@ input[type="number"] {
 .RoutinePage .routine-form,
 .AdministrationPage .administration-form,
 .MentorsPage .mentors-form,
-.HolidaysPage .holidays-form {
+.HolidaysPage .holidays-form,
+.AnnouncementsPage .announcements-form {
   width: 100%;
   box-sizing: border-box;
 }
@@ -658,7 +688,8 @@ input[type="number"] {
 .RoutinePage .add-routine-button,
 .AdministrationPage .add-administration-button,
 .MentorsPage .add-mentor-button,
-.HolidaysPage .add-holiday-button {
+.HolidaysPage .add-holiday-button,
+.AnnouncementsPage .add-announcement-button {
   width: 100%;
   padding: 12px;
   background: rgba(70, 70, 70, 0.5);
@@ -679,7 +710,8 @@ input[type="number"] {
 .RoutinePage .add-routine-button:hover,
 .AdministrationPage .add-administration-button:hover,
 .MentorsPage .add-mentor-button:hover,
-.HolidaysPage .add-holiday-button:hover {
+.HolidaysPage .add-holiday-button:hover,
+.AnnouncementsPage .add-announcement-button:hover {
   background: rgba(100, 100, 100, 0.6);
   border-color: rgba(255, 255, 255, 0.3);
 }
@@ -761,7 +793,8 @@ input[type="number"] {
 .Routines,
 .AdministrationList,
 .MentorsList,
-.HolidaysList {
+.HolidaysList,
+.AnnouncementsList {
   width: 100%;
   flex: 1 1 auto;
   overflow-y: auto;
@@ -775,7 +808,8 @@ input[type="number"] {
 .Routines::-webkit-scrollbar,
 .AdministrationList::-webkit-scrollbar,
 .MentorsList::-webkit-scrollbar,
-.HolidaysList::-webkit-scrollbar {
+.HolidaysList::-webkit-scrollbar,
+.AnnouncementsList::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
@@ -787,7 +821,8 @@ input[type="number"] {
 .StudentRoutine,
 .AdministrationDetails,
 .MentorDetails,
-.HolidayDetails {
+.HolidayDetails,
+.AnnouncementDetails {
   background-color: #0a0a0a;
   border: 1px solid #2a2a2a;
   border-radius: 12px;
@@ -805,7 +840,8 @@ input[type="number"] {
 .StudentRoutine:hover,
 .AdministrationDetails:hover,
 .MentorDetails:hover,
-.HolidayDetails:hover {
+.HolidayDetails:hover,
+.AnnouncementDetails:hover {
   transform: translateY(-2px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
@@ -818,7 +854,8 @@ input[type="number"] {
 .StudentRoutine .header,
 .AdministrationDetails .header,
 .MentorDetails .header,
-.HolidayDetails .header {
+.HolidayDetails .header,
+.AnnouncementDetails .header {
   position: relative;
   display: flex;
   align-items: center;
@@ -835,7 +872,8 @@ input[type="number"] {
 .StudentRoutine .header h4,
 .AdministrationDetails .header h4,
 .MentorDetails .header h4,
-.HolidayDetails .header h4 {
+.HolidayDetails .header h4,
+.AnnouncementDetails .header h4 {
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
@@ -854,7 +892,8 @@ input[type="number"] {
 .StudentRoutine .header .material-symbols-outlined,
 .AdministrationDetails .header .material-symbols-outlined,
 .MentorDetails .header .material-symbols-outlined,
-.HolidayDetails .header .material-symbols-outlined {
+.HolidayDetails .header .material-symbols-outlined,
+.AnnouncementDetails .header .material-symbols-outlined {
   position: absolute;
   right: 0;
   top: 50%;
@@ -875,7 +914,8 @@ input[type="number"] {
 .StudentRoutine .header .material-symbols-outlined:hover,
 .AdministrationDetails .header .material-symbols-outlined:hover,
 .MentorDetails .header .material-symbols-outlined:hover,
-.HolidayDetails .header .material-symbols-outlined:hover {
+.HolidayDetails .header .material-symbols-outlined:hover,
+.AnnouncementDetails .header .material-symbols-outlined:hover {
   color: #ff4444;
   background-color: rgba(255, 68, 68, 0.1);
 }
@@ -887,7 +927,8 @@ input[type="number"] {
 .StudentRoutine p,
 .AdministrationDetails p,
 .MentorDetails p,
-.HolidayDetails p {
+.HolidayDetails p,
+.AnnouncementDetails p {
   color: #ccc;
   font-size: 13px;
   margin: 8px 0;
@@ -905,7 +946,8 @@ input[type="number"] {
 .StudentRoutine p strong,
 .AdministrationDetails p strong,
 .MentorDetails p strong,
-.HolidayDetails p strong {
+.HolidayDetails p strong,
+.AnnouncementDetails p strong {
   color: white;
   font-weight: 600;
   min-width: 70px;
@@ -920,7 +962,8 @@ input[type="number"] {
 .StudentRoutine p span,
 .AdministrationDetails p span,
 .MentorDetails p span,
-.HolidayDetails p span {
+.HolidayDetails p span,
+.AnnouncementDetails p span {
   flex: 1;
   min-width: 0;
   color: #aaa;
@@ -964,7 +1007,8 @@ input[type="number"] {
   .RoutinePage .header h1,
   .AdministrationPage .header h1,
   .MentorsPage .header h1,
-  .HolidaysPage .header h1 {
+  .HolidaysPage .header h1,
+  .AnnouncementsPage .header h1 {
     font-size: 1.6rem;
   }
 }
@@ -1002,7 +1046,8 @@ input[type="number"] {
   .RoutinePage .header h1,
   .AdministrationPage .header h1,
   .MentorsPage .header h1,
-  .HolidaysPage .header h1 {
+  .HolidaysPage .header h1,
+  .AnnouncementsPage .header h1 {
     font-size: 1.5rem;
   }
 }

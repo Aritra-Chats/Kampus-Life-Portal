@@ -38,6 +38,11 @@ const CurrentDetails = ({ details, API_URL }) => {
                     method: 'DELETE'
                 });
                 break;
+            case 'announcements':        
+                response = await fetch(`${API_URL}/api/Announcements/` + details._id, {
+                    method: 'DELETE'
+                });
+                break;
             default:
                 console.log('currentDetails: responseError: Invalid option');
         }
@@ -73,6 +78,9 @@ const CurrentDetails = ({ details, API_URL }) => {
             case 'holidayList':
                 dispatch({ type: 'DELETE_HOLIDAY_DETAILS', payload: json });
                 break;
+            case 'announcements':
+                dispatch({ type: 'DELETE_ANNOUNCEMENT', payload: json });
+                break;
             default:
                 console.log('currentDetails: jsonError: Invalid option');
         }
@@ -86,9 +94,10 @@ const CurrentDetails = ({ details, API_URL }) => {
                         <h4>{details.name ? details.name.replace(/ /g, '\n') : 'No Name'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
-                    <p><strong>Roll:</strong> <span>{details.roll || 'N/A'}</span></p>
+                    <p><strong>Id:</strong> <span>{details.id || 'N/A'}</span></p>
                     <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
                     <p><strong>Phone:</strong> <span>{details.phone || 'N/A'}</span></p>
+                    <p><strong>Designation:</strong> <span>{details.designation || 'N/A'}</span></p>
                     <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
                     <p><strong>Sections:</strong> <span>{details.sections || 'N/A'}</span></p>
                 </div>
@@ -129,11 +138,11 @@ const CurrentDetails = ({ details, API_URL }) => {
                         <h4>{details.name ? details.name.replace(/ /g, '\n') : 'Administrator'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
+                    <p><strong>Designation:</strong> <span>{details.designation || 'N/A'}</span></p>
                     <p><strong>Email:</strong> <span>{details.email || 'N/A'}</span></p>
                     <p><strong>Phone:</strong> <span>{details.phone || 'N/A'}</span></p>
                     <p><strong>Cabin:</strong> <span>{details.cabin || 'N/A'}</span></p>
                     <p><strong>Department:</strong> <span>{details.department || 'N/A'}</span></p>
-                    <p><strong>Office:</strong> <span>{details.office || 'N/A'}</span></p>
                 </div>
             );
             
@@ -153,14 +162,25 @@ const CurrentDetails = ({ details, API_URL }) => {
             return (
                 <div className='HolidayDetails'>
                     <div className='header'>
-                        <h4>{'Holiday'}</h4>
+                        <h4>{details.event || 'Holiday'}</h4>
                         <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
                     </div>
                     <p><strong>Date:</strong> <span>{details.dateString || 'N/A'}</span></p>
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
                 </div>
             );
-            
+        case 'announcements':
+            return (
+                <div className='AnnouncementDetails'>
+                    <div className='header'>
+                        <h4>{details.title || 'Announcement'}</h4>
+                        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+                    </div>
+                    <p><strong>Title:</strong> <span>{details.title || 'N/A'}</span></p>
+                    <p><strong>Content:</strong> <span>{details.content || 'N/A'}</span></p>
+                    <p><strong>Date:</strong> <span>{details.date || 'N/A'}</span></p>
+                </div>
+            );                
         default:
             console.log('currentDetails: cardDetails: Invalid option');
             return null;
