@@ -556,9 +556,9 @@ const CurrentTab = ({ API_URL }) => {
                                 <div className="form-group">
                                     <label>MENTOR ID:</label>
                                     <input 
-                                        name="mentorid" 
+                                        name="mentorId" 
                                         placeholder="Enter mentor id"
-                                        value={formData.mentorid || ''}
+                                        value={formData.mentorId || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
@@ -566,9 +566,9 @@ const CurrentTab = ({ API_URL }) => {
                                 <div className="form-group">
                                     <label>MENTEE ID:</label>
                                     <input 
-                                        name="menteeid" 
+                                        name="menteeId" 
                                         placeholder="Enter mentee id"
-                                        value={formData.menteeid || ''}
+                                        value={formData.menteeId || ''}
                                         onChange={handleChange} 
                                         required 
                                     />
