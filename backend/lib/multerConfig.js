@@ -16,6 +16,12 @@ const ALLOWED_MIME_TYPES = new Set([
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 ]);
 
+const normalizeHeader = (value) => String(value ?? '').trim().toLowerCase().replace(/\s+/g, ' ');
+
+const normalizeRowKeys = (row) => {
+  return Object.fromEntries( Object.entries(row).map(([key, value]) => [normalizeHeader(key), value]) );
+};
+
 const formatDateParts = ({ day, month, year }) => {
   const dd = String(day).padStart(2, '0');
   const mm = String(month).padStart(2, '0');
@@ -99,13 +105,13 @@ const IMPORT_CONFIG = {
   },
   teacherList: {
     model: TeacherList,
-    requiredHeaders: ['name', 'id', 'designation', 'email id', 'phone No.', 'cabin', 'sections'],
+    requiredHeaders: ['name', 'id', 'designation', 'email id', 'phone no.', 'cabin', 'sections'],
     mapRow: (row) => ({
       name: row['name'],
       id: row['id'],
       designation: row['designation'],
       email: row['email id'],
-      phone: row['phone No.'],
+      phone: row['phone no.'],
       cabin: row['cabin'],
       sections: String(row['sections'] ?? row['section'] ?? '')
         .split(',')
@@ -115,9 +121,10 @@ const IMPORT_CONFIG = {
   },
   routine: {
     model: Routine,
-    requiredHeaders: ['section', 'subject', 'day', 'time', 'teacher', 'classroom'],
+    requiredHeaders: ['section', 'batch', 'subject', 'day', 'time', 'teacher', 'classroom'],
     mapRow: (row) => ({
       section: row['section'],
+      batch: row['batch'],
       subject: row['subject'],
       day: row['day'],
       time: row['time'],
@@ -127,13 +134,13 @@ const IMPORT_CONFIG = {
   },
   administrationList: {
     model: AdministrationList,
-    requiredHeaders: ['name', 'designation', 'department', 'email id', 'phone No.', 'cabin'],
+    requiredHeaders: ['name', 'designation', 'department', 'email id', 'phone no.', 'cabin'],
     mapRow: (row) => ({
       name: row['name'],
       designation: row['designation'],
       department: row['department'],
       email: row['email id'],
-      phone: row['phone No.'],
+      phone: row['phone no.'],
       cabin: row['cabin']
     })
   },
@@ -168,8 +175,11 @@ const parseAndSend = async (req, res, apiType) => {
     const rows = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName], { defval: '' });
     if (!rows.length) return res.status(400).json({ error: 'No data found in sheet' });
 
-    const headers = Object.keys(rows[0] || {}).map((h) => h.toLowerCase());
-    const missingHeaders = config.requiredHeaders.filter((h) => !headers.includes(h));
+    const normalizedRows = rows.map(normalizeRowKeys);
+    const headers = Object.keys(normalizedRows[0] || {});
+    const requiredHeaders = config.requiredHeaders.map(normalizeHeader);
+    const missingHeaders = requiredHeaders.filter((h) => !headers.includes(h));
+    
     if (missingHeaders.length) {
       return res.status(400).json({
         error: 'Missing required columns',
@@ -177,7 +187,7 @@ const parseAndSend = async (req, res, apiType) => {
       });
     }
 
-    const mappedRows = rows.map(config.mapRow);
+    const mappedRows = normalizedRows.map(config.mapRow);
 
     await config.model.deleteMany({});
     const inserted = await config.model.insertMany(mappedRows, { ordered: false });

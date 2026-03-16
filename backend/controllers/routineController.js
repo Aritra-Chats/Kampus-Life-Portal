@@ -9,11 +9,12 @@ const getRoutine = async (req, res) => {
 
 //post a new student routine
 const postRoutine = async (req, res) => {
-    const { section, subject, day, time, teacher, classroom } = req.body;
+    const { section, batch, subject, day, time, teacher, classroom } = req.body;
 
     //Empty field check
     let emptyFields = [];
     if(!section || section === '') emptyFields.push('section');
+    if(!batch || batch.trim() === '') emptyFields.push('batch');
     if(!subject || subject.trim() === '') emptyFields.push('subject');
     if(!day || day.trim() === '' || day.trim() === 'day') emptyFields.push('day');
     if(!time || time.trim() === '') emptyFields.push('time');
@@ -23,7 +24,7 @@ const postRoutine = async (req, res) => {
 
     //add document to db
     try {
-        const routine = await Routine.create({ section, subject, day, time, teacher, classroom });
+        const routine = await Routine.create({ section, batch, subject, day, time, teacher, classroom });
         res.status(200).json(routine);
     } catch (error) {
         res.status(400).json({error: error.message});

@@ -7,6 +7,22 @@ const routineSchema = new Schema({
         required: true,
         trim: true
     },
+    batch: {
+        type: String,
+        required: true,
+        trim: true,
+        match: [
+            /^\d{4}-\d{4}$/,
+            'Please enter a valid batch in the format YYYY-YYYY'
+        ],
+        validate: {
+            validator: function(v) {
+                const [start, end] = v.split('-');
+                return parseInt(start) < parseInt(end);
+            },
+            message: 'Start year must be before end year'
+        }
+    },
     subject: {
         type: String,
         required: true,
