@@ -92,7 +92,7 @@ const Home = () => {
                 {designation === 'official' && (
                     <>
                         <button className='Option' onClick={() => switchPage('/Activity', 'holidayList')}>Holiday List</button>
-                        <button className='Option' onClick={() => switchPage('/Official', 'announcements')}>Announcements</button>
+                        <button className='Option' onClick={() => switchPage('/Activity', 'announcements')}>Announcements</button>
                     </>
                 )}
             </GlassSurface>

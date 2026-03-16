@@ -79,6 +79,9 @@ const NavTab = () => {
             case 'HolidayList':
                 dispatch({ type: 'SET_TAB', payload: 'holidayList' });
                 break;
+            case 'Announcements':
+                dispatch({ type: 'SET_TAB', payload: 'announcements' });
+                break;
             default:
                 console.log({error: "Invalid option"});
                 break;
@@ -96,47 +99,71 @@ const NavTab = () => {
             </Link>
             
             <div className='tabOptions'>
-                <h6>DETAILS LIST</h6>
-                <div 
-                    className={`option ${tab === 'teacherList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('TeacherList')}
-                >
-                    Teacher List
-                </div>
-                <div 
-                    className={`option ${tab === 'studentList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('StudentList')}
-                >
-                    Student List
-                </div>
-                
-                <h6>ROUTINE LIST</h6>
-                <div 
-                    className={`option ${tab === 'routine' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('Routine')}
-                >
-                    Routine
-                </div>
-                
-                <h6>MISCELLANEOUS</h6>
-                <div 
-                    className={`option ${tab === 'administrationList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('AdministrationList')}
-                >
-                    Administration List
-                </div>
-                <div 
-                    className={`option ${tab === 'mentorList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('MentorList')}
-                >
-                    Mentor List
-                </div>
-                <div 
-                    className={`option ${tab === 'holidayList' ? 'selected' : ''}`} 
-                    onClick={() => switchTab('HolidayList')}
-                >
-                    Holiday List
-                </div>
+                {/* Management Account - Show all 6 options */}
+                {designation === 'management' && (
+                    <>
+                        <h6>DETAILS LIST</h6>
+                        <div 
+                            className={`option ${tab === 'teacherList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('TeacherList')}
+                        >
+                            Teacher List
+                        </div>
+                        <div 
+                            className={`option ${tab === 'studentList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('StudentList')}
+                        >
+                            Student List
+                        </div>
+                        
+                        <h6>ROUTINE LIST</h6>
+                        <div 
+                            className={`option ${tab === 'routine' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('Routine')}
+                        >
+                            Routine
+                        </div>
+                        
+                        <h6>MISCELLANEOUS</h6>
+                        <div 
+                            className={`option ${tab === 'administrationList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('AdministrationList')}
+                        >
+                            Administration List
+                        </div>
+                        <div 
+                            className={`option ${tab === 'mentorList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('MentorList')}
+                        >
+                            Mentor List
+                        </div>
+                        <div 
+                            className={`option ${tab === 'holidayList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('HolidayList')}
+                        >
+                            Holiday List
+                        </div>
+                    </>
+                )}
+
+                {/* Official Account - Show only 2 options */}
+                {designation === 'official' && (
+                    <>
+                        <h6>OFFICIAL DASHBOARD</h6>
+                        <div 
+                            className={`option ${tab === 'holidayList' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('HolidayList')}
+                        >
+                            Holiday List
+                        </div>
+                        <div 
+                            className={`option ${tab === 'announcements' ? 'selected' : ''}`} 
+                            onClick={() => switchTab('Announcements')}
+                        >
+                            Announcements
+                        </div>
+                    </>
+                )}
             </div>
             
             {/* ===== ONLY ONE USER PANEL - WITH REF ADDED ===== */}

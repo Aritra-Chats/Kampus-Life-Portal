@@ -38,6 +38,11 @@ const CurrentDetails = ({ details, API_URL }) => {
                     method: 'DELETE'
                 });
                 break;
+            case 'announcements':        
+                response = await fetch(`${API_URL}/api/Announcements/` + details._id, {
+                    method: 'DELETE'
+                });
+                break;
             default:
                 console.log('currentDetails: responseError: Invalid option');
         }
@@ -72,6 +77,9 @@ const CurrentDetails = ({ details, API_URL }) => {
                 break;
             case 'holidayList':
                 dispatch({ type: 'DELETE_HOLIDAY_DETAILS', payload: json });
+                break;
+            case 'announcements':
+                dispatch({ type: 'DELETE_ANNOUNCEMENT', payload: json });
                 break;
             default:
                 console.log('currentDetails: jsonError: Invalid option');
@@ -161,7 +169,18 @@ const CurrentDetails = ({ details, API_URL }) => {
                     <p><strong>Event:</strong> <span>{details.event || 'N/A'}</span></p>
                 </div>
             );
-            
+        case 'announcements':
+            return (
+                <div className='AnnouncementDetails'>
+                    <div className='header'>
+                        <h4>{details.title || 'Announcement'}</h4>
+                        <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
+                    </div>
+                    <p><strong>Title:</strong> <span>{details.title || 'N/A'}</span></p>
+                    <p><strong>Content:</strong> <span>{details.content || 'N/A'}</span></p>
+                    <p><strong>Date:</strong> <span>{details.date || 'N/A'}</span></p>
+                </div>
+            );                
         default:
             console.log('currentDetails: cardDetails: Invalid option');
             return null;
