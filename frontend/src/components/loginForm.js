@@ -6,6 +6,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [SLI, setSLI] = useState(false);
     const [emptyFields, setEmptyFields] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const API_URL = process.env.REACT_APP_API_URL;
@@ -24,10 +25,12 @@ const Login = () => {
             });
             const json = await response.json();
             if(!response.ok) {
-                setEmptyFields(json.emptyFields);
+                setEmptyFields(json.emptyFields || []);
+                setErrorMessage(json.error || 'Unable to log in');
             }
             else {
                 setEmptyFields([]);
+                setErrorMessage('');
                 setUserID('');
                 setPassword('');
                 setSLI(false);
@@ -35,6 +38,8 @@ const Login = () => {
                 navigate('/Home');
             }
         } catch (error) {
+            setEmptyFields([]);
+            setErrorMessage(error.message);
             console.log(error.message);
         }
     };
@@ -42,6 +47,11 @@ const Login = () => {
     return (
         <div className="LoginForm">
             <img className="Logo" src="/images/logo.png" alt="Logo"/>
+            {errorMessage && (
+                <div className="LoginError" role="alert">
+                    {errorMessage}
+                </div>
+            )}
             <form className="FormContainer" onSubmit={handleLogin}>
                 <div className="FormGroup">
                     <label htmlFor="userID">User ID </label>
@@ -49,7 +59,10 @@ const Login = () => {
                         id="userID"
                         type='text'
                         placeholder='Enter your user id'
-                        onChange={((e) => setUserID(e.target.value))}
+                        onChange={((e) => {
+                            setUserID(e.target.value);
+                            setErrorMessage('');
+                        })}
                         value={userid}
                         className={`FormInput ${emptyFields.includes('userid') ? 'error' : ''}`}
                     />
@@ -60,7 +73,10 @@ const Login = () => {
                         id="password"
                         type='password'
                         placeholder='Enter Password'
-                        onChange={((e) => setPassword(e.target.value))}
+                        onChange={((e) => {
+                            setPassword(e.target.value);
+                            setErrorMessage('');
+                        })}
                         value={password}
                         className={`FormInput ${emptyFields.includes('password') ? 'error' : ''}`}
                     />
@@ -70,7 +86,10 @@ const Login = () => {
                         <input 
                         type="checkbox" 
                         className="Checkbox" 
-                        onChange={((e) => setSLI(e.target.checked))} 
+                        onChange={((e) => {
+                            setSLI(e.target.checked);
+                            setErrorMessage('');
+                        })} 
                         checked={SLI}/>
                         Stay Logged in
                     </label>
