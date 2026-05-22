@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoadingScreen from '../components/LoadingScreen';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -22,6 +23,6 @@ export default function ProtectedRoute({ children }) {
             active = false;
         };
     }, [navigate]);
-    if (!ok) return <div style={{ color: 'white', textAlign: 'center' }}>Checking authentication...</div>;
+    if (!ok) return <LoadingScreen text="Checking session" />;
     return children;
 }

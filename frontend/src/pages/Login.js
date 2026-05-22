@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GlassSurface from '../components/GlassSurface';
 import LoginForm from '../components/loginForm';
+import LoadingScreen from '../components/LoadingScreen';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -30,7 +31,7 @@ const Login = () => {
   }, [navigate]);
 
   if(checking)
-    return null;
+    return <LoadingScreen text="Loading Assets, Please Wait..." />;
 
   return (
     <div className="Login">
