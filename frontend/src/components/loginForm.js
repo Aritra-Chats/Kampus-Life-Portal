@@ -47,11 +47,6 @@ const Login = () => {
     return (
         <div className="LoginForm">
             <img className="Logo" src="/images/logo.png" alt="Logo"/>
-            {errorMessage && (
-                <div className="LoginError" role="alert">
-                    {errorMessage}
-                </div>
-            )}
             <form className="FormContainer" onSubmit={handleLogin}>
                 <div className="FormGroup">
                     <label htmlFor="userID">User ID </label>
@@ -94,6 +89,11 @@ const Login = () => {
                         Stay Logged in
                     </label>
                 </div>
+                {errorMessage && (
+                    <div className="LoginErrorInline" role="alert">
+                        {errorMessage}
+                    </div>
+                )}
                 <button className='LoginButton'>Login</button>
             </form>
         </div>
